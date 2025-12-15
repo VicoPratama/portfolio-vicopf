@@ -26,12 +26,9 @@ const Navbar = () => {
 
     const handleLinkClick = (href) => {
         setIsOpen(false);
-        // If on a different page and clicking a hash link, the Router Link component normally handles the redirect 
-        // but sometimes hash scrolling needs help if already on /
         if (location.pathname !== "/" && href.startsWith("/#")) {
-            // Router behavior handles this naturally
+            // Router handles redirect
         } else if (location.pathname === "/" && href.startsWith("/#")) {
-            // already on home, just scroll
             const elementId = href.replace("/#", "");
             const element = document.getElementById(elementId);
             if (element) {
@@ -41,93 +38,122 @@ const Navbar = () => {
     };
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${(scrolled || isOpen) ? 'bg-gray-950/90 backdrop-blur-xl border-b border-white/5 py-4 shadow-xl' : 'bg-transparent py-6'}`}>
-            <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-                <Link to="/" className="text-2xl font-display font-bold text-white">
-                    Vico<span className="text-accent-blue">.</span>
-                </Link>
+        <nav
+            className={`fixed z-50 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] 
+            ${scrolled || isOpen
+                    ? 'top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-fit bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-3xl py-3 px-6 shadow-2xl'
+                    : 'top-0 left-0 w-full bg-transparent py-6 px-6 md:px-12'
+                }`}
+        >
+            <div className={`flex items-center justify-between ${scrolled ? 'gap-6' : 'w-full max-w-7xl mx-auto'}`}>
+
+                {/* Brand - Hides when scrolled to save space, reappears at top */}
+                <motion.div
+                    animate={{
+                        opacity: scrolled && !isOpen ? 0 : 1,
+                        width: scrolled && !isOpen ? 0 : 'auto',
+                        display: scrolled && !isOpen ? 'none' : 'block'
+                    }}
+                    transition={{ duration: 0.3 }}
+                >
+                    <Link to="/" className="text-2xl font-display font-bold text-white whitespace-nowrap">
+                        Vico<span className="text-accent-blue">.</span>
+                    </Link>
+                </motion.div>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex items-center space-x-8">
+                <div className="hidden md:flex items-center space-x-1">
                     {navLinks.map((link) => (
-                        location.pathname === "/" ? (
-                            <a
-                                key={link.name}
-                                href={link.href.replace("/", "")}
-                                className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
-                                onClick={() => handleLinkClick(link.href)}
-                            >
-                                {link.name}
-                            </a>
-                        ) : (
-                            <Link
-                                key={link.name}
-                                to={link.href}
-                                className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
-                                onClick={() => handleLinkClick(link.href)}
-                            >
-                                {link.name}
-                            </Link>
-                        )
+                        <div key={link.name}>
+                            {location.pathname === "/" ? (
+                                <a
+                                    href={link.href.replace("/", "")}
+                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 
+                                    ${scrolled
+                                            ? 'text-gray-300 hover:text-white hover:bg-white/10'
+                                            : 'text-gray-300 hover:text-white'
+                                        }`}
+                                    onClick={() => handleLinkClick(link.href)}
+                                >
+                                    {link.name}
+                                </a>
+                            ) : (
+                                <Link
+                                    to={link.href}
+                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 
+                                    ${scrolled
+                                            ? 'text-gray-300 hover:text-white hover:bg-white/10'
+                                            : 'text-gray-300 hover:text-white'
+                                        }`}
+                                    onClick={() => handleLinkClick(link.href)}
+                                >
+                                    {link.name}
+                                </Link>
+                            )}
+                        </div>
                     ))}
 
                     <Link
                         to="/resume"
-                        className="px-5 py-2 rounded-full border border-white text-white hover:bg-white hover:text-gray-900 transition-all duration-300 text-sm font-medium"
+                        className={`ml-2 px-5 py-2 rounded-full border text-sm font-medium transition-all duration-300
+                            ${scrolled
+                                ? 'bg-white text-gray-900 border-white hover:bg-gray-200'
+                                : 'border-white text-white hover:bg-white hover:text-gray-900'
+                            }`}
                         onClick={() => setIsOpen(false)}
                     >
                         Resume
                     </Link>
                 </div>
 
-                <div className="flex items-center gap-4 md:hidden">
-                    {/* Mobile Toggle */}
+                {/* Mobile Toggle */}
+                <div className="flex items-center md:hidden ml-auto">
                     <button
-                        className="text-white hover:text-gray-300"
+                        className="text-white hover:text-gray-300 p-1"
                         onClick={() => setIsOpen(!isOpen)}
                     >
-                        {isOpen ? <X /> : <Menu />}
+                        {isOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu Dropdown */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="bg-gray-950/95 backdrop-blur-xl border-t border-white/5"
+                        initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                        animate={{ opacity: 1, height: 'auto', marginTop: 16 }}
+                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                        className="md:hidden overflow-hidden"
                     >
-                        <div className="flex flex-col p-6 space-y-4">
+                        <div className="flex flex-col space-y-2 pb-2">
                             {navLinks.map((link) => (
-                                location.pathname === "/" ? (
-                                    <a
-                                        key={link.name}
-                                        href={link.href.replace("/", "")}
-                                        className="text-gray-300 hover:text-white text-lg font-medium"
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        {link.name}
-                                    </a>
-                                ) : (
-                                    <Link
-                                        key={link.name}
-                                        to={link.href}
-                                        className="text-gray-300 hover:text-white text-lg font-medium"
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        {link.name}
-                                    </Link>
-                                )
+                                <div key={link.name}>
+                                    {location.pathname === "/" ? (
+                                        <a
+                                            href={link.href.replace("/", "")}
+                                            className="block px-4 py-3 rounded-xl hover:bg-white/5 text-gray-300 hover:text-white text-base font-medium transition-colors"
+                                            onClick={() => handleLinkClick(link.href)}
+                                        >
+                                            {link.name}
+                                        </a>
+                                    ) : (
+                                        <Link
+                                            to={link.href}
+                                            className="block px-4 py-3 rounded-xl hover:bg-white/5 text-gray-300 hover:text-white text-base font-medium transition-colors"
+                                            onClick={() => handleLinkClick(link.href)}
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    )}
+                                </div>
                             ))}
                             <Link
                                 to="/resume"
-                                className="text-white hover:text-gray-300 text-lg font-medium pt-2 border-t border-gray-800"
+                                className="block px-4 py-3 rounded-xl bg-white text-gray-900 text-center text-base font-bold mt-2"
                                 onClick={() => setIsOpen(false)}
                             >
-                                Resume & Experience
+                                Resume
                             </Link>
                         </div>
                     </motion.div>
