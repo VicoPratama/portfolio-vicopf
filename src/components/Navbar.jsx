@@ -41,7 +41,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-gray-950/80 backdrop-blur-md border-b border-gray-800 py-4 shadow-sm' : 'bg-transparent py-6'}`}>
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${(scrolled || isOpen) ? 'bg-gray-950/90 backdrop-blur-xl border-b border-white/5 py-4 shadow-xl' : 'bg-transparent py-6'}`}>
             <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
                 <Link to="/" className="text-2xl font-display font-bold text-white">
                     Vico<span className="text-accent-blue">.</span>
@@ -98,6 +98,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
+                        className="bg-gray-950/95 backdrop-blur-xl border-t border-white/5"
                     >
                         <div className="flex flex-col p-6 space-y-4">
                             {navLinks.map((link) => (
