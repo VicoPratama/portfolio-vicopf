@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, ArrowLeft, Award, Code, Palette, Terminal, Globe, Users, Cpu, Download, MapPin, Linkedin } from 'lucide-react';
+import { Briefcase, GraduationCap, ArrowLeft, Award, Code, Palette, Terminal, Globe, Users, Cpu, Download, MapPin, Linkedin, Monitor, Mouse, Keyboard, Laptop, Music, CheckCircle2, HardDrive, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import SpotlightCard from '../components/SpotlightCard';
 
-import { education, experience, organizationalExperience, certificates, skills } from '../constants/resumeData';
+import { education, experience, organizationalExperience, certificates, skills, gear } from '../constants/resumeData';
 
 const Resume = () => {
 
@@ -62,6 +62,23 @@ const Resume = () => {
                                         LinkedIn
                                     </Button>
                                 </div>
+
+                                {/* Availability Status */}
+                                <div className="mt-8 bg-green-500/10 border border-green-500/20 rounded-2xl p-6 relative overflow-hidden group">
+                                    <div className="absolute top-0 right-0 p-4 opacity-20">
+                                        <Briefcase className="w-16 h-16 text-green-500 -rotate-12 translate-x-4 -translate-y-4" />
+                                    </div>
+                                    <h3 className="text-green-400 font-bold text-lg mb-1 flex items-center gap-2">
+                                        <span className="relative flex h-3 w-3">
+                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                                        </span>
+                                        Open for Work
+                                    </h3>
+                                    <p className="text-green-300/80 text-sm font-light">
+                                        Ready to collaborate on freelance projects or full-time opportunities.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -76,7 +93,9 @@ const Resume = () => {
                                 <h2 className="text-3xl font-bold text-white">Experience</h2>
                             </div>
 
-                            <div className="relative border-l-2 border-gray-800 ml-3 md:ml-6 space-y-16">
+                            <div className="relative ml-3 md:ml-6 space-y-12">
+                                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-blue via-gray-800 to-transparent" />
+
                                 {experience.map((job, index) => (
                                     <motion.div
                                         key={index}
@@ -87,24 +106,43 @@ const Resume = () => {
                                         className="relative pl-8 md:pl-12"
                                     >
                                         {/* Timeline Dot */}
-                                        <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-gray-950 border-2 border-accent-blue shadow-[0_0_0_4px_rgba(3,7,18,1)]" />
+                                        <div className={`absolute -left-[9px] top-6 w-4 h-4 rounded-full bg-gray-950 border-2 border-accent-blue shadow-[0_0_0_4px_rgba(3,7,18,1)] z-10 ${index === 0 ? 'animate-pulse ring-4 ring-accent-blue/20' : ''}`} />
 
-                                        <div className="group">
-                                            <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
-                                                <h3 className="text-2xl font-bold text-white group-hover:text-accent-blue transition-colors">{job.role}</h3>
-                                                <span className="text-sm font-mono text-gray-400 bg-gray-800 px-3 py-1 rounded-full mt-2 md:mt-0 w-fit whitespace-nowrap">{job.year}</span>
-                                            </div>
-                                            <div className="mb-6">
-                                                <h4 className="text-lg font-bold text-gray-300">{job.company}</h4>
-                                                <div className="flex items-center text-sm text-gray-400 mt-1 font-medium">
-                                                    <MapPin className="w-4 h-4 mr-1.5 text-accent-blue" />
-                                                    {job.location}
+                                        <SpotlightCard className="bg-gray-900/40 backdrop-blur-xl border border-white/10 rounded-[2rem] shadow-xl group overflow-hidden">
+                                            <div className="p-8">
+                                                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4">
+                                                    <div>
+                                                        <h3 className="text-2xl font-bold text-white group-hover:text-accent-blue transition-colors duration-300">{job.role}</h3>
+                                                        <h4 className="text-lg font-medium text-gray-300 mt-1">{job.company}</h4>
+                                                        <div className="flex items-center text-sm text-gray-400 mt-2 font-medium">
+                                                            <MapPin className="w-4 h-4 mr-1.5 text-accent-blue" />
+                                                            {job.location}
+                                                        </div>
+                                                    </div>
+                                                    <span className="text-sm font-mono text-accent-blue bg-accent-blue/10 px-4 py-1.5 rounded-full border border-accent-blue/20 w-fit whitespace-nowrap">
+                                                        {job.year}
+                                                    </span>
                                                 </div>
+
+                                                <p className="text-gray-300 leading-relaxed whitespace-pre-line mb-8 font-light">
+                                                    {job.description}
+                                                </p>
+
+                                                {/* Tech Stack Pills */}
+                                                {job.tech && (
+                                                    <div className="flex flex-wrap gap-2 mt-auto pt-6 border-t border-white/5">
+                                                        {job.tech.map((tech, i) => (
+                                                            <span
+                                                                key={i}
+                                                                className="px-3 py-1 bg-white/5 hover:bg-white/10 border border-white/5 rounded-full text-xs font-medium text-gray-300 transition-colors cursor-default"
+                                                            >
+                                                                {tech}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                )}
                                             </div>
-                                            <p className="text-gray-300 leading-relaxed whitespace-pre-line bg-gray-900/30 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
-                                                {job.description}
-                                            </p>
-                                        </div>
+                                        </SpotlightCard>
                                     </motion.div>
                                 ))}
                             </div>
@@ -117,7 +155,9 @@ const Resume = () => {
                                 <h2 className="text-3xl font-bold text-white">Organizational Experience</h2>
                             </div>
 
-                            <div className="relative border-l-2 border-gray-800 ml-3 md:ml-6 space-y-16">
+                            <div className="relative ml-3 md:ml-6 space-y-12">
+                                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-blue via-gray-800 to-transparent" />
+
                                 {organizationalExperience.map((org, index) => (
                                     <motion.div
                                         key={index}
@@ -128,18 +168,25 @@ const Resume = () => {
                                         className="relative pl-8 md:pl-12"
                                     >
                                         {/* Timeline Dot */}
-                                        <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-gray-950 border-2 border-accent-blue shadow-[0_0_0_4px_rgba(3,7,18,1)]" />
+                                        <div className={`absolute -left-[9px] top-6 w-4 h-4 rounded-full bg-gray-950 border-2 border-accent-blue shadow-[0_0_0_4px_rgba(3,7,18,1)] z-10 ${index === 0 ? 'animate-pulse ring-4 ring-accent-blue/20' : ''}`} />
 
-                                        <div className="group">
-                                            <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-4">
-                                                <h3 className="text-2xl font-bold text-white group-hover:text-accent-blue transition-colors">{org.role}</h3>
-                                                <span className="text-sm font-mono text-gray-400 bg-gray-800 px-3 py-1 rounded-full mt-2 md:mt-0 w-fit">{org.year}</span>
+                                        <SpotlightCard className="bg-gray-900/40 backdrop-blur-xl border border-white/10 rounded-[2rem] shadow-xl group overflow-hidden">
+                                            <div className="p-8">
+                                                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4">
+                                                    <div>
+                                                        <h3 className="text-2xl font-bold text-white group-hover:text-accent-blue transition-colors duration-300">{org.role}</h3>
+                                                        <h4 className="text-lg font-medium text-gray-300 mt-1">{org.organization}</h4>
+                                                    </div>
+                                                    <span className="text-sm font-mono text-accent-blue bg-accent-blue/10 px-4 py-1.5 rounded-full border border-accent-blue/20 w-fit whitespace-nowrap">
+                                                        {org.year}
+                                                    </span>
+                                                </div>
+
+                                                <p className="text-gray-300 leading-relaxed whitespace-pre-line font-light">
+                                                    {org.description}
+                                                </p>
                                             </div>
-                                            <h4 className="text-lg font-medium text-gray-300 mb-6">{org.organization}</h4>
-                                            <p className="text-gray-300 leading-relaxed whitespace-pre-line bg-gray-900/30 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
-                                                {org.description}
-                                            </p>
-                                        </div>
+                                        </SpotlightCard>
                                     </motion.div>
                                 ))}
                             </div>
@@ -152,7 +199,9 @@ const Resume = () => {
                                 <h2 className="text-3xl font-bold text-white">Education</h2>
                             </div>
 
-                            <div className="relative border-l-2 border-gray-800 ml-3 md:ml-6 space-y-16">
+                            <div className="relative ml-3 md:ml-6 space-y-12">
+                                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-blue via-gray-800 to-transparent" />
+
                                 {education.map((edu, index) => (
                                     <motion.div
                                         key={index}
@@ -163,18 +212,25 @@ const Resume = () => {
                                         className="relative pl-8 md:pl-12"
                                     >
                                         {/* Timeline Dot */}
-                                        <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-gray-950 border-2 border-accent-blue shadow-[0_0_0_4px_rgba(3,7,18,1)]" />
+                                        <div className={`absolute -left-[9px] top-6 w-4 h-4 rounded-full bg-gray-950 border-2 border-accent-blue shadow-[0_0_0_4px_rgba(3,7,18,1)] z-10 ${index === 0 ? 'animate-pulse ring-4 ring-accent-blue/20' : ''}`} />
 
-                                        <div className="group">
-                                            <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-4">
-                                                <h3 className="text-2xl font-bold text-white group-hover:text-accent-blue transition-colors">{edu.degree}</h3>
-                                                <span className="text-sm font-mono text-gray-400 bg-gray-800 px-3 py-1 rounded-full mt-2 md:mt-0 w-fit">{edu.year}</span>
+                                        <SpotlightCard className="bg-gray-900/40 backdrop-blur-xl border border-white/10 rounded-[2rem] shadow-xl group overflow-hidden">
+                                            <div className="p-8">
+                                                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4">
+                                                    <div>
+                                                        <h3 className="text-2xl font-bold text-white group-hover:text-accent-blue transition-colors duration-300">{edu.degree}</h3>
+                                                        <h4 className="text-lg font-medium text-gray-300 mt-1">{edu.school}</h4>
+                                                    </div>
+                                                    <span className="text-sm font-mono text-accent-blue bg-accent-blue/10 px-4 py-1.5 rounded-full border border-accent-blue/20 w-fit whitespace-nowrap">
+                                                        {edu.year}
+                                                    </span>
+                                                </div>
+
+                                                <p className="text-gray-300 leading-relaxed whitespace-pre-line font-light">
+                                                    {edu.description}
+                                                </p>
                                             </div>
-                                            <h4 className="text-lg font-medium text-gray-300 mb-6">{edu.school}</h4>
-                                            <p className="text-gray-300 leading-relaxed whitespace-pre-line bg-gray-900/30 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
-                                                {edu.description}
-                                            </p>
-                                        </div>
+                                        </SpotlightCard>
                                     </motion.div>
                                 ))}
                             </div>
@@ -290,39 +346,89 @@ const Resume = () => {
                                 {/* Languages & Tools (Spans 2 columns) */}
                                 <SpotlightCard className="md:col-span-2 bg-gray-900/40 backdrop-blur-xl border border-white/10 rounded-[2rem] shadow-xl">
                                     <div className="p-8">
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                            <div>
-                                                <div className="flex items-center gap-3 mb-6">
-                                                    <div className="p-3 bg-white/5 rounded-xl border border-white/5">
-                                                        <Terminal className="text-white w-6 h-6" />
-                                                    </div>
-                                                    <h3 className="text-xl font-bold text-white font-display tracking-tight">Tools</h3>
+                                        <div>
+                                            <div className="flex items-center gap-3 mb-6">
+                                                <div className="p-3 bg-white/5 rounded-xl border border-white/5">
+                                                    <Terminal className="text-white w-6 h-6" />
                                                 </div>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {skills.tools.map(skill => (
-                                                        <span key={skill} className="px-3 py-1.5 bg-white/5 rounded-lg text-sm text-gray-300 hover:bg-white/10 border border-white/5 transition-colors cursor-default">{skill}</span>
-                                                    ))}
-                                                </div>
+                                                <h3 className="text-xl font-bold text-white font-display tracking-tight">Tools</h3>
                                             </div>
-                                            <div>
-                                                <div className="flex items-center gap-3 mb-6">
-                                                    <div className="p-3 bg-white/5 rounded-xl border border-white/5">
-                                                        <Globe className="text-white w-6 h-6" />
-                                                    </div>
-                                                    <h3 className="text-xl font-bold text-white font-display tracking-tight">Languages</h3>
-                                                </div>
-                                                <div className="space-y-3">
-                                                    {skills.languages.map(lang => (
-                                                        <div key={lang.name} className="flex justify-between items-center bg-white/5 p-4 rounded-xl border border-white/5">
-                                                            <span className="font-medium text-white">{lang.name}</span>
-                                                            <span className="text-sm text-gray-400 font-light">{lang.level}</span>
-                                                        </div>
-                                                    ))}
-                                                </div>
+                                            <div className="flex flex-wrap gap-2">
+                                                {skills.tools.map(skill => (
+                                                    <span key={skill} className="px-3 py-1.5 bg-white/5 rounded-lg text-sm text-gray-300 hover:bg-white/10 border border-white/5 transition-colors cursor-default">{skill}</span>
+                                                ))}
                                             </div>
                                         </div>
                                     </div>
                                 </SpotlightCard>
+                            </div>
+                        </section>
+
+                        {/* Languages Section */}
+                        <section>
+                            <div className="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4 sticky top-24 bg-gray-950/90 backdrop-blur-md z-20 md:static md:bg-transparent md:p-0 md:border-b md:pb-4">
+                                <Globe className="text-white w-8 h-8" />
+                                <h2 className="text-3xl font-bold text-white">Languages</h2>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {skills.languages.map((lang, index) => (
+                                    <SpotlightCard key={index} className="bg-gray-900/40 backdrop-blur-xl border border-white/10 rounded-[2rem] shadow-xl">
+                                        <div className="p-8 flex items-start justify-between">
+                                            <div>
+                                                <h3 className="text-xl font-bold text-white mb-2">{lang.name}</h3>
+                                                <p className="text-gray-400 text-sm">{lang.level}</p>
+                                                {lang.score && <p className="text-accent-blue text-xs font-mono mt-2 bg-accent-blue/10 px-2 py-0.5 rounded-full w-fit">{lang.score}</p>}
+                                            </div>
+                                            <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/5 text-2xl">
+                                                {lang.name === "English" ? "🇬🇧" : "🇮🇩"}
+                                            </div>
+                                        </div>
+                                    </SpotlightCard>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* The Setup Section */}
+                        <section>
+                            <div className="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4 sticky top-24 bg-gray-950/90 backdrop-blur-md z-20 md:static md:bg-transparent md:p-0 md:border-b md:pb-4">
+                                <Monitor className="text-white w-8 h-8" />
+                                <h2 className="text-3xl font-bold text-white">The Setup</h2>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                {gear.map((category, index) => (
+                                    <div key={index} className="space-y-6">
+                                        <h3 className="text-xl font-bold text-white/50 uppercase tracking-widest pl-2 border-l-2 border-accent-blue">{category.category}</h3>
+                                        <div className="space-y-4">
+                                            {category.items.map((item, i) => (
+                                                <SpotlightCard key={i} className="bg-gray-900/40 backdrop-blur-xl border border-white/10 rounded-2xl group">
+                                                    <div className="p-4 flex items-center gap-4">
+                                                        <div className="p-2.5 bg-white/5 rounded-xl text-gray-400 group-hover:text-white transition-colors">
+                                                            {item.icon === "Laptop" && <Laptop size={20} />}
+                                                            {item.icon === "Monitor" && <Monitor size={20} />}
+                                                            {item.icon === "Keyboard" && <Keyboard size={20} />}
+                                                            {item.icon === "Mouse" && <Mouse size={20} />}
+                                                            {item.icon === "Code" && <Code size={20} />}
+                                                            {item.icon === "Terminal" && <Terminal size={20} />}
+                                                            {item.icon === "Figma" && <Palette size={20} />}
+                                                            {item.icon === "Music" && <Music size={20} />}
+                                                            {/* New Hardware Icons via user request */}
+                                                            {item.icon === "Cpu" && <Cpu size={20} />}
+                                                            {item.icon === "Gpu" && <Zap size={20} />}
+                                                            {item.icon === "Storage" && <HardDrive size={20} />}
+                                                            {item.icon === "Memory" && <Cpu size={20} className="rotate-90" />}
+                                                        </div>
+                                                        <div>
+                                                            <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-0.5">{item.name}</p>
+                                                            <p className="text-white font-medium">{item.value}</p>
+                                                        </div>
+                                                    </div>
+                                                </SpotlightCard>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </section>
 

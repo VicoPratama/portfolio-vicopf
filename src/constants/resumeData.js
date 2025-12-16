@@ -16,7 +16,8 @@ export const experience = [
         year: "Nov 2025 - Present",
         description: `● Designed and developed a complete room booking system website using Supabase, Resend Email API, and JavaScript, enabling real-time reservations, automated email notifications, and secure database management.
 ● Implemented authentication, database CRUD operations, and automated email workflows to streamline internal room scheduling and reduce manual coordination.
-● Ensured responsive UI/UX, optimized frontend logic, and improved workflow efficiency through clean, maintainable code.`
+● Ensured responsive UI/UX, optimized frontend logic, and improved workflow efficiency through clean, maintainable code.`,
+        tech: ["Supabase", "JavaScript", "Resend API", "React", "Tailwind CSS", "Git"]
     },
     {
         company: "Student & Alumni Affairs, University of Muhammadiyah Malang",
@@ -36,7 +37,8 @@ export const experience = [
 ● Designed data dashboards and reports in Excel and Google Sheets to track student performance and engagement.
 ● Coordinated with academic advisors to identify at-risk students and improve tracking and intervention processes.
 ● Provided responsive technical and administrative support through both online and on-site channels.
-● Assisted in system monitoring, backup checks, and maintaining infrastructure documentation to support IT operations.`
+● Assisted in system monitoring, backup checks, and maintaining infrastructure documentation to support IT operations.`,
+        tech: ["WordPress", "HTML/CSS", "JavaScript", "PHP", "SQL", "UI/UX", "Excel"]
     },
     {
         company: "Self Employed",
@@ -49,7 +51,8 @@ export const experience = [
 ● Conducted usability testing, debugging, and optimization to improve overall performance and reliability.
 ● Produced technical specifications, wireframes, and prototypes for developer handoff and client approval.
 ● Implemented version control and collaborative workflows using Git and GitHub for team-based projects.
-● Researched and applied emerging web technologies and trends to improve user experience and system performance.`
+● Researched and applied emerging web technologies and trends to improve user experience and system performance.`,
+        tech: ["Web Design", "HTML/CSS", "JavaScript", "PHP", "MySQL", "Figma", "SDLC"]
     },
 ];
 
@@ -162,3 +165,25 @@ export const skills = {
         { name: "Bahasa Indonesia", level: "Native", score: "" }
     ]
 };
+
+export const gear = [
+    {
+        category: "Hardware",
+        items: [
+            { name: "Laptop", value: "Lenovo LOQ 15AHP9", icon: "Laptop" },
+            { name: "Processor", value: "AMD Ryzen™ 7 8845HS", icon: "Cpu" },
+            { name: "Graphics Card", value: "NVIDIA GeForce RTX 4050 6GB", icon: "Gpu" },
+            { name: "Storage", value: "1.5TB PCIe Gen 4 SSD", icon: "Storage" },
+            { name: "RAM", value: "8 GB 5600MHz DDR5", icon: "Memory" }
+        ]
+    },
+    {
+        category: "Software",
+        items: [
+            { name: "Editor", value: "VS Code", icon: "Code" },
+            { name: "Terminal", value: "Windows Terminal (PowerShell)", icon: "Terminal" },
+            { name: "Design", value: "Figma", icon: "Figma" },
+            { name: "Music", value: "Spotify", icon: "Music" }
+        ]
+    }
+];
