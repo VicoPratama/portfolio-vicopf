@@ -22,14 +22,23 @@ const BentoGrid = () => {
     // --- LOCATION CARD STATE & LOGIC ---
     const [time, setTime] = useState(new Date());
     const [isDay, setIsDay] = useState(true);
+    const [greeting, setGreeting] = useState("Good Morning");
 
     useEffect(() => {
-        const timer = setInterval(() => {
+        const updateTime = () => {
             const jakartaTime = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Jakarta" }));
             setTime(jakartaTime);
             const hour = jakartaTime.getHours();
             setIsDay(hour >= 6 && hour < 18);
-        }, 1000);
+
+            if (hour >= 5 && hour < 12) setGreeting("Good Morning");
+            else if (hour >= 12 && hour < 18) setGreeting("Good Afternoon");
+            else if (hour >= 18 && hour < 22) setGreeting("Good Evening");
+            else setGreeting("Good Night");
+        };
+
+        updateTime();
+        const timer = setInterval(updateTime, 1000);
         return () => clearInterval(timer);
     }, []);
 
@@ -111,7 +120,7 @@ const BentoGrid = () => {
                                     <p className="text-white/80 text-lg font-light mt-1 flex items-center gap-2">
                                         Indonesia
                                         <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 border border-white/5">
-                                            {isDay ? "Good Afternoon" : "Good Evening"}
+                                            {greeting}
                                         </span>
                                     </p>
                                 </div>
