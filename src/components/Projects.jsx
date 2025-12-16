@@ -6,6 +6,14 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
     {
+        title: "Portfolio V2",
+        description: "My personal digital playground featuring a modern dark interface, smooth animations, and a fully responsive layout.",
+        tags: ["React", "Tailwind CSS", "Framer Motion"],
+        image: "/IMG_6335.JPEG",
+        github: "https://github.com/VicoPratama/portfolio-vicopf",
+        demo: "https://mastervico.com/"
+    },
+    {
         title: "BYD HAKA AUTO Meeting Room Booking System",
         description: "Providing a digitized, transparent, and real-time meeting room booking system for all HAKA Auto employees.",
         tags: ["Javascript", "Supabase", "Resend API"],
