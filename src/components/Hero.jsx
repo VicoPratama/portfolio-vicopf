@@ -6,8 +6,8 @@ const Hero = () => {
     return (
         <div id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
             {/* Minimalist Background Grid (Optional) */}
-            {/* Minimalist Background Grid (Optional) */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+            {/* Minimalist Background Grid */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none transition-colors" />
 
             {/* Animated Background Blobs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -23,7 +23,7 @@ const Hero = () => {
                         repeatType: "reverse",
                         ease: "easeInOut",
                     }}
-                    className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-blue/20 rounded-full blur-3xl"
+                    className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-blue/10 dark:bg-accent-blue/20 rounded-full blur-3xl transition-colors"
                 />
                 <motion.div
                     animate={{
@@ -37,7 +37,7 @@ const Hero = () => {
                         repeatType: "reverse",
                         ease: "easeInOut",
                     }}
-                    className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"
+                    className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-3xl transition-colors"
                 />
             </div>
 
@@ -48,7 +48,7 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="text-gray-400 font-medium tracking-widest uppercase mb-4"
+                            className="text-gray-600 dark:text-gray-400 font-medium tracking-widest uppercase mb-4 transition-colors"
                         >
                             Hello, I am
                         </motion.p>
@@ -57,7 +57,7 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
-                            className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight text-white leading-tight"
+                            className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight text-gray-900 dark:text-white leading-tight transition-colors"
                         >
                             Vico Pratama <br /><span className="text-accent-blue">Fajareno</span>
                         </motion.h1>
@@ -66,7 +66,7 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="text-gray-300 text-lg md:text-xl mb-10 leading-relaxed max-w-lg mx-auto lg:mx-0"
+                            className="text-gray-600 dark:text-gray-300 text-lg md:text-xl mb-10 leading-relaxed max-w-lg mx-auto lg:mx-0 transition-colors"
                         >
                             A passionate developer crafting beautiful, responsive, and user-centric web experiences with a touch of elegance.
                         </motion.p>

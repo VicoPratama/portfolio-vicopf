@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import NotFound from './pages/NotFound';
 
 
+
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
@@ -34,7 +35,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="bg-gray-950 min-h-screen text-gray-100 selection:bg-accent-blue selection:text-white">
+      <div className="bg-gray-50 dark:bg-gray-950 min-h-screen text-gray-900 dark:text-gray-100 selection:bg-accent-blue selection:text-white transition-colors duration-300">
         <Navbar />
         <main>
           <Routes>

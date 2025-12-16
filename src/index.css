@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-dark-bg: #ffffff;
   /* pure white */
@@ -15,11 +17,21 @@
 }
 
 :root {
+  color-scheme: light dark;
+}
+
+html,
+body {
+  transition-property: background-color, color;
+  transition-duration: 300ms;
+}
+
+:root.dark {
   color-scheme: dark;
-  background-color: #030712;
-  /* gray-950 */
-  color: #f3f4f6;
-  /* gray-100 */
+}
+
+:root.light {
+  color-scheme: light;
 }
 
 body {
