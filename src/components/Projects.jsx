@@ -9,9 +9,9 @@ const projects = [
         title: "Portfolio V2",
         description: "My personal digital playground featuring a modern dark interface, smooth animations, and a fully responsive layout.",
         tags: ["React", "Tailwind CSS", "Framer Motion"],
-        image: "/IMG_6335.JPEG",
+        image: "/logo.png",
         github: "https://github.com/VicoPratama/portfolio-vicopf",
-        demo: "https://mastervico.com/"
+        demo: "https://portfolio-vicopf.vercel.app/"
     },
     {
         title: "BYD HAKA AUTO Meeting Room Booking System",
