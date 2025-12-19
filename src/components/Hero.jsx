@@ -1,8 +1,27 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Button from './Button';
 import SectionWrapper from './SectionWrapper';
 
 const Hero = () => {
+    const [count, setCount] = useState(0);
+    const text1 = "Vico Pratama";
+    const text2 = "Fajareno";
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCount(prev => {
+                if (prev < text1.length + text2.length) {
+                    return prev + 1;
+                }
+                clearInterval(interval);
+                return prev;
+            });
+        }, 150);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
             {/* Minimalist Background Grid (Optional) */}
@@ -59,7 +78,16 @@ const Hero = () => {
                             transition={{ delay: 0.3 }}
                             className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight text-gray-900 dark:text-white leading-tight transition-colors"
                         >
-                            Vico Pratama <br /><span className="text-accent-blue">Fajareno</span>
+                            {text1.slice(0, Math.min(count, text1.length))}
+                            {count >= text1.length && <br />}
+                            <span className="text-accent-blue">
+                                {text2.slice(0, Math.max(0, count - text1.length))}
+                            </span>
+                            <motion.span
+                                animate={{ opacity: [1, 0] }}
+                                transition={{ repeat: Infinity, duration: 0.8 }}
+                                className="inline-block w-1 h-12 md:h-16 lg:h-20 bg-accent-blue ml-1 align-middle -mb-2"
+                            />
                         </motion.h1>
 
                         <motion.p
