@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, ArrowLeft, Award, Code, Palette, Terminal, Globe, Users, Cpu, Download, MapPin, Linkedin, Monitor, Mouse, Keyboard, Laptop, Music, CheckCircle2, HardDrive, Zap } from 'lucide-react';
+import { Briefcase, GraduationCap, ArrowLeft, Award, Code, Globe, Users, Cpu, Download, MapPin, Linkedin, Monitor, Mouse, Keyboard, Laptop, Music, HardDrive, Zap, Palette, Terminal } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import SpotlightCard from '../components/SpotlightCard';
@@ -7,6 +7,8 @@ import SpotlightCard from '../components/SpotlightCard';
 import { education, experience, organizationalExperience, certificates, skills, gear } from '../constants/resumeData';
 
 const Resume = () => {
+    // return <div>Resume Page Debug - All Imports Commented</div>; 
+
 
     return (
         <div className="pt-24 min-h-screen">
@@ -86,7 +88,6 @@ const Resume = () => {
                     {/* Main Content Area */}
                     <div className="lg:col-span-8 space-y-24 pb-24">
 
-                        {/* Experience Section (Timeline) */}
                         {/* Experience Section (Timeline) */}
                         <section>
                             <div className="flex items-center gap-4 mb-12 border-b border-gray-200 dark:border-gray-800 pb-4 sticky top-24 bg-white/80 dark:bg-gray-950/90 backdrop-blur-md z-20 py-4 -mx-4 px-4 md:static md:bg-transparent md:p-0 md:border-b md:pb-4 transition-colors">
@@ -268,41 +269,50 @@ const Resume = () => {
                         <section>
                             <div className="flex items-center gap-4 mb-12 border-b border-gray-200 dark:border-gray-800 pb-4 transition-colors">
                                 <Cpu className="text-gray-900 dark:text-white w-8 h-8 transition-colors" />
-                                <h2 className="text-3xl font-bold text-gray-900 dark:text-white transition-colors">Expertise</h2>
+                                <h2 className="text-3xl font-bold text-gray-900 dark:text-white transition-colors">Hard Skills</h2>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                {/* Programming (Spans 2 columns) */}
-                                <SpotlightCard className="md:col-span-2 bg-white/50 dark:bg-gray-900/40 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-[2rem] shadow-xl transition-all">
-                                    <div className="p-8">
-                                        <div className="flex items-center gap-3 mb-8">
+                                {/* Frontend */}
+                                <SpotlightCard className="bg-white/50 dark:bg-gray-900/40 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-[2rem] shadow-xl transition-all h-full">
+                                    <div className="p-8 h-full">
+                                        <div className="flex items-center gap-3 mb-6">
                                             <div className="p-3 bg-gray-100 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/5 transition-colors">
                                                 <Code className="text-gray-900 dark:text-white w-6 h-6 transition-colors" />
                                             </div>
-                                            <h3 className="text-xl font-bold font-display tracking-tight text-gray-900 dark:text-white transition-colors">Programming</h3>
+                                            <h3 className="text-xl font-bold text-gray-900 dark:text-white font-display tracking-tight transition-colors">Frontend Development</h3>
                                         </div>
-                                        <div className="space-y-8">
-                                            <div>
-                                                <h4 className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-widest mb-3 font-semibold transition-colors">Frontend</h4>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {skills.programming.frontend.map(skill => (
-                                                        <span key={skill} className="px-3 py-1.5 bg-gray-100 dark:bg-white/5 rounded-lg text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/10 border border-gray-200 dark:border-white/5 transition-colors cursor-default">{skill}</span>
-                                                    ))}
-                                                </div>
+                                        <div className="flex flex-wrap gap-2">
+                                            {skills.programming.frontend.map(skill => (
+                                                <span key={skill} className="px-3 py-1.5 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/5 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors cursor-default">{skill}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </SpotlightCard>
+
+                                {/* Backend & Other */}
+                                <SpotlightCard className="bg-white/50 dark:bg-gray-900/40 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-[2rem] shadow-xl transition-all h-full">
+                                    <div className="p-8 h-full">
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <div className="p-3 bg-gray-100 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/5 transition-colors">
+                                                <Terminal className="text-gray-900 dark:text-white w-6 h-6 transition-colors" />
                                             </div>
+                                            <h3 className="text-xl font-bold text-gray-900 dark:text-white font-display tracking-tight transition-colors">Backend & Languages</h3>
+                                        </div>
+                                        <div className="flex flex-col gap-6">
                                             <div>
-                                                <h4 className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-widest mb-3 font-semibold transition-colors">Backend</h4>
+                                                <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-3 uppercase tracking-wider">Backend</h4>
                                                 <div className="flex flex-wrap gap-2">
                                                     {skills.programming.backend.map(skill => (
-                                                        <span key={skill} className="px-3 py-1.5 bg-gray-100 dark:bg-white/5 rounded-lg text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/10 border border-gray-200 dark:border-white/5 transition-colors cursor-default">{skill}</span>
+                                                        <span key={skill} className="px-3 py-1.5 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/5 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors cursor-default">{skill}</span>
                                                     ))}
                                                 </div>
                                             </div>
                                             <div>
-                                                <h4 className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-widest mb-3 font-semibold transition-colors">Concepts & Tools</h4>
+                                                <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-3 uppercase tracking-wider">Other</h4>
                                                 <div className="flex flex-wrap gap-2">
-                                                    {skills.programming.concepts.concat(skills.programming.other).map(skill => (
-                                                        <span key={skill} className="px-3 py-1.5 bg-gray-100 dark:bg-white/5 rounded-lg text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/10 border border-gray-200 dark:border-white/5 transition-colors cursor-default">{skill}</span>
+                                                    {skills.programming.other.map(skill => (
+                                                        <span key={skill} className="px-3 py-1.5 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/5 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors cursor-default">{skill}</span>
                                                     ))}
                                                 </div>
                                             </div>
@@ -311,7 +321,7 @@ const Resume = () => {
                                 </SpotlightCard>
 
                                 {/* Design */}
-                                <SpotlightCard className="bg-white/50 dark:bg-gray-900/40 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-[2rem] shadow-xl transition-all">
+                                <SpotlightCard className="bg-white/50 dark:bg-gray-900/40 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-[2rem] shadow-xl transition-all h-full">
                                     <div className="p-8 h-full">
                                         <div className="flex items-center gap-3 mb-6">
                                             <div className="p-3 bg-gray-100 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/5 transition-colors">
@@ -327,8 +337,42 @@ const Resume = () => {
                                     </div>
                                 </SpotlightCard>
 
+                                {/* Tools */}
+                                <SpotlightCard className="bg-white/50 dark:bg-gray-900/40 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-[2rem] shadow-xl transition-all h-full">
+                                    <div className="p-8 h-full">
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <div className="p-3 bg-gray-100 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/5 transition-colors">
+                                                <HardDrive className="text-gray-900 dark:text-white w-6 h-6 transition-colors" />
+                                            </div>
+                                            <h3 className="text-xl font-bold text-gray-900 dark:text-white font-display tracking-tight transition-colors">Tools</h3>
+                                        </div>
+                                        <div className="flex flex-wrap gap-2">
+                                            {skills.tools.map(skill => (
+                                                <span key={skill} className="px-3 py-1.5 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/5 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors cursor-default">{skill}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </SpotlightCard>
+
+                                {/* Concepts */}
+                                <SpotlightCard className="bg-white/50 dark:bg-gray-900/40 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-[2rem] shadow-xl transition-all h-full">
+                                    <div className="p-8 h-full">
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <div className="p-3 bg-gray-100 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/5 transition-colors">
+                                                <Cpu className="text-gray-900 dark:text-white w-6 h-6 transition-colors" />
+                                            </div>
+                                            <h3 className="text-xl font-bold text-gray-900 dark:text-white font-display tracking-tight transition-colors">Concepts</h3>
+                                        </div>
+                                        <div className="flex flex-wrap gap-2">
+                                            {skills.programming.concepts.map(skill => (
+                                                <span key={skill} className="px-3 py-1.5 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/5 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors cursor-default">{skill}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </SpotlightCard>
+
                                 {/* Soft Skills */}
-                                <SpotlightCard className="bg-white/50 dark:bg-gray-900/40 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-[2rem] shadow-xl transition-all">
+                                <SpotlightCard className="bg-white/50 dark:bg-gray-900/40 backdrop-blur-xl border border-gray-200 dark:border-white/5 rounded-[2rem] shadow-xl transition-all h-full">
                                     <div className="p-8 h-full">
                                         <div className="flex items-center gap-3 mb-6">
                                             <div className="p-3 bg-gray-100 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/5 transition-colors">
@@ -340,25 +384,6 @@ const Resume = () => {
                                             {skills.softSkills.map(skill => (
                                                 <span key={skill} className="px-3 py-1.5 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/5 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors cursor-default">{skill}</span>
                                             ))}
-                                        </div>
-                                    </div>
-                                </SpotlightCard>
-
-                                {/* Languages & Tools (Spans 2 columns) */}
-                                <SpotlightCard className="md:col-span-2 bg-white/50 dark:bg-gray-900/40 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-[2rem] shadow-xl transition-all">
-                                    <div className="p-8">
-                                        <div>
-                                            <div className="flex items-center gap-3 mb-6">
-                                                <div className="p-3 bg-gray-100 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/5 transition-colors">
-                                                    <Terminal className="text-gray-900 dark:text-white w-6 h-6 transition-colors" />
-                                                </div>
-                                                <h3 className="text-xl font-bold text-gray-900 dark:text-white font-display tracking-tight transition-colors">Tools</h3>
-                                            </div>
-                                            <div className="flex flex-wrap gap-2">
-                                                {skills.tools.map(skill => (
-                                                    <span key={skill} className="px-3 py-1.5 bg-gray-100 dark:bg-white/5 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10 border border-gray-200 dark:border-white/5 transition-colors cursor-default">{skill}</span>
-                                                ))}
-                                            </div>
                                         </div>
                                     </div>
                                 </SpotlightCard>

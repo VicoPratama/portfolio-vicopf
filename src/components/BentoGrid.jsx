@@ -116,7 +116,7 @@ const BentoGrid = () => {
 
                                 <div>
                                     <h3 className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-2">Based in</h3>
-                                    <p className="text-4xl font-display font-bold text-white tracking-tight">Jakarta</p>
+                                    <p className="text-4xl font-display font-bold text-white tracking-tight">South Jakarta</p>
                                     <p className="text-white/80 text-lg font-light mt-1 flex items-center gap-2">
                                         Indonesia
                                         <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 border border-white/5">

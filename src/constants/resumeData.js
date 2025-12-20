@@ -180,7 +180,7 @@ export const gear = [
     {
         category: "Software",
         items: [
-            { name: "Editor", value: "VS Code", icon: "Code" },
+            { name: "Editor", value: "VS Code, Antigravity", icon: "Code" },
             { name: "Terminal", value: "Windows Terminal (PowerShell)", icon: "Terminal" },
             { name: "Design", value: "Figma", icon: "Figma" },
             { name: "Music", value: "Spotify", icon: "Music" }
