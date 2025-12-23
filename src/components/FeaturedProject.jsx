@@ -73,7 +73,7 @@ const FeaturedProject = () => {
 
                     <div className="flex gap-4">
                         <Button
-                            href="https://pinjam-ruang-bumi-auto.vercel.app/" // Replace if needed
+                            href="https://bumiauto-ruang.vercel.app/" // Replace if needed
                             target="_blank"
                             variant="primary"
                             className="group bg-white text-black hover:bg-gray-100"
@@ -82,7 +82,7 @@ const FeaturedProject = () => {
                             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </Button>
                         <Button
-                            href="https://github.com/VicoPratama/Pinjam-Ruang-Bumi-Auto" // Replace if needed
+                            href="https://github.com/ict-bumiauto/bumiauto-ruang.git" // Replace if needed
                             target="_blank"
                             variant="outline"
                             className="border-gray-700 text-white hover:border-white hover:bg-transparent"

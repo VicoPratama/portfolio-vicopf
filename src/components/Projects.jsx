@@ -18,8 +18,8 @@ const projects = [
         description: "Providing a digitized, transparent, and real-time meeting room booking system for all HAKA Auto employees.",
         tags: ["Javascript", "Supabase", "Resend API"],
         image: "/Screenshot (829).png",
-        github: "https://github.com/VicoPratama/Pinjam-Ruang-Bumi-Auto", // Replace with actual link
-        demo: "https://pinjam-ruang-bumi-auto.vercel.app/" // Replace with actual link
+        github: "https://github.com/ict-bumiauto/bumiauto-ruang.git", // Replace with actual link
+        demo: "https://bumiauto-ruang.vercel.app/" // Replace with actual link
     },
     {
         title: "BYD HAKA AUTO Whistleblower [COMING SOON]",
