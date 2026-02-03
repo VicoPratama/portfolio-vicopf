@@ -18,16 +18,24 @@ const projects = [
         description: "Providing a digitized, transparent, and real-time meeting room booking system for all HAKA Auto employees.",
         tags: ["Javascript", "Supabase", "Resend API"],
         image: "/Screenshot (829).png",
-        github: "https://github.com/ict-bumiauto/bumiauto-ruang.git", // Replace with actual link
-        demo: "https://bumiauto-ruang.vercel.app/" // Replace with actual link
+        github: "https://github.com/ict-bumiauto/bumiauto-ruang.git",
+        demo: "https://bumiauto-ruang.vercel.app/"
+    },
+    {
+        title: "HAKA AUTO Rekrutmen (On Progress)",
+        description: "Recruitment platform for HAKA Auto to streamline the hiring process.",
+        tags: ["React", "Tailwind CSS"],
+        image: "/haka-auto-rekrutmen.png",
+        github: "https://github.com/ict-bumiauto/hakaauto-rekrutmen/tree/main",
+        demo: "https://hakaauto-rekrutmen.vercel.app/"
     },
     {
         title: "BYD HAKA AUTO Whistleblower [COMING SOON]",
         description: "A whistleblowing system for employees to report misconduct and corruption within the company.",
         tags: ["Javascript", "Supabase"],
         image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-        github: "https://github.com/yourusername/task-app", // Replace with actual link
-        demo: "https://task-app-demo.com" // Replace with actual link
+        github: "https://github.com/yourusername/task-app",
+        demo: "https://task-app-demo.com"
     },
 ];
 

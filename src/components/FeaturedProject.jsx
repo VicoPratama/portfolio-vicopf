@@ -19,8 +19,8 @@ const FeaturedProject = () => {
                     <div className="absolute -inset-4 bg-gradient-to-r from-accent-blue/30 to-purple-500/30 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-500" />
                     <div className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-800">
                         <img
-                            src="/Screenshot (829).png"
-                            alt="Meeting Room Booking System"
+                            src="/haka-auto-rekrutmen.png"
+                            alt="HAKA AUTO Rekrutmen"
                             className="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700"
                         />
                         <div className="absolute inset-0 bg-gray-950/20 group-hover:bg-transparent transition duration-300" />
@@ -40,21 +40,21 @@ const FeaturedProject = () => {
                     </div>
 
                     <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                        BYD HAKA AUTO <br />
-                        <span className="text-gray-400">Booking System</span>
+                        HAKA AUTO <br />
+                        <span className="text-gray-400">Rekrutmen (On Progress)</span>
                     </h2>
 
                     <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                        A centralized digital solution for managing meeting room reservations across the organization.
-                        Replaced manual scheduling with a real-time, conflict-free booking engine powered by Supabase and automated email notifications.
+                        The official recruitment platform for HAKA Auto, designed to streamline the hiring process.
+                        Features a comprehensive job portal, applicant tracking, and seamless administrative workflows.
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                         {[
-                            "Real-time Conflict Detection",
-                            "Automated Email Notifications",
-                            "Admin Dashboard & Analytics",
-                            "Role-based Access Control"
+                            "Job Application Portal",
+                            "Applicant Tracking System",
+                            "Admin Dashboard",
+                            "Automated Email Notifications"
                         ].map((item, i) => (
                             <div key={i} className="flex items-center gap-2 text-gray-400">
                                 <CheckCircle2 className="w-4 h-4 text-accent-blue" />
@@ -64,7 +64,7 @@ const FeaturedProject = () => {
                     </div>
 
                     <div className="flex flex-wrap gap-3 mb-10">
-                        {["Javascript", "Supabase", "Resend API"].map(tag => (
+                        {["React", "Tailwind CSS", "Vite"].map(tag => (
                             <span key={tag} className="px-4 py-1.5 rounded-full bg-gray-900 border border-gray-800 text-gray-300 text-sm font-mono">
                                 {tag}
                             </span>
@@ -73,7 +73,7 @@ const FeaturedProject = () => {
 
                     <div className="flex gap-4">
                         <Button
-                            href="https://bumiauto-ruang.vercel.app/" // Replace if needed
+                            href="https://hakaauto-rekrutmen.vercel.app/"
                             target="_blank"
                             variant="primary"
                             className="group bg-white text-black hover:bg-gray-100"
@@ -82,7 +82,7 @@ const FeaturedProject = () => {
                             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </Button>
                         <Button
-                            href="https://github.com/ict-bumiauto/bumiauto-ruang.git" // Replace if needed
+                            href="https://github.com/ict-bumiauto/hakaauto-rekrutmen"
                             target="_blank"
                             variant="outline"
                             className="border-gray-700 text-white hover:border-white hover:bg-transparent"
