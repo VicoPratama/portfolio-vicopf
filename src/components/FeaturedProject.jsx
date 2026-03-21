@@ -19,8 +19,8 @@ const FeaturedProject = () => {
                     <div className="absolute -inset-4 bg-gradient-to-r from-accent-blue/30 to-purple-500/30 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-500" />
                     <div className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-800">
                         <img
-                            src="/haka-auto-rekrutmen.png"
-                            alt="HAKA AUTO Rekrutmen"
+                            src="/adas-helpdesk-dashboard.png"
+                            alt="ADAS Helpdesk System"
                             className="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700"
                         />
                         <div className="absolute inset-0 bg-gray-950/20 group-hover:bg-transparent transition duration-300" />
@@ -40,21 +40,20 @@ const FeaturedProject = () => {
                     </div>
 
                     <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                        HAKA AUTO <br />
-                        <span className="text-gray-400">Rekrutmen (On Progress)</span>
+                        ADAS <br />
+                        <span className="text-gray-400">Helpdesk System (on progress)</span>
                     </h2>
 
                     <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                        The official recruitment platform for HAKA Auto, designed to streamline the hiring process.
-                        Features a comprehensive job portal, applicant tracking, and seamless administrative workflows.
+                        The official helpdesk system for HAKA Auto, providing a centralized platform for employees to report technical issues, request services, and track resolution progress in real-time.
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                         {[
-                            "Job Application Portal",
-                            "Applicant Tracking System",
-                            "Admin Dashboard",
-                            "Automated Email Notifications"
+                            "Ticket Management System",
+                            "Real-time Status Tracking",
+                            "Admin Dashboard & Analytics",
+                            "SLA Performance Monitoring"
                         ].map((item, i) => (
                             <div key={i} className="flex items-center gap-2 text-gray-400">
                                 <CheckCircle2 className="w-4 h-4 text-accent-blue" />
@@ -64,7 +63,7 @@ const FeaturedProject = () => {
                     </div>
 
                     <div className="flex flex-wrap gap-3 mb-10">
-                        {["React", "Tailwind CSS", "Vite"].map(tag => (
+                        {["React", "Tailwind CSS", "Supabase", "Vite"].map(tag => (
                             <span key={tag} className="px-4 py-1.5 rounded-full bg-gray-900 border border-gray-800 text-gray-300 text-sm font-mono">
                                 {tag}
                             </span>
@@ -73,7 +72,7 @@ const FeaturedProject = () => {
 
                     <div className="flex gap-4">
                         <Button
-                            href="https://hakaauto-rekrutmen.vercel.app/"
+                            href="https://adas-helpdesk-hakaauto.vercel.app/"
                             target="_blank"
                             variant="primary"
                             className="group bg-white text-black hover:bg-gray-100"
@@ -82,7 +81,7 @@ const FeaturedProject = () => {
                             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </Button>
                         <Button
-                            href="https://github.com/ict-bumiauto/hakaauto-rekrutmen"
+                            href="https://github.com/ict-bumiauto/hakaauto-ruang"
                             target="_blank"
                             variant="outline"
                             className="border-gray-700 text-white hover:border-white hover:bg-transparent"

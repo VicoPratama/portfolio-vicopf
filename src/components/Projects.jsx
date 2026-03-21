@@ -30,12 +30,12 @@ const projects = [
         demo: "https://hakaauto-rekrutmen.vercel.app/"
     },
     {
-        title: "BYD HAKA AUTO Whistleblower [COMING SOON]",
-        description: "A whistleblowing system for employees to report misconduct and corruption within the company.",
-        tags: ["Javascript", "Supabase"],
-        image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-        github: "https://github.com/yourusername/task-app",
-        demo: "https://task-app-demo.com"
+        title: "ADAS Helpdesk System (on progress)",
+        description: "A comprehensive helpdesk system for HAKA Auto employees to report technical issues and track resolutions.",
+        tags: ["React", "Supabase", "Tailwind CSS"],
+        image: "/adas-helpdesk-dashboard.png",
+        github: "https://github.com/ict-bumiauto/hakaauto-ruang",
+        demo: "https://adas-helpdesk-hakaauto.vercel.app/"
     },
 ];
 
