@@ -14,6 +14,14 @@ const projects = [
         demo: "https://portfolio-vicopf.vercel.app/"
     },
     {
+        title: "Bosles Bimbel (on progress)",
+        description: "A comprehensive tutoring platform in Semarang featuring a student registration system, class scheduling, and an integrated tutor dashboard.",
+        tags: ["React", "Supabase", "Tailwind CSS", "Framer Motion"],
+        image: "/bosles-bimbel.png",
+        github: "https://github.com/VicoPratama/bosles-bimbel",
+        demo: "https://bosles-bimbel.vercel.app/"
+    },
+    {
         title: "BYD HAKA AUTO Meeting Room Booking System",
         description: "Providing a digitized, transparent, and real-time meeting room booking system for all HAKA Auto employees.",
         tags: ["Javascript", "Supabase", "Resend API"],
