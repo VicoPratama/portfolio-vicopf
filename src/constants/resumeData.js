@@ -11,12 +11,16 @@ Thesis Title: PERANCANGAN PROTOTYPE MENGGUNAKAN METODE DESIGN SPRINT (STUDI KASU
 export const experience = [
     {
         company: "PT Bumi Hijau Motor (BYD HAKA AUTO)",
-        role: "IT Corporate",
+        role: "ICT Corporate",
         location: "South Jakarta, Jakarta, Indonesia",
         year: "Nov 2025 - Present",
-        description: `● Designed and developed a complete room booking system website using Supabase, Resend Email API, and JavaScript, enabling real-time reservations, automated email notifications, and secure database management.
-● Implemented authentication, database CRUD operations, and automated email workflows to streamline internal room scheduling and reduce manual coordination.
-● Ensured responsive UI/UX, optimized frontend logic, and improved workflow efficiency through clean, maintainable code.`,
+        description: `●	Developed and maintained internal web applications end-to-end (frontend, backend, database, deployment).
+●	Built responsive and user-friendly interfaces, improving usability and cross-device compatibility.
+●	Integrated RESTful APIs and optimized data flow between frontend and backend systems.
+●	Deployed and managed applications using Vercel, ensuring performance and reliability.
+●	Implemented authentication and session management to enhance system security.
+●	Conducted testing, debugging, and system optimization to improve stability and performance.
+●	Supported ERP (Odoo) implementation by assisting system workflows, documentation, and process alignment.`,
         tech: ["Supabase", "JavaScript", "Resend API", "React", "Tailwind CSS", "Git"]
     },
     {
@@ -61,17 +65,9 @@ export const organizationalExperience = [
         organization: "Aussie Banget Corner University of Muhammadiyah Malang (Australia Corner)",
         role: "President/Chairperson",
         year: "Jan 2023 – Jan 2024",
-        description: `● Directed organizational strategy and execution, leading a team to enhance community engagement and achieve key organizational goals.
-    o Leadership and Planning: Directed monthly general meetings, implementing innovative formats and strategies that boosted member participation and collaboration.
-    o Program Optimization: Evaluated and enhanced existing programs while introducing new initiatives that diversified organizational offerings and addressed member needs.
-    o Partnership Development: Negotiated and secured external partnerships to increase community visibility and engagement, demonstrating strong public relations and collaboration skills.
-● Creative and Social Media Lead
-    o Design Excellence: Designed visually cohesive materials (e.g., Instagram feeds, ID cards, e-certificates, banners) that strengthened the organization’s brand identity, earning positive feedback from stakeholders and increasing engagement.
-    o Social Media Growth: Curated and managed Instagram content using strategic scheduling and analytics, achieving significant audience growth and sustained online engagement.
-    o Impact Measurement: Leveraged social media insights to optimize campaigns, ensuring maximum reach and meaningful interactions.
-● Achievements and Outcomes
-    o Increased community participation by developing partnerships and launching new initiatives.
-    o Improved brand recognition through innovative designs and effective content strategies.`
+        description: `●	Led organizational strategy and team coordination to improve engagement and program execution.
+●	Managed partnerships and external collaborations to expand community reach.
+●	Oversaw branding and social media content, improving audience engagement.`
     },
     {
         organization: "Foreign Policy Community of Indonesia Chapter UMM",
@@ -183,6 +179,7 @@ export const gear = [
             { name: "Editor", value: "VS Code, Antigravity", icon: "Code" },
             { name: "Terminal", value: "Windows Terminal (PowerShell)", icon: "Terminal" },
             { name: "Design", value: "Figma", icon: "Figma" },
+            { name: "AI Tools", value: "ChatGPT, Gemini, Claude AI, Antigravity", icon: "Brain" },
             { name: "Music", value: "Spotify", icon: "Music" }
         ]
     }

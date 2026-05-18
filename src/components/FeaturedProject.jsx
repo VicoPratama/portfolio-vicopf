@@ -41,10 +41,11 @@ const FeaturedProject = () => {
 
                     <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                         ADAS <br />
-                        <span className="text-gray-400">Helpdesk System (on progress)</span>
+                        <span className="text-gray-400">Helpdesk System</span>
                     </h2>
 
                     <p className="text-gray-300 text-lg leading-relaxed mb-8">
+                        <span className="text-accent-blue font-medium block mb-2 text-sm">🤝 In Collaboration with BYD HAKA Auto</span>
                         The official helpdesk system for HAKA Auto, providing a centralized platform for employees to report technical issues, request services, and track resolution progress in real-time.
                     </p>
 

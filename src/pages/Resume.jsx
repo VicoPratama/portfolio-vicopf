@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, ArrowLeft, Award, Code, Globe, Users, Cpu, Download, MapPin, Linkedin, Monitor, Mouse, Keyboard, Laptop, Music, HardDrive, Zap, Palette, Terminal } from 'lucide-react';
+import { Briefcase, GraduationCap, ArrowLeft, Award, Code, Globe, Users, Cpu, Download, MapPin, Linkedin, Monitor, Mouse, Keyboard, Laptop, Music, HardDrive, Zap, Palette, Terminal, Brain } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import SpotlightCard from '../components/SpotlightCard';
@@ -444,6 +444,7 @@ const Resume = () => {
                                                             {item.icon === "Gpu" && <Zap size={20} />}
                                                             {item.icon === "Storage" && <HardDrive size={20} />}
                                                             {item.icon === "Memory" && <Cpu size={20} className="rotate-90" />}
+                                                            {item.icon === "Brain" && <Brain size={20} />}
                                                         </div>
                                                         <div>
                                                             <p className="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wider font-semibold mb-0.5 transition-colors">{item.name}</p>
