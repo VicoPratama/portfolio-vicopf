@@ -1,15 +1,13 @@
-
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-
 
 const navLinks = [
     { name: 'Home', href: '/#home' },
     { name: 'About', href: '/#about' },
     { name: 'Projects', href: '/#projects' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'Services', href: '/#services' },
 ];
 
 const Navbar = () => {
@@ -42,13 +40,13 @@ const Navbar = () => {
         <nav
             className={`fixed z-50 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] 
             ${scrolled || isOpen
-                    ? 'top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-fit bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl py-3 px-6 shadow-2xl'
+                    ? 'top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-fit bg-white/5 backdrop-blur-xl/80 backdrop-blur-xl border border-white/10 rounded-[2rem] py-3 px-6 shadow-2xl'
                     : 'top-0 left-0 w-full bg-transparent py-6 px-6 md:px-12'
                 }`}
         >
             <div className={`flex items-center justify-between ${scrolled ? 'gap-6' : 'w-full max-w-7xl mx-auto'}`}>
 
-                {/* Brand - Hides when scrolled to save space, reappears at top */}
+                {/* Brand */}
                 <motion.div
                     animate={{
                         opacity: scrolled && !isOpen ? 0 : 1,
@@ -57,8 +55,8 @@ const Navbar = () => {
                     }}
                     transition={{ duration: 0.3 }}
                 >
-                    <Link to="/" className="text-2xl font-display font-bold text-gray-900 dark:text-white whitespace-nowrap transition-colors">
-                        Vico<span className="text-accent-blue">.</span>
+                    <Link to="/" className="text-2xl font-display font-bold text-white whitespace-nowrap">
+                        Vico<span className="text-teal-400">.</span>
                     </Link>
                 </motion.div>
 
@@ -69,19 +67,9 @@ const Navbar = () => {
                             {location.pathname === "/" ? (
                                 <a
                                     href={link.href.replace("/", "")}
-                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 
-                                    ${scrolled
-                                            ? 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'
-                                            : 'text-gray-300 hover:text-white' // Assuming hero is always dark initially or transparent? 
-                                        // Actually if hero is light in light mode, this needs fix. 
-                                        // The Home Hero is typically dark even in light mode designs unless we change it. 
-                                        // But let's assume standard behavior: light mode = light hero.
-                                        // So unscrolled text should be text-gray-900 dark:text-white
-                                        }`}
-                                    // Wait, the Home Hero will be updated to support Light Mode?
-                                    // If yes, then unscrolled text must contrast with background.
-                                    // If Home Hero stays dark, text stays light.
-                                    // Let's assume broad Light Mode update.
+                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                                        scrolled ? 'text-gray-400 hover:text-white hover:bg-white/10' : 'text-gray-300 hover:text-white'
+                                    }`}
                                     onClick={() => handleLinkClick(link.href)}
                                 >
                                     {link.name}
@@ -89,11 +77,9 @@ const Navbar = () => {
                             ) : (
                                 <Link
                                     to={link.href}
-                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 
-                                    ${scrolled
-                                            ? 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'
-                                            : 'text-gray-900 dark:text-gray-300 hover:text-accent-blue dark:hover:text-white'
-                                        }`}
+                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                                        scrolled ? 'text-gray-400 hover:text-white hover:bg-white/10' : 'text-gray-300 hover:text-white'
+                                    }`}
                                     onClick={() => handleLinkClick(link.href)}
                                 >
                                     {link.name}
@@ -102,25 +88,29 @@ const Navbar = () => {
                         </div>
                     ))}
 
-                    <div className="pl-2 border-l border-gray-200 dark:border-gray-700 ml-2 flex items-center gap-3">
+                    <div className="pl-2 border-l border-white/10 ml-2 flex items-center gap-3">
                         <Link
                             to="/resume"
-                            className={`px-5 py-2 rounded-full border text-sm font-medium transition-all duration-300
-                                ${scrolled
-                                    ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900 border-transparent hover:bg-gray-700 dark:hover:bg-gray-200'
-                                    : 'border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 dark:hover:bg-white hover:text-white dark:hover:text-gray-900'
-                                }`}
+                            className="px-5 py-2 rounded-full border border-white/20 text-white text-sm font-medium transition-all duration-300 hover:bg-white/10"
                             onClick={() => setIsOpen(false)}
                         >
                             Resume
                         </Link>
+                        <a
+                            href="/#contact"
+                            className="flex items-center gap-2 px-5 py-2 rounded-full bg-white text-black text-sm font-bold transition-all duration-300 hover:bg-gray-200"
+                            onClick={() => handleLinkClick('/#contact')}
+                        >
+                            Let's Talk
+                            <ArrowUpRight size={16} />
+                        </a>
                     </div>
                 </div>
 
                 {/* Mobile Toggle */}
                 <div className="flex items-center md:hidden ml-auto gap-4">
                     <button
-                        className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-1 transition-colors"
+                        className="text-white hover:text-gray-300 p-1 transition-colors"
                         onClick={() => setIsOpen(!isOpen)}
                     >
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -143,7 +133,7 @@ const Navbar = () => {
                                     {location.pathname === "/" ? (
                                         <a
                                             href={link.href.replace("/", "")}
-                                            className="block px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-base font-medium transition-colors"
+                                            className="block px-4 py-3 rounded-xl hover:bg-white/5 text-gray-300 hover:text-white text-base font-medium transition-colors"
                                             onClick={() => handleLinkClick(link.href)}
                                         >
                                             {link.name}
@@ -151,7 +141,7 @@ const Navbar = () => {
                                     ) : (
                                         <Link
                                             to={link.href}
-                                            className="block px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-base font-medium transition-colors"
+                                            className="block px-4 py-3 rounded-xl hover:bg-white/5 text-gray-300 hover:text-white text-base font-medium transition-colors"
                                             onClick={() => handleLinkClick(link.href)}
                                         >
                                             {link.name}
@@ -161,11 +151,19 @@ const Navbar = () => {
                             ))}
                             <Link
                                 to="/resume"
-                                className="block px-4 py-3 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-center text-base font-bold mt-2 hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                                className="block px-4 py-3 rounded-xl border border-white/20 text-white text-center text-base font-medium mt-2 hover:bg-white/10 transition-colors"
                                 onClick={() => setIsOpen(false)}
                             >
                                 Resume
                             </Link>
+                            <a
+                                href="/#contact"
+                                className="block px-4 py-3 rounded-xl bg-white text-black text-center text-base font-bold mt-2 hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
+                                onClick={() => handleLinkClick('/#contact')}
+                            >
+                                Let's Talk
+                                <ArrowUpRight size={16} />
+                            </a>
                         </div>
                     </motion.div>
                 )}

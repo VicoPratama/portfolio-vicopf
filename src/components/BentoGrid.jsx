@@ -60,7 +60,7 @@ const BentoGrid = () => {
                     className="mb-12"
                 >
                     <h2 className="font-display text-4xl font-bold text-white mb-4 tracking-tight">
-                        Beyond the <span className="text-accent-blue">Code</span>
+                        Beyond the <span className="text-teal-400">Code</span>
                     </h2>
                     <p className="text-gray-400 max-w-2xl text-lg font-light">
                         A glimpse into my world, designing for the future.
@@ -91,7 +91,7 @@ const BentoGrid = () => {
                             </motion.div>
                             <motion.div
                                 animate={{ y: isDay ? -100 : 0, opacity: isDay ? 0 : 1 }}
-                                className="absolute top-8 right-8 text-blue-200"
+                                className="absolute top-8 right-8 text-pink-500lue-200"
                             >
                                 <Moon size={32} className="drop-shadow-[0_0_15px_rgba(191,219,254,0.5)]" />
                             </motion.div>
@@ -106,7 +106,7 @@ const BentoGrid = () => {
                                     <div className="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/10 shadow-lg">
                                         <MapPin className="text-white w-6 h-6" />
                                     </div>
-                                    <div className="bg-black/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/5 flex items-center gap-2">
+                                    <div className="bg-black/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
                                         <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                                         <span className="text-xs font-mono text-white/90 tabular-nums">
                                             {formatTime(time)}
@@ -119,7 +119,7 @@ const BentoGrid = () => {
                                     <p className="text-4xl font-display font-bold text-white tracking-tight">South Jakarta</p>
                                     <p className="text-white/80 text-lg font-light mt-1 flex items-center gap-2">
                                         Indonesia
-                                        <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 border border-white/5">
+                                        <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 border border-white/10">
                                             {greeting}
                                         </span>
                                     </p>
@@ -180,7 +180,7 @@ const BentoGrid = () => {
                         <h3 className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-4">My Arsenal</h3>
                         <div className="flex flex-wrap gap-2">
                             {['VS Code', 'Figma', 'Windows', 'Coffee', 'Spotify'].map(item => (
-                                <span key={item} className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-medium text-gray-200 border border-white/5 transition-colors">
+                                <span key={item} className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-medium text-gray-200 border border-white/10 transition-colors">
                                     {item}
                                 </span>
                             ))}
@@ -195,7 +195,7 @@ const BentoGrid = () => {
                         transition={{ delay: 0.25 }}
                         className="col-span-1 md:col-span-1 row-span-1 grid grid-cols-2 gap-3 relative z-20"
                     >
-                        <a href="https://github.com/VicoPratama" target="_blank" className="bg-gray-900/40 backdrop-blur-xl rounded-2xl border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 group shadow-lg">
+                        <a href="https://github.com/VicoPratama" target="_blank" className="bg-gray-900/40 backdrop-blur-xl rounded-2xl border border-white/10 flex items-center justify-center hover:bg-white hover:text-pink-500lack transition-all duration-300 group shadow-lg">
                             <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
                         </a>
                         <a href="https://www.linkedin.com/in/vico-pratama-fajareno-424a401a4/" target="_blank" className="bg-gray-900/40 backdrop-blur-xl rounded-2xl border border-white/10 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-all duration-300 group shadow-lg">

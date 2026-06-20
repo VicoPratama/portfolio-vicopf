@@ -9,6 +9,8 @@ import CurrentLearning from '../components/CurrentLearning';
 import FAQ from '../components/FAQ';
 import BentoGrid from '../components/BentoGrid';
 import Timeline from '../components/Timeline';
+import Clients from '../components/Clients';
+
 const Home = () => {
     return (
         <>
@@ -17,6 +19,7 @@ const Home = () => {
             <About />
             <Timeline />
             <BentoGrid />
+            <Clients />
             <Services />
             <FeaturedProject />
             <CurrentLearning />

@@ -30,7 +30,7 @@ const TechMarquee = () => {
                                 <span className="text-2xl md:text-3xl font-bold text-gray-700 group-hover:text-gray-400 transition-colors cursor-default">
                                     {skill}
                                 </span>
-                                <span className="text-accent-blue text-xl opacity-40">•</span>
+                                <span className="text-teal-400 text-xl opacity-40">•</span>
                             </div>
                         ))}
                     </motion.div>

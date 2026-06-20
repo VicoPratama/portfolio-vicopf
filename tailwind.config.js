@@ -13,7 +13,8 @@ export default {
                 mono: ['JetBrains Mono', 'monospace'],
             },
             colors: {
-                'accent-blue': '#3b82f6', // blue-500
+                'accent-blue': '#2dd4bf', // teal-400 (repurposed for global teal)
+                'accent-pink': '#f43f5e', // rose-500
             }
         },
     },

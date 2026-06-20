@@ -4,6 +4,7 @@ import Lenis from 'lenis';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Resume from './pages/Resume';
+import ProjectDetail from './pages/ProjectDetail';
 import Footer from './components/Footer';
 import NotFound from './pages/NotFound';
 
@@ -35,12 +36,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="bg-gray-50 dark:bg-gray-950 min-h-screen text-gray-900 dark:text-gray-100 selection:bg-accent-blue selection:text-white transition-colors duration-300">
+      <div className="bg-gray-50 dark:bg-gray-950 min-h-screen text-gray-900 dark:text-gray-100 selection:bg-teal-400 text-black selection:text-white transition-colors duration-300">
         <Navbar />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/resume" element={<Resume />} />
+            <Route path="/project/:id" element={<ProjectDetail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

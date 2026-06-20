@@ -5,8 +5,12 @@ import { ExternalLink, Github, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const FeaturedProject = () => {
     return (
-        <SectionWrapper id="featured-project" className="bg-gray-950 border-b border-gray-800/50">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <SectionWrapper id="featured-project" className="bg-[#0a0a0a] py-24 relative overflow-hidden">
+            {/* Ambient Glows */}
+            <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-teal-500/10 rounded-full blur-[100px] pointer-events-none -translate-y-1/2" />
+            <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-pink-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-7xl mx-auto relative z-10">
 
                 {/* Image Side */}
                 <motion.div
@@ -16,14 +20,14 @@ const FeaturedProject = () => {
                     transition={{ duration: 0.6 }}
                     className="relative group "
                 >
-                    <div className="absolute -inset-4 bg-gradient-to-r from-accent-blue/30 to-purple-500/30 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-500" />
-                    <div className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-800">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-teal-400/20 to-pink-500/20 rounded-[2.5rem] blur-xl opacity-50 group-hover:opacity-100 transition duration-500 pointer-events-none" />
+                    <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-xl">
                         <img
                             src="/adas-helpdesk-dashboard.png"
                             alt="ADAS Helpdesk System"
-                            className="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700"
+                            className="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700 opacity-90 group-hover:opacity-100"
                         />
-                        <div className="absolute inset-0 bg-gray-950/20 group-hover:bg-transparent transition duration-300" />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-300 pointer-events-none" />
                     </div>
                 </motion.div>
 
@@ -35,17 +39,17 @@ const FeaturedProject = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
                     <div className="flex items-center gap-2 mb-4">
-                        <span className="w-12 h-[1px] bg-accent-blue" />
-                        <span className="text-accent-blue uppercase tracking-widest text-sm font-semibold">Featured Project</span>
+                        <span className="w-12 h-[2px] bg-teal-400" />
+                        <span className="text-teal-400 uppercase tracking-widest text-sm font-bold">Featured Project</span>
                     </div>
 
-                    <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    <h2 className="font-display text-4xl md:text-5xl font-black text-white mb-6 leading-tight tracking-tight uppercase">
                         ADAS <br />
-                        <span className="text-gray-400">Helpdesk System</span>
+                        <span className="text-transparent" style={{ WebkitTextStroke: '2px #f43f5e' }}>Helpdesk System</span>
                     </h2>
 
-                    <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                        <span className="text-accent-blue font-medium block mb-2 text-sm">🤝 In Collaboration with BYD HAKA Auto</span>
+                    <p className="text-gray-400 text-lg leading-relaxed mb-8 font-light">
+                        <span className="text-pink-500 font-bold block mb-2 text-sm tracking-wide">🤝 IN COLLABORATION WITH BYD HAKA AUTO</span>
                         The official helpdesk system for HAKA Auto, providing a centralized platform for employees to report technical issues, request services, and track resolution progress in real-time.
                     </p>
 
@@ -56,27 +60,27 @@ const FeaturedProject = () => {
                             "Admin Dashboard & Analytics",
                             "SLA Performance Monitoring"
                         ].map((item, i) => (
-                            <div key={i} className="flex items-center gap-2 text-gray-400">
-                                <CheckCircle2 className="w-4 h-4 text-accent-blue" />
-                                <span className="text-sm">{item}</span>
+                            <div key={i} className="flex items-center gap-3 text-gray-400">
+                                <CheckCircle2 className="w-5 h-5 text-teal-400 flex-shrink-0" />
+                                <span className="text-sm font-medium">{item}</span>
                             </div>
                         ))}
                     </div>
 
                     <div className="flex flex-wrap gap-3 mb-10">
                         {["React", "Tailwind CSS", "Supabase", "Vite"].map(tag => (
-                            <span key={tag} className="px-4 py-1.5 rounded-full bg-gray-900 border border-gray-800 text-gray-300 text-sm font-mono">
+                            <span key={tag} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-sm font-semibold hover:border-teal-400 hover:text-teal-400 transition-colors cursor-default">
                                 {tag}
                             </span>
                         ))}
                     </div>
 
-                    <div className="flex gap-4">
+                    <div className="flex flex-wrap gap-4">
                         <Button
                             href="https://adas-helpdesk-hakaauto.vercel.app/"
                             target="_blank"
                             variant="primary"
-                            className="group bg-white text-black hover:bg-gray-100"
+                            className="group bg-teal-400 text-black hover:bg-teal-300 hover:shadow-[0_0_20px_rgba(45,212,191,0.4)] transition-all font-bold rounded-full py-3.5 px-6 border-none"
                         >
                             Live Demo
                             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -84,8 +88,8 @@ const FeaturedProject = () => {
                         <Button
                             href="https://github.com/ict-bumiauto/hakaauto-ruang"
                             target="_blank"
-                            variant="outline"
-                            className="border-gray-700 text-white hover:border-white hover:bg-transparent"
+                            variant="secondary"
+                            className="bg-white/5 backdrop-blur-md text-white border border-white/10 hover:border-pink-500/50 hover:bg-pink-500/10 hover:text-pink-400 transition-all font-bold rounded-full py-3.5 px-6"
                         >
                             <Github className="w-4 h-4 mr-2" />
                             Source Code
