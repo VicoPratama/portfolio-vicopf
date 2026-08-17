@@ -21,7 +21,7 @@ const Hero = () => {
                             
                             <div className="relative z-10 w-full aspect-[4/5] rounded-t-full rounded-b-[2rem] overflow-hidden mb-8 border-[6px] border-zblack">
                                 <img 
-                                    src="/foto_profile.JPG" 
+                                    src="/IMG_6335.JPEG" 
                                     alt="Vico Pratama" 
                                     className="w-full h-full object-cover object-top"
                                 />
