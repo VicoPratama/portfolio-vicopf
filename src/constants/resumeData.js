@@ -178,9 +178,9 @@ export const gear = [
         items: [
             { name: "Editor", value: "VS Code, Antigravity", icon: "Code" },
             { name: "Terminal", value: "Windows Terminal (PowerShell)", icon: "Terminal" },
-            { name: "Design", value: "Figma", icon: "Figma" },
-            { name: "AI Tools", value: "ChatGPT, Gemini, Claude AI, Antigravity", icon: "Brain" },
-            { name: "Music", value: "Spotify", icon: "Music" }
+            { name: "Design", value: "Figma, Canva", icon: "Figma" },
+            { name: "AI Tools", value: "ChatGPT, Gemini, Claude AI", icon: "Brain" },
+            { name: "Music", value: "Spotify, YouTube Music, Apple Music", icon: "Music" }
         ]
     }
 ];

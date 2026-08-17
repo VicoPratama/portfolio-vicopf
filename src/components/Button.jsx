@@ -5,8 +5,8 @@ const Button = ({ children, onClick, href, variant = 'primary', className = '', 
 
     const variants = {
         primary: "bg-white text-gray-900 hover:bg-gray-100 shadow-lg hover:shadow-xl border border-transparent",
-        secondary: "bg-gray-800 border border-gray-700 text-gray-300 hover:bg-gray-700 hover:text-white hover:border-gray-600",
-        outline: "bg-transparent border border-gray-600 text-gray-300 hover:border-white hover:text-white hover:bg-white/5"
+        secondary: "bg-gray-800 border border-gray-700 text-zblack/80 hover:bg-gray-700 hover:text-zblack hover:border-gray-600",
+        outline: "bg-transparent border border-gray-600 text-zblack/80 hover:border-white hover:text-zblack hover:bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212]"
     };
 
     const content = (

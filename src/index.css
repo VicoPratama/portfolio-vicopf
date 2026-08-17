@@ -9,10 +9,12 @@
   /* gray-100 */
   --color-accent-gold: #000000;
   /* black */
-  --color-teal-400: #2dd4bf;
-  /* teal-400 */
-  --color-pink-500: #f43f5e;
-  /* pink-500 */
+  --color-zlime: #ccff00;
+  --color-zpurple: #b388ff;
+  --color-zblack: #121212;
+  --color-zgray: #1e1e1e;
+  --color-zcard: #252525;
+  --color-zlight: #f4f4f5;
 
   --font-display: "Space Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -41,13 +43,14 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: #f4f4f5;
+  color: #121212;
 }
 
 /* Custom Utilities */
 .glass-panel {
-  background: rgba(17, 24, 39, 0.7);
-  /* gray-900 with opacity */
-  backdrop-filter: blur(12px);
+  background: #111827;
+  /* solid gray-900 */
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 

@@ -38,7 +38,7 @@ const TimelineItem = ({ item, index, isExpanded, onToggle }) => {
     const number = String(index + 1).padStart(2, '0');
 
     return (
-        <div className="border-b border-white/10 py-6 md:py-8 group">
+        <div className="border-b border-zblack py-6 md:py-8 group">
             <div 
                 className="flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer"
                 onClick={onToggle}
@@ -46,18 +46,18 @@ const TimelineItem = ({ item, index, isExpanded, onToggle }) => {
                 <div className="flex items-start md:items-center gap-6 md:gap-12 md:w-1/3">
                     <span className="text-xl md:text-2xl font-display text-gray-500 font-bold">{number}</span>
                     <div>
-                        <span className="text-xs text-teal-400 uppercase tracking-wider font-semibold mb-1 block">{item.year}</span>
-                        <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-teal-400 transition-colors">{item.title}</h3>
+                        <span className="text-xs text-zlime uppercase tracking-wider font-semibold mb-1 block">{item.year}</span>
+                        <h3 className="text-xl md:text-2xl font-bold text-zblack group-hover:text-zlime transition-colors">{item.title}</h3>
                     </div>
                 </div>
 
                 <div className="md:w-1/3 text-left">
                     <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1 block">Role</span>
-                    <p className="text-gray-300 font-medium">{item.subtitle}</p>
+                    <p className="text-zblack/80 font-medium">{item.subtitle}</p>
                 </div>
 
                 <div className="flex justify-end md:w-auto">
-                    <button className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors text-sm font-medium">
+                    <button className="flex items-center gap-2 px-4 py-2 rounded-full border-[3px] border-zblack text-zblack hover:bg-white/10 transition-colors text-sm font-medium">
                         {isExpanded ? 'Hide' : 'Show'} 
                         {isExpanded ? <Minus size={16} /> : <Plus size={16} />}
                     </button>
@@ -74,11 +74,11 @@ const TimelineItem = ({ item, index, isExpanded, onToggle }) => {
                         className="overflow-hidden"
                     >
                         <div className="pt-6 md:pt-8 md:pl-[110px]">
-                            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-2xl flex items-start gap-4">
-                                <div className="bg-white/5 p-3 rounded-xl shrink-0">
-                                    <item.icon className="w-6 h-6 text-teal-400" />
+                            <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack p-6 rounded-2xl flex items-start gap-4">
+                                <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] p-3 rounded-xl shrink-0">
+                                    <item.icon className="w-6 h-6 text-zlime" />
                                 </div>
-                                <p className="text-gray-400 leading-relaxed font-light mt-1">
+                                <p className="text-zblack/70 leading-relaxed font-light mt-1">
                                     {item.description}
                                 </p>
                             </div>
@@ -94,20 +94,20 @@ const Timeline = () => {
     const [expandedIndex, setExpandedIndex] = useState(0); // First item expanded by default
 
     return (
-        <SectionWrapper id="journey" className="bg-[#0a0a0a] py-24">
+        <SectionWrapper id="journey" className="bg-[#f4f4f5] py-24">
             <div className="max-w-6xl mx-auto">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-lg leading-tight"
+                        className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-zblack max-w-lg leading-tight"
                     >
                         A Yearly Snapshot Of My <br/> Creative Growth
                     </motion.h2>
                 </div>
 
-                <div className="border-t border-white/10">
+                <div className="border-t border-zblack">
                     {TimelineData.map((item, index) => (
                         <TimelineItem 
                             key={index} 

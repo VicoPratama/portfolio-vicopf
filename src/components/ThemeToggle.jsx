@@ -16,7 +16,7 @@ const ThemeToggle = () => {
                         }`}
                 />
                 <Moon
-                    className={`absolute inset-0 w-full h-full text-teal-400 transition-all duration-300 transform ${theme === "dark" ? "rotate-0 opacity-100 scale-100" : "-rotate-90 opacity-0 scale-50"
+                    className={`absolute inset-0 w-full h-full text-zlime transition-all duration-300 transform ${theme === "dark" ? "rotate-0 opacity-100 scale-100" : "-rotate-90 opacity-0 scale-50"
                         }`}
                 />
             </div>

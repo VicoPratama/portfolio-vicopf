@@ -8,7 +8,7 @@ const skills = [
 
 const TechMarquee = () => {
     return (
-        <section className="py-10 bg-gray-950 overflow-hidden border-y border-gray-800/50">
+        <section className="py-10 bg-[#f4f4f5] overflow-hidden border-y border-gray-800/50">
             <div className="max-w-7xl mx-auto px-4 relative">
 
                 <div
@@ -27,10 +27,10 @@ const TechMarquee = () => {
                         {/* Double the list to create seamless loop */}
                         {[...skills, ...skills].map((skill, index) => (
                             <div key={index} className="flex items-center gap-2 group">
-                                <span className="text-2xl md:text-3xl font-bold text-gray-700 group-hover:text-gray-400 transition-colors cursor-default">
+                                <span className="text-2xl md:text-3xl font-bold text-gray-700 group-hover:text-zblack/70 transition-colors cursor-default">
                                     {skill}
                                 </span>
-                                <span className="text-teal-400 text-xl opacity-40">•</span>
+                                <span className="text-zlime text-xl opacity-40">•</span>
                             </div>
                         ))}
                     </motion.div>

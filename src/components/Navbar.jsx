@@ -40,7 +40,7 @@ const Navbar = () => {
         <nav
             className={`fixed z-50 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] 
             ${scrolled || isOpen
-                    ? 'top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-fit bg-white/5 backdrop-blur-xl/80 backdrop-blur-xl border border-white/10 rounded-[2rem] py-3 px-6 shadow-2xl'
+                    ? 'top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-fit bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl/80 backdrop-blur-xl border-[3px] border-zblack rounded-[2rem] py-3 px-6 shadow-2xl'
                     : 'top-0 left-0 w-full bg-transparent py-6 px-6 md:px-12'
                 }`}
         >
@@ -55,8 +55,8 @@ const Navbar = () => {
                     }}
                     transition={{ duration: 0.3 }}
                 >
-                    <Link to="/" className="text-2xl font-display font-bold text-white whitespace-nowrap">
-                        Vico<span className="text-teal-400">.</span>
+                    <Link to="/" className="text-2xl font-display font-bold text-zblack whitespace-nowrap">
+                        Vico<span className="text-zlime">.</span>
                     </Link>
                 </motion.div>
 
@@ -68,7 +68,7 @@ const Navbar = () => {
                                 <a
                                     href={link.href.replace("/", "")}
                                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                                        scrolled ? 'text-gray-400 hover:text-white hover:bg-white/10' : 'text-gray-300 hover:text-white'
+                                        scrolled ? 'text-zblack/70 hover:text-zblack hover:bg-white/10' : 'text-zblack/80 hover:text-zblack'
                                     }`}
                                     onClick={() => handleLinkClick(link.href)}
                                 >
@@ -78,7 +78,7 @@ const Navbar = () => {
                                 <Link
                                     to={link.href}
                                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                                        scrolled ? 'text-gray-400 hover:text-white hover:bg-white/10' : 'text-gray-300 hover:text-white'
+                                        scrolled ? 'text-zblack/70 hover:text-zblack hover:bg-white/10' : 'text-zblack/80 hover:text-zblack'
                                     }`}
                                     onClick={() => handleLinkClick(link.href)}
                                 >
@@ -88,10 +88,10 @@ const Navbar = () => {
                         </div>
                     ))}
 
-                    <div className="pl-2 border-l border-white/10 ml-2 flex items-center gap-3">
+                    <div className="pl-2 border-l border-zblack ml-2 flex items-center gap-3">
                         <Link
                             to="/resume"
-                            className="px-5 py-2 rounded-full border border-white/20 text-white text-sm font-medium transition-all duration-300 hover:bg-white/10"
+                            className="px-5 py-2 rounded-full border-[3px] border-zblack text-zblack text-sm font-medium transition-all duration-300 hover:bg-white/10"
                             onClick={() => setIsOpen(false)}
                         >
                             Resume
@@ -110,7 +110,7 @@ const Navbar = () => {
                 {/* Mobile Toggle */}
                 <div className="flex items-center md:hidden ml-auto gap-4">
                     <button
-                        className="text-white hover:text-gray-300 p-1 transition-colors"
+                        className="text-zblack hover:text-zblack/80 p-1 transition-colors"
                         onClick={() => setIsOpen(!isOpen)}
                     >
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -133,7 +133,7 @@ const Navbar = () => {
                                     {location.pathname === "/" ? (
                                         <a
                                             href={link.href.replace("/", "")}
-                                            className="block px-4 py-3 rounded-xl hover:bg-white/5 text-gray-300 hover:text-white text-base font-medium transition-colors"
+                                            className="block px-4 py-3 rounded-xl hover:bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] text-zblack/80 hover:text-zblack text-base font-medium transition-colors"
                                             onClick={() => handleLinkClick(link.href)}
                                         >
                                             {link.name}
@@ -141,7 +141,7 @@ const Navbar = () => {
                                     ) : (
                                         <Link
                                             to={link.href}
-                                            className="block px-4 py-3 rounded-xl hover:bg-white/5 text-gray-300 hover:text-white text-base font-medium transition-colors"
+                                            className="block px-4 py-3 rounded-xl hover:bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] text-zblack/80 hover:text-zblack text-base font-medium transition-colors"
                                             onClick={() => handleLinkClick(link.href)}
                                         >
                                             {link.name}
@@ -151,7 +151,7 @@ const Navbar = () => {
                             ))}
                             <Link
                                 to="/resume"
-                                className="block px-4 py-3 rounded-xl border border-white/20 text-white text-center text-base font-medium mt-2 hover:bg-white/10 transition-colors"
+                                className="block px-4 py-3 rounded-xl border-[3px] border-zblack text-zblack text-center text-base font-medium mt-2 hover:bg-white/10 transition-colors"
                                 onClick={() => setIsOpen(false)}
                             >
                                 Resume

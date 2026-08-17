@@ -29,16 +29,16 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="border-b border-white/10 last:border-0"
+            className="border-b border-zblack last:border-0"
         >
             <button
                 onClick={onClick}
                 className="w-full py-6 flex items-center justify-between text-left focus:outline-none group"
             >
-                <span className={`font-medium text-lg transition-colors ${isOpen ? 'text-white' : 'text-gray-400 group-hover:text-white'}`}>
+                <span className={`font-medium text-lg transition-colors ${isOpen ? 'text-zblack' : 'text-zblack/70 group-hover:text-zblack'}`}>
                     {question}
                 </span>
-                <span className={`ml-4 flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all ${isOpen ? 'bg-teal-400 text-black text-white' : 'bg-white/5 text-gray-400 group-hover:bg-white/10'}`}>
+                <span className={`ml-4 flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all ${isOpen ? 'bg-zlime text-black text-zblack' : 'bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] text-zblack/70 group-hover:bg-white/10'}`}>
                     {isOpen ? <Minus size={16} /> : <Plus size={16} />}
                 </span>
             </button>
@@ -50,7 +50,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }) => {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                        <div className="pb-6 text-gray-400 leading-relaxed pr-12">
+                        <div className="pb-6 text-zblack/70 leading-relaxed pr-12">
                             {answer}
                         </div>
                     </motion.div>
@@ -64,7 +64,7 @@ const FAQ = () => {
     const [openIndex, setOpenIndex] = useState(0);
 
     return (
-        <SectionWrapper id="faq" className="bg-[#0a0a0a] py-24">
+        <SectionWrapper id="faq" className="bg-[#f4f4f5] py-24">
             <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-24">
                     
@@ -74,7 +74,7 @@ const FAQ = () => {
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+                            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-zblack mb-6 leading-tight"
                         >
                             Got Questions? We've <br/> Got Answers.
                         </motion.h2>
@@ -83,7 +83,7 @@ const FAQ = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-gray-400 mb-8 font-light"
+                            className="text-zblack/70 mb-8 font-light"
                         >
                             Find answers to common questions about my services, process, and technical capabilities.
                         </motion.p>
@@ -91,7 +91,7 @@ const FAQ = () => {
 
                     {/* Accordion List */}
                     <div>
-                        <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-white/10">
+                        <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl rounded-3xl p-6 md:p-8 border-[3px] border-zblack">
                             {faqs.map((faq, index) => (
                                 <FAQItem
                                     key={index}

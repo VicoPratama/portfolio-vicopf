@@ -5,7 +5,7 @@ import Button from '../components/Button';
 
 const NotFound = () => {
     return (
-        <div className="min-h-screen bg-gray-950 flex flex-col items-center justify-center px-4 text-center">
+        <div className="min-h-screen bg-[#f4f4f5] flex flex-col items-center justify-center px-4 text-center">
             <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -20,7 +20,7 @@ const NotFound = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="font-display text-3xl md:text-4xl font-bold text-white mb-6"
+                className="font-display text-3xl md:text-4xl font-bold text-zblack mb-6"
             >
                 Page Not Found
             </motion.h2>
@@ -29,7 +29,7 @@ const NotFound = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-gray-400 text-lg mb-10 max-w-md"
+                className="text-zblack/70 text-lg mb-10 max-w-md"
             >
                 Oops! The page you are looking for keeps drifting into the void. Let's get you back to familiar ground.
             </motion.p>
@@ -49,7 +49,7 @@ const NotFound = () => {
 
             {/* Background decoration */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-teal-400 text-black/5 rounded-full blur-3xl opacity-20 animate-pulse" />
+                <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-zlime text-black/5 rounded-full blur-3xl opacity-20 animate-pulse" />
                 <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl opacity-20 animate-pulse delay-1000" />
             </div>
         </div>

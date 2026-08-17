@@ -41,32 +41,32 @@ const Projects = () => {
     };
 
     const tagColors = [
-        "bg-teal-500/10 text-teal-400 border-teal-500/20",
-        "bg-pink-500/10 text-pink-400 border-pink-500/20",
-        "bg-white/10 text-gray-300 border-white/20"
+        "bg-zlime/10 text-zlime border-zlime/20",
+        "bg-zpurple/10 text-zpurple border-zpurple/20",
+        "bg-white/10 text-zblack/80 border-zblack"
     ];
 
     return (
-        <SectionWrapper id="projects" className="bg-[#0a0a0a] py-24 overflow-hidden relative">
+        <SectionWrapper id="projects" className="bg-[#f4f4f5] py-24 overflow-hidden relative">
             {/* Ambient Background Glows */}
-            <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-pink-500/10 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-teal-500/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-zpurple/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-zlime/10 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="mb-12 text-center max-w-3xl mx-auto px-4 relative z-10">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="font-display text-4xl md:text-5xl font-black mb-6 text-white leading-tight uppercase tracking-tight"
+                    className="font-display text-4xl md:text-5xl font-black mb-6 text-zblack leading-tight uppercase tracking-tight"
                 >
-                    Explore My <span className="text-transparent" style={{ WebkitTextStroke: '2px #f43f5e' }}>Expert Portfolio</span> <br/> Of Creative Solutions
+                    Explore My <span className="text-transparent" style={{ WebkitTextStroke: '2px var(--color-zpurple)' }}>Expert Portfolio</span> <br/> Of Creative Solutions
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    className="text-gray-400 font-light"
+                    className="text-zblack/70 font-light"
                 >
                     A collection of projects showcasing my capabilities in design and development.
                 </motion.p>
@@ -85,8 +85,8 @@ const Projects = () => {
                         onClick={() => setActiveFilter(category)}
                         className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                             activeFilter === category 
-                                ? 'bg-teal-400 text-black shadow-[0_0_20px_rgba(45,212,191,0.3)]' 
-                                : 'bg-white/5 backdrop-blur-md text-gray-400 border border-white/10 hover:border-teal-500/50 hover:text-teal-400'
+                                ? 'bg-zlime text-black shadow-[0_0_20px_rgba(45,212,191,0.3)]' 
+                                : 'bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-md text-zblack/70 border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zlime)]/50 hover:text-zlime'
                         }`}
                     >
                         {category}
@@ -178,7 +178,7 @@ const Projects = () => {
                             }}
                         >
                             <Card 
-                                className={`flex flex-col w-full h-[580px] group bg-white/5 backdrop-blur-xl border ${isCenter ? 'border-white/20 shadow-2xl shadow-teal-500/10' : 'border-white/5'} rounded-[2rem] p-4 transition-all duration-500 overflow-hidden ${!isCenter && 'cursor-pointer hover:border-teal-500/50'}`}
+                                className={`flex flex-col w-full h-[580px] group bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border ${isCenter ? 'border-zblack shadow-2xl shadow-zlime/10' : 'border-zblack'} rounded-[2rem] p-4 transition-all duration-500 overflow-hidden ${!isCenter && 'cursor-pointer hover:shadow-[4px_4px_0px_0px_var(--color-zlime)]/50'}`}
                                 onClick={isCenter ? null : undefined}
                             >
                                 {/* Image Container */}
@@ -189,15 +189,15 @@ const Projects = () => {
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                     />
                                     
-                                    <div className="absolute bottom-3 right-3 bg-[#0a0a0a]/90 backdrop-blur-md text-white border border-white/10 px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
-                                        <ExternalLink size={12} className="stroke-[3] text-teal-400" />
+                                    <div className="absolute bottom-3 right-3 bg-[#f4f4f5]/90 backdrop-blur-md text-zblack border-[3px] border-zblack px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
+                                        <ExternalLink size={12} className="stroke-[3] text-zlime" />
                                         {project.subtitle || "Case Study"}
                                     </div>
                                 </div>
 
                                 {/* Content Area */}
                                 <div className="flex-1 flex flex-col px-2 w-full">
-                                    <h3 className={`font-display font-bold text-white tracking-tight transition-all duration-500 ${isCenter ? 'text-xl mb-4' : 'text-lg text-center'}`}>
+                                    <h3 className={`font-display font-bold text-zblack tracking-tight transition-all duration-500 ${isCenter ? 'text-xl mb-4' : 'text-lg text-center'}`}>
                                         {project.title}
                                     </h3>
                                     
@@ -224,9 +224,9 @@ const Projects = () => {
                                                 </div>
 
                                                 {/* Detail Box */}
-                                                <div className="bg-white/5 rounded-2xl p-4 mb-6 w-full border border-white/5 flex-1 max-h-[120px] overflow-hidden">
-                                                    <span className="text-xs font-bold text-pink-500 block mb-2 tracking-wider">Detail :</span>
-                                                    <p className="text-sm text-gray-400 leading-relaxed font-light line-clamp-2">
+                                                <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-2xl p-4 mb-6 w-full border-[3px] border-zblack flex-1 max-h-[120px] overflow-hidden">
+                                                    <span className="text-xs font-bold text-zpurple block mb-2 tracking-wider">Detail :</span>
+                                                    <p className="text-sm text-zblack/70 leading-relaxed font-light line-clamp-2">
                                                         {project.description}
                                                     </p>
                                                 </div>
@@ -236,7 +236,7 @@ const Projects = () => {
                                                     <Button
                                                         href={`/project/${project.id}`}
                                                         variant="primary"
-                                                        className="w-full max-w-[200px] py-3.5 rounded-full bg-teal-400 text-black hover:bg-teal-300 font-bold text-sm shadow-lg hover:shadow-teal-400/20 transition-all border-none flex items-center justify-center"
+                                                        className="w-full max-w-[200px] py-3.5 rounded-full bg-zlime text-black hover:bg-zlime font-bold text-sm shadow-lg hover:shadow-zlime/20 transition-all border-none flex items-center justify-center"
                                                         onClick={(e) => {
                                                             e.preventDefault();
                                                             navigate(`/project/${project.id}`);
@@ -259,13 +259,13 @@ const Projects = () => {
                     <div className="absolute top-1/2 -translate-y-1/2 w-full max-w-6xl flex justify-between px-4 md:px-8 pointer-events-none z-40">
                         <button 
                             onClick={prevSlide} 
-                            className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 bg-white/5 backdrop-blur-md hover:bg-teal-400 hover:text-black border border-white/10 hover:border-teal-400 rounded-full flex items-center justify-center text-white transition-all shadow-xl hover:scale-105"
+                            className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-md hover:bg-zlime hover:text-black border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zlime)] rounded-full flex items-center justify-center text-zblack transition-all shadow-xl hover:scale-105"
                         >
                             <ChevronLeft size={24} />
                         </button>
                         <button 
                             onClick={nextSlide} 
-                            className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 bg-white/5 backdrop-blur-md hover:bg-teal-400 hover:text-black border border-white/10 hover:border-teal-400 rounded-full flex items-center justify-center text-white transition-all shadow-xl hover:scale-105"
+                            className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-md hover:bg-zlime hover:text-black border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zlime)] rounded-full flex items-center justify-center text-zblack transition-all shadow-xl hover:scale-105"
                         >
                             <ChevronRight size={24} />
                         </button>

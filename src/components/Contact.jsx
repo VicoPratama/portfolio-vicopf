@@ -33,14 +33,14 @@ const Contact = () => {
     };
 
     const contactInfo = [
-        { icon: <Mail className="text-teal-400 w-5 h-5" />, value: "vico.fajareno@gmail.com", label: "Email", link: "mailto:vico.fajareno@gmail.com" },
-        { icon: <Phone className="text-teal-400 w-5 h-5" />, value: "+62 819 0721 1950", label: "Phone", link: "https://wa.me/6281907211950" },
-        { icon: <MapPin className="text-teal-400 w-5 h-5" />, value: "Jakarta, Indonesia", label: "Location", link: null },
-        { icon: <Linkedin className="text-teal-400 w-5 h-5" />, value: "Vico Pratama Fajareno", label: "LinkedIn", link: "https://www.linkedin.com/in/vico-pratama-fajareno-424a401a4/" }
+        { icon: <Mail className="text-zlime w-5 h-5" />, value: "vico.fajareno@gmail.com", label: "Email", link: "mailto:vico.fajareno@gmail.com" },
+        { icon: <Phone className="text-zlime w-5 h-5" />, value: "+62 819 0721 1950", label: "Phone", link: "https://wa.me/6281907211950" },
+        { icon: <MapPin className="text-zlime w-5 h-5" />, value: "Jakarta, Indonesia", label: "Location", link: null },
+        { icon: <Linkedin className="text-zlime w-5 h-5" />, value: "Vico Pratama Fajareno", label: "LinkedIn", link: "https://www.linkedin.com/in/vico-pratama-fajareno-424a401a4/" }
     ];
 
     return (
-        <SectionWrapper id="contact" className="bg-[#0a0a0a] py-24">
+        <SectionWrapper id="contact" className="bg-[#f4f4f5] py-24">
             <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
 
@@ -51,16 +51,16 @@ const Contact = () => {
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-tight"
+                                className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-zblack mb-6 leading-tight"
                             >
-                                Let's Build <br/> Something <br/> <span className="text-teal-400">Together</span>
+                                Let's Build <br/> Something <br/> <span className="text-zlime">Together</span>
                             </motion.h2>
                             <motion.p 
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.1 }}
-                                className="text-gray-400 leading-relaxed font-light mb-12 max-w-md"
+                                className="text-zblack/70 leading-relaxed font-light mb-12 max-w-md"
                             >
                                 Have a project in mind or want to discuss a potential collaboration? I'm always open to new opportunities.
                             </motion.p>
@@ -75,17 +75,17 @@ const Contact = () => {
                                         key={index} 
                                         className="flex items-start gap-4 group"
                                     >
-                                        <div className="bg-white/5 backdrop-blur-xl p-3 rounded-2xl border border-white/10 group-hover:border-white/20 transition-all duration-300">
+                                        <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl p-3 rounded-2xl border-[3px] border-zblack group-hover:border-zblack transition-all duration-300">
                                             {item.icon}
                                         </div>
                                         <div className="flex flex-col justify-center h-full">
                                             <p className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-1">{item.label}</p>
                                             {item.link ? (
-                                                <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-white font-medium hover:text-teal-400 transition-colors">
+                                                <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-zblack font-medium hover:text-zlime transition-colors">
                                                     {item.value}
                                                 </a>
                                             ) : (
-                                                <p className="text-white font-medium">{item.value}</p>
+                                                <p className="text-zblack font-medium">{item.value}</p>
                                             )}
                                         </div>
                                     </motion.div>
@@ -102,51 +102,51 @@ const Contact = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden"
+                        className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack p-8 md:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden"
                     >
                         <div className="space-y-6 relative z-10">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label htmlFor="user_name" className="text-sm font-medium text-gray-400 ml-1">Name</label>
+                                    <label htmlFor="user_name" className="text-sm font-medium text-zblack/70 ml-1">Name</label>
                                     <input
                                         type="text"
                                         name="user_name"
                                         placeholder="John Doe"
                                         required
-                                        className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-teal-400/50 transition-all duration-300"
+                                        className="w-full bg-[#f4f4f5] border-[3px] border-zblack rounded-xl px-4 py-3 text-zblack placeholder-gray-600 focus:outline-none focus:border-zlime/50 transition-all duration-300"
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <label htmlFor="user_email" className="text-sm font-medium text-gray-400 ml-1">Email</label>
+                                    <label htmlFor="user_email" className="text-sm font-medium text-zblack/70 ml-1">Email</label>
                                     <input
                                         type="email"
                                         name="user_email"
                                         placeholder="john@example.com"
                                         required
-                                        className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-teal-400/50 transition-all duration-300"
+                                        className="w-full bg-[#f4f4f5] border-[3px] border-zblack rounded-xl px-4 py-3 text-zblack placeholder-gray-600 focus:outline-none focus:border-zlime/50 transition-all duration-300"
                                     />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="subject" className="text-sm font-medium text-gray-400 ml-1">Subject</label>
+                                <label htmlFor="subject" className="text-sm font-medium text-zblack/70 ml-1">Subject</label>
                                 <input
                                     type="text"
                                     name="subject"
                                     placeholder="Project Inquiry"
                                     required
-                                    className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-teal-400/50 transition-all duration-300"
+                                    className="w-full bg-[#f4f4f5] border-[3px] border-zblack rounded-xl px-4 py-3 text-zblack placeholder-gray-600 focus:outline-none focus:border-zlime/50 transition-all duration-300"
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="message" className="text-sm font-medium text-gray-400 ml-1">Message</label>
+                                <label htmlFor="message" className="text-sm font-medium text-zblack/70 ml-1">Message</label>
                                 <textarea
                                     name="message"
                                     rows="4"
                                     placeholder="Tell me about your project..."
                                     required
-                                    className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-teal-400/50 transition-all duration-300 resize-none"
+                                    className="w-full bg-[#f4f4f5] border-[3px] border-zblack rounded-xl px-4 py-3 text-zblack placeholder-gray-600 focus:outline-none focus:border-zlime/50 transition-all duration-300 resize-none"
                                 ></textarea>
                             </div>
 
@@ -159,7 +159,7 @@ const Contact = () => {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="w-full bg-white text-black font-bold py-4 rounded-xl hover:bg-gray-200 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2"
+                                className="w-full bg-zlime border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] active:translate-x-1 active:translate-y-1 active:shadow-none text-black font-bold py-4 rounded-xl hover:bg-zlime/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2"
                             >
                                 {loading ? (
                                     <>

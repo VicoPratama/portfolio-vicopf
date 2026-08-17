@@ -36,7 +36,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="bg-gray-50 dark:bg-gray-950 min-h-screen text-gray-900 dark:text-gray-100 selection:bg-teal-400 text-black selection:text-white transition-colors duration-300">
+      <div className="bg-gray-50 dark:bg-[#f4f4f5] min-h-screen text-gray-900 dark:text-gray-100 selection:bg-zlime text-black selection:text-zblack transition-colors duration-300">
         <Navbar />
         <main>
           <Routes>

@@ -1,5 +1,49 @@
 export const projectsData = [
     {
+        id: "sistem-pergudangan",
+        title: "GudangOS - Warehouse Inventory System",
+        description: "A robust and efficient warehouse management system designed to streamline inventory tracking, manage stock movements, and optimize overall warehouse operations.",
+        tags: ["React", "Tailwind CSS", "Vite"],
+        image: "/sistem-pergudangan.png",
+        github: "https://github.com/VicoPratama/sistem-pergudangan",
+        demo: "https://github.com/VicoPratama/sistem-pergudangan",
+        content: `
+## Overview
+GudangOS is a comprehensive Warehouse Management System (Sistem Pergudangan) designed to address the complexities of modern inventory management. It provides a centralized platform for tracking stock levels, managing incoming and outgoing goods, and ensuring data integrity across warehouse operations. 
+
+## Features
+- **Inventory Tracking**: Real-time monitoring of stock levels, item details, and warehouse capacities.
+- **Stock Movements**: Streamlined workflows for recording inbound receipts and outbound shipments.
+- **Robust UI/UX**: Implemented strict "Anti-Slop" design principles with clear loading, empty, and error states for a resilient user experience.
+- **Dashboard Analytics**: Quick visual summaries of inventory status and warehouse activities.
+
+## Tech Stack
+Built using React and Vite for optimal frontend performance, and styled with Tailwind CSS following a clean, structured design system to ensure a professional, production-ready aesthetic.
+        `
+    },
+    {
+        id: "creator-os",
+        title: "CreatorOS - Content Creator Dashboard",
+        description: "A comprehensive dashboard designed for content creators, featuring a professional monetization suite, dynamic ratecard manager, and an invoice generator.",
+        tags: ["React", "Supabase", "Tailwind CSS"],
+        image: "/creator-os.png",
+        github: "https://github.com/VicoPratama/CreatorOS",
+        demo: "https://github.com/VicoPratama/CreatorOS",
+        content: `
+## Overview
+CreatorOS is an advanced dashboard tailored specifically for content creators. It provides essential tools to professionalize and monetize their workflows, seamlessly managing services, clients, and financial transactions in one unified platform.
+
+## Features
+- **Monetization Suite**: Comprehensive tools to manage income streams and professional services.
+- **Dynamic Ratecard Manager**: Easily create, update, and manage customizable service packages for clients.
+- **Invoice Generator**: Automated invoice creation with PDF export functionality for seamless billing.
+- **AI Interactions**: Refined AI integrations to assist with content planning and client communication.
+
+## Tech Stack
+Built with React and Tailwind CSS for a sleek, responsive interface, and powered by Supabase for secure data management and authentication.
+        `
+    },
+    {
         id: "portfolio-v2",
         title: "Portfolio V2",
         description: "My personal digital playground featuring a modern dark interface, smooth animations, and a fully responsive layout.",
