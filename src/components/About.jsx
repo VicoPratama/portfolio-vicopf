@@ -1,86 +1,93 @@
 import { motion } from 'framer-motion';
 import SectionWrapper from './SectionWrapper';
-import { Code2, Layout, Palette, TrendingUp } from 'lucide-react';
+import { User, Code2, TrendingUp, Sparkles, GraduationCap, CheckCircle } from 'lucide-react';
 
 const About = () => {
     return (
-        <SectionWrapper id="about" className="bg-[#f4f4f5]">
-            <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start mb-20">
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-zblack leading-tight">
-                            From Idea To <br />
-                            Execution, I Help You <br />
-                            Realize The Dream <br />
-                            With <span className="text-zlime">Code</span> That's...
-                        </h2>
-                    </motion.div>
-                    
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="space-y-6 text-zblack/70 text-lg leading-relaxed font-light"
-                    >
-                        <p>
-                            I am a dedicated developer with a keen eye for design and a passion for coding. My journey began with a curiosity for how the web works, which evolved into a career building sophisticated web applications.
-                        </p>
-                        <p>
-                            Highly motivated and detail-oriented Bachelor of Computer Science fresh graduate (GPA 3.69/4.00) with a strong foundation in IT Governance, Web and Software Development, Project Management, and UI/UX Design. Skilled in system analysis, database management, and business process optimization.
-                        </p>
-                    </motion.div>
+        <SectionWrapper id="about">
+            <div className="space-y-8">
+                
+                {/* Section Header with Icon */}
+                <div className="flex items-center gap-2 border-b border-neutral-200 dark:border-neutral-800 pb-3">
+                    <User size={20} className="text-emerald-500" />
+                    <h2 className="text-xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+                        About Me
+                    </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack p-8 md:p-12 rounded-[2rem] hover:shadow-[4px_4px_0px_0px_var(--color-zlime)]/50 transition-colors duration-500 group flex flex-col justify-between"
-                    >
+                {/* Main Heading & Bio Grid */}
+                <div className="space-y-6">
+                    <h3 className="font-display text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-neutral-50 leading-tight">
+                        From Idea To Execution, I Help You Realize The Dream With Code That Delivers Results.
+                    </h3>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-neutral-600 dark:text-neutral-300 leading-relaxed text-sm md:text-base">
+                        <p>
+                            I am a dedicated developer with a keen eye for design and a passion for coding. My journey began with a curiosity for how the web works, which evolved into a career building sophisticated web applications and enterprise workflows.
+                        </p>
+                        <p>
+                            Highly motivated and detail-oriented <span className="font-semibold text-neutral-900 dark:text-neutral-100">Bachelor of Computer Science</span> fresh graduate (<span className="font-semibold text-emerald-600 dark:text-emerald-400">GPA 3.69 / 4.00</span>) with a strong foundation in IT Governance, Web and Software Development, Project Management, and UI/UX Design. Skilled in system analysis, database management, and business process optimization.
+                        </p>
+                    </div>
+                </div>
+
+                {/* Core Competency Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
+                    
+                    {/* Card 1 */}
+                    <div className="satria-card p-6 flex flex-col justify-between group">
                         <div>
-                            <div className="bg-zlime text-black/10 w-12 h-12 rounded-full flex items-center justify-center mb-8">
-                                <Code2 className="text-zlime w-6 h-6" />
+                            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-4 border border-emerald-500/20">
+                                <Code2 size={20} />
                             </div>
-                            <h3 className="text-2xl font-display font-bold text-zblack mb-4">Web Development & Design</h3>
-                            <p className="text-zblack/70 leading-relaxed font-light mb-8">
+                            <h4 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+                                Web Development & Design
+                            </h4>
+                            <p className="text-xs md:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6 font-normal">
                                 Building fast, responsive, and reliable web applications using modern technologies like React, Tailwind, and Node.js while crafting pixel-perfect visual layouts that align with modern design trends.
                             </p>
                         </div>
-                        <div className="flex gap-2">
-                            <span className="px-4 py-2 rounded-full bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] text-xs text-zblack uppercase tracking-wider">React</span>
-                            <span className="px-4 py-2 rounded-full bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] text-xs text-zblack uppercase tracking-wider">Tailwind</span>
+                        <div className="flex flex-wrap gap-2 pt-2 border-t border-neutral-100 dark:border-neutral-800">
+                            <span className="px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-[11px] font-medium text-neutral-700 dark:text-neutral-300">
+                                React & Next.js
+                            </span>
+                            <span className="px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-[11px] font-medium text-neutral-700 dark:text-neutral-300">
+                                Tailwind CSS
+                            </span>
+                            <span className="px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-[11px] font-medium text-neutral-700 dark:text-neutral-300">
+                                TypeScript
+                            </span>
                         </div>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                        className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack p-8 md:p-12 rounded-[2rem] hover:shadow-[4px_4px_0px_0px_var(--color-zlime)]/50 transition-colors duration-500 group flex flex-col justify-between"
-                    >
+                    {/* Card 2 */}
+                    <div className="satria-card p-6 flex flex-col justify-between group">
                         <div>
-                            <div className="bg-zlime text-black/10 w-12 h-12 rounded-full flex items-center justify-center mb-8">
-                                <TrendingUp className="text-zlime w-6 h-6" />
+                            <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center mb-4 border border-blue-500/20">
+                                <TrendingUp size={20} />
                             </div>
-                            <h3 className="text-2xl font-display font-bold text-zblack mb-4">UI/UX & Business Analysis</h3>
-                            <p className="text-zblack/70 leading-relaxed font-light mb-8">
+                            <h4 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+                                UI/UX & Business Analysis
+                            </h4>
+                            <p className="text-xs md:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6 font-normal">
                                 Creating intuitive user interfaces and analyzing business requirements. Implementing ERP solutions to optimize organizational workflows and ensuring a seamless user journey.
                             </p>
                         </div>
-                        <div className="flex gap-2">
-                            <span className="px-4 py-2 rounded-full bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] text-xs text-zblack uppercase tracking-wider">Figma</span>
-                            <span className="px-4 py-2 rounded-full bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] text-xs text-zblack uppercase tracking-wider">Analysis</span>
+                        <div className="flex flex-wrap gap-2 pt-2 border-t border-neutral-100 dark:border-neutral-800">
+                            <span className="px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-[11px] font-medium text-neutral-700 dark:text-neutral-300">
+                                Figma UI/UX
+                            </span>
+                            <span className="px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-[11px] font-medium text-neutral-700 dark:text-neutral-300">
+                                Odoo ERP
+                            </span>
+                            <span className="px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-[11px] font-medium text-neutral-700 dark:text-neutral-300">
+                                IT Governance
+                            </span>
                         </div>
-                    </motion.div>
+                    </div>
+
                 </div>
+
             </div>
         </SectionWrapper>
     );

@@ -11,7 +11,7 @@ Thesis Title: PERANCANGAN PROTOTYPE MENGGUNAKAN METODE DESIGN SPRINT (STUDI KASU
 export const experience = [
     {
         company: "PT Bumi Hijau Motor (BYD HAKA AUTO)",
-        role: "ICT Corporate",
+        role: "ICT Corporate (Full Stack Developer, Odoo ERP, and L1 IT Support)",
         location: "South Jakarta, Jakarta, Indonesia",
         year: "Nov 2025 - Present",
         description: `●	Developed and maintained internal web applications end-to-end (frontend, backend, database, deployment).

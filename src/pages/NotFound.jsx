@@ -1,56 +1,32 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Home } from 'lucide-react';
-import Button from '../components/Button';
+import { Home, ArrowLeft } from 'lucide-react';
 
 const NotFound = () => {
     return (
-        <div className="min-h-screen bg-[#f4f4f5] flex flex-col items-center justify-center px-4 text-center">
-            <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-            >
-                <h1 className="font-display text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-500 mb-4 select-none">
+        <div className="py-24 flex flex-col items-center justify-center text-center space-y-4">
+            <div className="satria-card p-10 max-w-md w-full space-y-4">
+                <span className="text-6xl font-black font-display text-neutral-300 dark:text-neutral-700 select-none">
                     404
+                </span>
+
+                <h1 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 font-display">
+                    Page Not Found
                 </h1>
-            </motion.div>
 
-            <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="font-display text-3xl md:text-4xl font-bold text-zblack mb-6"
-            >
-                Page Not Found
-            </motion.h2>
+                <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal">
+                    Oops! The page you are looking for does not exist or has been moved.
+                </p>
 
-            <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="text-zblack/70 text-lg mb-10 max-w-md"
-            >
-                Oops! The page you are looking for keeps drifting into the void. Let's get you back to familiar ground.
-            </motion.p>
-
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-            >
-                <Link to="/">
-                    <Button variant="primary" className="bg-white hover:bg-gray-200 text-black font-bold border-none px-8 py-3 rounded-full flex items-center gap-2 transition-all">
-                        <Home className="w-4 h-4" />
-                        Return Home
-                    </Button>
-                </Link>
-            </motion.div>
-
-            {/* Background decoration */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-zlime text-black/5 rounded-full blur-3xl opacity-20 animate-pulse" />
-                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl opacity-20 animate-pulse delay-1000" />
+                <div className="pt-2">
+                    <Link
+                        to="/"
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 text-xs font-medium hover:bg-neutral-800 dark:hover:bg-white transition-all shadow-xs"
+                    >
+                        <Home size={14} />
+                        <span>Return to Home</span>
+                    </Link>
+                </div>
             </div>
         </div>
     );

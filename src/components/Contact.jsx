@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import SectionWrapper from './SectionWrapper';
-import { Mail, Phone, MapPin, Send, Loader2, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2, Linkedin, MessageSquare } from 'lucide-react';
 
 const Contact = () => {
     const formRef = useRef();
@@ -14,13 +14,12 @@ const Contact = () => {
         setLoading(true);
         setStatus({ type: '', message: '' });
 
-        // REPLACE THESE WITH YOUR ACTUAL EMAILJS KEYS
         const SERVICE_ID = 'service_gh8t8fm';
         const TEMPLATE_ID = 'template_drogv5d';
         const PUBLIC_KEY = 'YLQYhLzt7FcRdrqee';
 
         emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
-            .then((result) => {
+            .then(() => {
                 setLoading(false);
                 setStatus({ type: 'success', message: 'Message sent successfully! I will get back to you soon.' });
                 formRef.current.reset();
@@ -33,149 +32,160 @@ const Contact = () => {
     };
 
     const contactInfo = [
-        { icon: <Mail className="text-zlime w-5 h-5" />, value: "vico.fajareno@gmail.com", label: "Email", link: "mailto:vico.fajareno@gmail.com" },
-        { icon: <Phone className="text-zlime w-5 h-5" />, value: "+62 819 0721 1950", label: "Phone", link: "https://wa.me/6281907211950" },
-        { icon: <MapPin className="text-zlime w-5 h-5" />, value: "Jakarta, Indonesia", label: "Location", link: null },
-        { icon: <Linkedin className="text-zlime w-5 h-5" />, value: "Vico Pratama Fajareno", label: "LinkedIn", link: "https://www.linkedin.com/in/vico-pratama-fajareno-424a401a4/" }
+        { icon: Mail, value: "vico.fajareno@gmail.com", label: "Email", link: "mailto:vico.fajareno@gmail.com" },
+        { icon: Phone, value: "+62 819 0721 1950", label: "WhatsApp / Phone", link: "https://wa.me/6281907211950" },
+        { icon: MapPin, value: "South Jakarta, Indonesia", label: "Location", link: null },
+        { icon: Linkedin, value: "Vico Pratama Fajareno Fajareno", label: "LinkedIn", link: "https://www.linkedin.com/in/vico-pratama-fajareno-424a401a4/" }
     ];
 
     return (
-        <SectionWrapper id="contact" className="bg-[#f4f4f5] py-24">
-            <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+        <SectionWrapper id="contact">
+            <div className="space-y-6">
+                
+                {/* Section Header */}
+                <div className="flex items-center gap-2 border-b border-neutral-200 dark:border-neutral-800 pb-3">
+                    <MessageSquare size={20} className="text-emerald-500" />
+                    <h2 className="text-xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+                        Get In Touch
+                    </h2>
+                </div>
 
-                    {/* Contact Info */}
-                    <div className="space-y-8">
-                        <div>
-                            <motion.h2 
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-zblack mb-6 leading-tight"
-                            >
-                                Let's Build <br/> Something <br/> <span className="text-zlime">Together</span>
-                            </motion.h2>
-                            <motion.p 
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.1 }}
-                                className="text-zblack/70 leading-relaxed font-light mb-12 max-w-md"
-                            >
-                                Have a project in mind or want to discuss a potential collaboration? I'm always open to new opportunities.
-                            </motion.p>
+                <div className="satria-card p-6 sm:p-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        
+                        {/* Info Column */}
+                        <div className="lg:col-span-5 space-y-6">
+                            <div>
+                                <h3 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 font-display mb-2">
+                                    Let's Build Something Together
+                                </h3>
+                                <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal">
+                                    Have a project in mind, an inquiry, or looking for a software engineer to join your team? Feel free to reach out.
+                                </p>
+                            </div>
 
-                            <div className="space-y-6">
-                                {contactInfo.map((item, index) => (
-                                    <motion.div 
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.2 + (index * 0.1) }}
-                                        key={index} 
-                                        className="flex items-start gap-4 group"
-                                    >
-                                        <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl p-3 rounded-2xl border-[3px] border-zblack group-hover:border-zblack transition-all duration-300">
-                                            {item.icon}
+                            <div className="space-y-3 pt-2">
+                                {contactInfo.map((item, index) => {
+                                    const Icon = item.icon;
+                                    return (
+                                        <div key={index} className="flex items-center gap-3 p-2.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border border-neutral-100 dark:border-neutral-800">
+                                            <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0">
+                                                <Icon size={16} />
+                                            </div>
+                                            <div className="min-w-0">
+                                                <p className="text-[10px] uppercase font-mono font-medium text-neutral-400 dark:text-neutral-500">
+                                                    {item.label}
+                                                </p>
+                                                {item.link ? (
+                                                    <a 
+                                                        href={item.link} 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer" 
+                                                        className="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-neutral-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors truncate block"
+                                                    >
+                                                        {item.value}
+                                                    </a>
+                                                ) : (
+                                                    <p className="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-neutral-200 truncate">
+                                                        {item.value}
+                                                    </p>
+                                                )}
+                                            </div>
                                         </div>
-                                        <div className="flex flex-col justify-center h-full">
-                                            <p className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-1">{item.label}</p>
-                                            {item.link ? (
-                                                <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-zblack font-medium hover:text-zlime transition-colors">
-                                                    {item.value}
-                                                </a>
-                                            ) : (
-                                                <p className="text-zblack font-medium">{item.value}</p>
-                                            )}
-                                        </div>
-                                    </motion.div>
-                                ))}
+                                    );
+                                })}
                             </div>
                         </div>
-                    </div>
 
-                    {/* Contact Form */}
-                    <motion.form
-                        ref={formRef}
-                        onSubmit={handleSubmit}
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack p-8 md:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden"
-                    >
-                        <div className="space-y-6 relative z-10">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label htmlFor="user_name" className="text-sm font-medium text-zblack/70 ml-1">Name</label>
+                        {/* Form Column */}
+                        <div className="lg:col-span-7">
+                            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div className="space-y-1.5">
+                                        <label htmlFor="user_name" className="text-xs font-medium text-neutral-700 dark:text-neutral-300">
+                                            Name
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="user_name"
+                                            placeholder="Your Name"
+                                            required
+                                            className="w-full px-3.5 py-2.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 text-xs sm:text-sm placeholder-neutral-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
+                                        />
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label htmlFor="user_email" className="text-xs font-medium text-neutral-700 dark:text-neutral-300">
+                                            Email
+                                        </label>
+                                        <input
+                                            type="email"
+                                            name="user_email"
+                                            placeholder="name@domain.com"
+                                            required
+                                            className="w-full px-3.5 py-2.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 text-xs sm:text-sm placeholder-neutral-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="space-y-1.5">
+                                    <label htmlFor="subject" className="text-xs font-medium text-neutral-700 dark:text-neutral-300">
+                                        Subject
+                                    </label>
                                     <input
                                         type="text"
-                                        name="user_name"
-                                        placeholder="John Doe"
+                                        name="subject"
+                                        placeholder="Project Inquiry / Job Opportunity"
                                         required
-                                        className="w-full bg-[#f4f4f5] border-[3px] border-zblack rounded-xl px-4 py-3 text-zblack placeholder-gray-600 focus:outline-none focus:border-zlime/50 transition-all duration-300"
+                                        className="w-full px-3.5 py-2.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 text-xs sm:text-sm placeholder-neutral-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
                                     />
                                 </div>
-                                <div className="space-y-2">
-                                    <label htmlFor="user_email" className="text-sm font-medium text-zblack/70 ml-1">Email</label>
-                                    <input
-                                        type="email"
-                                        name="user_email"
-                                        placeholder="john@example.com"
+
+                                <div className="space-y-1.5">
+                                    <label htmlFor="message" className="text-xs font-medium text-neutral-700 dark:text-neutral-300">
+                                        Message
+                                    </label>
+                                    <textarea
+                                        name="message"
+                                        rows="4"
+                                        placeholder="Tell me about your project or inquiry..."
                                         required
-                                        className="w-full bg-[#f4f4f5] border-[3px] border-zblack rounded-xl px-4 py-3 text-zblack placeholder-gray-600 focus:outline-none focus:border-zlime/50 transition-all duration-300"
-                                    />
+                                        className="w-full px-3.5 py-2.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 text-xs sm:text-sm placeholder-neutral-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all resize-none"
+                                    ></textarea>
                                 </div>
-                            </div>
 
-                            <div className="space-y-2">
-                                <label htmlFor="subject" className="text-sm font-medium text-zblack/70 ml-1">Subject</label>
-                                <input
-                                    type="text"
-                                    name="subject"
-                                    placeholder="Project Inquiry"
-                                    required
-                                    className="w-full bg-[#f4f4f5] border-[3px] border-zblack rounded-xl px-4 py-3 text-zblack placeholder-gray-600 focus:outline-none focus:border-zlime/50 transition-all duration-300"
-                                />
-                            </div>
-
-                            <div className="space-y-2">
-                                <label htmlFor="message" className="text-sm font-medium text-zblack/70 ml-1">Message</label>
-                                <textarea
-                                    name="message"
-                                    rows="4"
-                                    placeholder="Tell me about your project..."
-                                    required
-                                    className="w-full bg-[#f4f4f5] border-[3px] border-zblack rounded-xl px-4 py-3 text-zblack placeholder-gray-600 focus:outline-none focus:border-zlime/50 transition-all duration-300 resize-none"
-                                ></textarea>
-                            </div>
-
-                            {status.message && (
-                                <div className={`p-4 rounded-lg text-sm ${status.type === 'success' ? 'bg-green-500/10 text-green-400 border border-green-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'}`}>
-                                    {status.message}
-                                </div>
-                            )}
-
-                            <button
-                                type="submit"
-                                disabled={loading}
-                                className="w-full bg-zlime border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] active:translate-x-1 active:translate-y-1 active:shadow-none text-black font-bold py-4 rounded-xl hover:bg-zlime/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2"
-                            >
-                                {loading ? (
-                                    <>
-                                        <Loader2 className="animate-spin" size={20} />
-                                        Sending...
-                                    </>
-                                ) : (
-                                    <>
-                                        <Send size={20} />
-                                        Send Message
-                                    </>
+                                {status.message && (
+                                    <div className={`p-3 rounded-xl text-xs font-medium ${
+                                        status.type === 'success' 
+                                            ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20' 
+                                            : 'bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20'
+                                    }`}>
+                                        {status.message}
+                                    </div>
                                 )}
-                            </button>
+
+                                <button
+                                    type="submit"
+                                    disabled={loading}
+                                    className="w-full py-2.5 px-4 rounded-xl bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 font-medium text-xs sm:text-sm hover:bg-neutral-800 dark:hover:bg-white transition-all shadow-sm hover:scale-[1.01] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+                                >
+                                    {loading ? (
+                                        <>
+                                            <Loader2 className="animate-spin" size={16} />
+                                            <span>Sending Message...</span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Send size={15} />
+                                            <span>Send Message</span>
+                                        </>
+                                    )}
+                                </button>
+                            </form>
                         </div>
-                    </motion.form>
+
+                    </div>
                 </div>
+
             </div>
         </SectionWrapper>
     );

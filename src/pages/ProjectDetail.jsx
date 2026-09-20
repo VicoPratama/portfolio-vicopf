@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { projectsData } from '../constants/projectsData';
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Github, ArrowUpRight, FolderGit2, Calendar, Layers } from 'lucide-react';
 
 const ProjectDetail = () => {
     const { id } = useParams();
@@ -14,134 +14,207 @@ const ProjectDetail = () => {
 
     if (!project) {
         return (
-            <div className="min-h-screen bg-[#f4f4f5] flex items-center justify-center text-zblack">
-                <div className="text-center bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl p-12 rounded-[2rem] border-[3px] border-zblack shadow-2xl">
-                    <h2 className="text-4xl font-display font-black mb-6 uppercase tracking-tight">Project Not Found</h2>
-                    <Link to="/" className="text-zlime hover:text-zpurple font-bold transition-colors inline-flex items-center gap-2">
-                        <ArrowLeft size={20} />
-                        Return to Home
+            <div className="py-20 text-center space-y-4">
+                <div className="satria-card p-10 max-w-md mx-auto">
+                    <h2 className="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+                        Project Not Found
+                    </h2>
+                    <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-6">
+                        The project you are looking for does not exist or has been moved.
+                    </p>
+                    <Link
+                        to="/"
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 text-xs font-medium hover:bg-neutral-800 dark:hover:bg-white transition-all"
+                    >
+                        <ArrowLeft size={14} />
+                        <span>Return to Home</span>
                     </Link>
                 </div>
             </div>
         );
     }
 
-    const clientName = project.subtitle ? project.subtitle.replace("In Collaboration with ", "") : "Personal Project";
-
     return (
-        <div className="bg-[#f4f4f5] min-h-screen text-zblack relative overflow-hidden">
-            {/* Ambient Background Glows */}
-            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-zlime/10 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-zpurple/10 rounded-full blur-[120px] pointer-events-none" />
-
-            <div className="pt-32 pb-24 px-6 max-w-5xl mx-auto relative z-10">
-                {/* Header Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mb-12"
+        <div className="space-y-6 pb-12">
+            
+            {/* Top Back Navigation */}
+            <div>
+                <Link
+                    to="/#projects"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group"
                 >
-                    <Link to="/" className="inline-flex items-center font-bold text-gray-500 hover:text-zblack transition-colors group mb-8">
-                        <ArrowLeft className="mr-2 group-hover:-translate-x-1 transition-transform" size={20} />
-                        Back to Portfolio
-                    </Link>
-
-                    <p className="text-zlime font-bold mb-4 uppercase tracking-widest text-sm flex items-center gap-2">
-                        <span className="w-8 h-[2px] bg-zlime"></span>
-                        {project.subtitle || "Case Study"}
-                    </p>
-                    <h1 className="text-5xl md:text-7xl font-display font-black uppercase tracking-tight leading-none mb-6">
-                        {project.title}
-                    </h1>
-                </motion.div>
-
-                {/* Hero Image */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                    className="rounded-[2rem] overflow-hidden mb-16 border-[3px] border-zblack bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl shadow-2xl relative group w-full aspect-[16/9]"
-                >
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10 pointer-events-none" />
-                    <img 
-                        src={project.image} 
-                        alt={project.title} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                </motion.div>
-
-                {/* Metadata Grid */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 pb-16 border-b border-zblack"
-                >
-                    <div>
-                        <h3 className="text-zblack font-bold text-lg mb-3 tracking-wide">Client Name</h3>
-                        <p className="text-zblack/70 font-light text-sm">{clientName}</p>
-                    </div>
-                    <div>
-                        <h3 className="text-zblack font-bold text-lg mb-3 tracking-wide">Date</h3>
-                        <p className="text-zblack/70 font-light text-sm">2024</p>
-                    </div>
-                    <div>
-                        <h3 className="text-zblack font-bold text-lg mb-3 tracking-wide">Categories</h3>
-                        <p className="text-zblack/70 font-light text-sm">{project.tags.slice(0, 2).join(" & ")}</p>
-                    </div>
-                    <div>
-                        <h3 className="text-zblack font-bold text-lg mb-3 tracking-wide">Services</h3>
-                        <div className="flex flex-col gap-3">
-                            <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-zlime hover:text-zpurple font-bold text-sm flex items-center gap-1 transition-colors group">
-                                Live Demo <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                            </a>
-                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-zlime hover:text-zpurple font-bold text-sm flex items-center gap-1 transition-colors group">
-                                Source Code <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                            </a>
-                        </div>
-                    </div>
-                </motion.div>
-
-                {/* Content Section (2 Columns) */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="grid grid-cols-1 md:grid-cols-[1fr_2.5fr] gap-12 lg:gap-24"
-                >
-                    {/* Left Column: Heading */}
-                    <div>
-                        <h2 className="text-3xl md:text-4xl font-display font-black uppercase tracking-tight text-zblack sticky top-32">
-                            About
-                        </h2>
-                    </div>
-
-                    {/* Right Column: Paragraphs */}
-                    <div className="prose prose-invert max-w-none prose-p:text-zblack/70 prose-p:font-light prose-p:leading-relaxed prose-p:text-lg prose-headings:font-display prose-headings:font-black prose-headings:uppercase prose-headings:text-2xl prose-headings:text-zblack prose-li:text-zblack/70 prose-li:font-light prose-a:text-zlime hover:prose-a:text-zpurple prose-a:font-bold prose-a:transition-colors">
-                        {project.content.split('\n').map((line, index) => {
-                            if (line.startsWith('## ')) {
-                                // Skip "## Overview" since we already have "About" as the main section header on the left
-                                if (line.includes('Overview')) return null;
-                                return <h3 key={index} className="mt-12 mb-6"><span className="text-transparent" style={{ WebkitTextStroke: '1px var(--color-zlime)' }}>#</span> {line.replace('## ', '')}</h3>;
-                            } else if (line.startsWith('- ')) {
-                                const parts = line.replace('- ', '').split('**');
-                                if (parts.length > 2) {
-                                    return (
-                                        <li key={index} className="mb-4 flex items-start gap-3">
-                                            <span className="text-zlime mt-1">▹</span>
-                                            <span><span className="font-bold text-zblack">{parts[1]}</span>{parts[2]}</span>
-                                        </li>
-                                    );
-                                }
-                                return <li key={index} className="mb-4 flex items-start gap-3"><span className="text-zlime mt-1">▹</span><span>{line.replace('- ', '')}</span></li>;
-                            } else if (line.trim() !== '') {
-                                return <p key={index} className="mb-8">{line}</p>;
-                            }
-                            return null;
-                        })}
-                    </div>
-                </motion.div>
+                    <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+                    <span>Back to Projects</span>
+                </Link>
             </div>
+
+            {/* Project Header Info */}
+            <div className="space-y-3">
+                {project.subtitle && (
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-medium">
+                        <span>{project.subtitle}</span>
+                    </div>
+                )}
+
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 font-display">
+                    {project.title}
+                </h1>
+
+                <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed font-normal">
+                    {project.description}
+                </p>
+            </div>
+
+            {/* Metadata & Links Bar */}
+            <div className="py-3 border-y border-neutral-200 dark:border-neutral-800 flex flex-wrap items-center justify-between gap-4 text-xs">
+                <div className="flex flex-wrap items-center gap-2">
+                    <span className="font-semibold text-neutral-800 dark:text-neutral-200 flex items-center gap-1.5">
+                        <Layers size={14} className="text-emerald-500" />
+                        Tech Stack :
+                    </span>
+                    <div className="flex flex-wrap gap-1.5">
+                        {project.tags.map((tag) => (
+                            <span
+                                key={tag}
+                                className="px-2 py-0.5 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 font-medium"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
+                {/* External Action Links */}
+                <div className="flex items-center gap-3">
+                    {project.demo && (
+                        <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 font-medium hover:bg-neutral-800 dark:hover:bg-white transition-all shadow-xs hover:scale-105"
+                        >
+                            <span>Live Demo</span>
+                            <ExternalLink size={12} />
+                        </a>
+                    )}
+                    {project.github && (
+                        <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 font-medium hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all shadow-2xs hover:scale-105"
+                        >
+                            <Github size={13} />
+                            <span>Source Code</span>
+                        </a>
+                    )}
+                </div>
+            </div>
+
+            {/* Hero Image Mockup */}
+            <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="satria-card overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800"
+            >
+                <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-auto object-cover object-top max-h-[500px]"
+                />
+            </motion.div>
+
+            <div className="border-t border-neutral-200 dark:border-neutral-800 my-6" />
+
+            {/* Render Markdown-like Content Sections */}
+            <div className="space-y-8">
+                {project.content.split('\n## ').map((section, idx) => {
+                    if (!section.trim()) return null;
+
+                    const lines = section.split('\n');
+                    // If first section started without '## ', treat lines[0] as title if it was split
+                    const sectionTitle = lines[0].replace('## ', '').trim();
+                    const sectionBody = lines.slice(1);
+
+                    return (
+                        <div key={idx} className="space-y-4">
+                            <h2 className="text-lg sm:text-xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 font-display">
+                                {sectionTitle}
+                            </h2>
+
+                            <div className="space-y-3 text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed font-normal">
+                                {sectionBody.map((line, lineIdx) => {
+                                    const trimmed = line.trim();
+                                    if (!trimmed) return null;
+
+                                    if (trimmed.startsWith('- ')) {
+                                        const content = trimmed.replace('- ', '');
+                                        const parts = content.split('**');
+
+                                        if (parts.length >= 3) {
+                                            return (
+                                                <div key={lineIdx} className="flex items-start gap-2 pl-1">
+                                                    <span className="text-emerald-500 mt-0.5">•</span>
+                                                    <div>
+                                                        <strong className="text-neutral-900 dark:text-neutral-100 font-semibold">
+                                                            {parts[1]}:
+                                                        </strong>
+                                                        <span className="ml-1 text-neutral-600 dark:text-neutral-300">
+                                                            {parts.slice(2).join('').replace(/^:\s*/, '')}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+
+                                        return (
+                                            <div key={lineIdx} className="flex items-start gap-2 pl-1">
+                                                <span className="text-emerald-500 mt-0.5">•</span>
+                                                <span className="text-neutral-600 dark:text-neutral-300">
+                                                    {content}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+
+                                    return (
+                                        <p key={lineIdx}>
+                                            {trimmed}
+                                        </p>
+                                    );
+                                })}
+                            </div>
+
+                            <div className="border-t border-neutral-100 dark:border-neutral-800/60 pt-2" />
+                        </div>
+                    );
+                })}
+            </div>
+
+            {/* Bottom Footer Action */}
+            <div className="pt-6 flex items-center justify-between">
+                <Link
+                    to="/#projects"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-700 dark:text-neutral-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                >
+                    <ArrowLeft size={14} />
+                    <span>Back to all projects</span>
+                </Link>
+
+                {project.demo && (
+                    <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
+                    >
+                        <span>Visit Live Site</span>
+                        <ArrowUpRight size={14} />
+                    </a>
+                )}
+            </div>
+
         </div>
     );
 };

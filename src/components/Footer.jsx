@@ -11,79 +11,60 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-[#f4f4f5] pt-20 pb-10 border-t border-zblack relative overflow-hidden">
-            <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                    {/* Brand */}
-                    <div className="col-span-1 lg:col-span-2">
-                        <a href="#" className="font-display text-2xl font-bold text-zblack mb-6 inline-block tracking-tight">
-                            Vico Pratama Fajareno
-                        </a>
-                        <p className="text-zblack/70 leading-relaxed font-light max-w-sm">
-                            Crafting digital experiences with a focus on aesthetics, performance, and user-centric design. Open to freelance opportunities and collaborations.
-                        </p>
-                    </div>
-
-                    {/* Quick Link */}
-                    <div>
-                        <h4 className="text-zblack font-bold mb-6 font-display">Navigation</h4>
-                        <ul className="space-y-4">
-                            <li><a href="#about" className="text-zblack/70 hover:text-zlime transition-colors text-sm font-medium">About</a></li>
-                            <li><a href="#projects" className="text-zblack/70 hover:text-zlime transition-colors text-sm font-medium">Projects</a></li>
-                            <li><a href="#services" className="text-zblack/70 hover:text-zlime transition-colors text-sm font-medium">Services</a></li>
-                            <li><a href="#contact" className="text-zblack/70 hover:text-zlime transition-colors text-sm font-medium">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    {/* Socials */}
-                    <div>
-                        <h4 className="text-zblack font-bold mb-6 font-display">Connect</h4>
-                        <div className="flex space-x-4">
-                            <a
-                                href="https://github.com/vicopratama"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack flex items-center justify-center text-zblack/70 hover:text-zblack hover:border-zblack transition-all duration-300"
-                            >
-                                <Github size={18} />
-                            </a>
-                            <a
-                                href="https://www.linkedin.com/in/vico-pratama-fajareno-424a401a4/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack flex items-center justify-center text-zblack/70 hover:text-zblack hover:border-zblack transition-all duration-300"
-                            >
-                                <Linkedin size={18} />
-                            </a>
-                            <a
-                                href="mailto:vico.fajareno@gmail.com"
-                                className="w-10 h-10 rounded-full bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack flex items-center justify-center text-zblack/70 hover:text-zblack hover:border-zblack transition-all duration-300"
-                            >
-                                <Mail size={18} />
-                            </a>
-                            <a
-                                href="https://www.instagram.com/vico_prtma27/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack flex items-center justify-center text-zblack/70 hover:text-zblack hover:border-zblack transition-all duration-300"
-                            >
-                                <Instagram size={18} />
-                            </a>
-                        </div>
-                    </div>
+        <footer className="pt-12 pb-8 border-t border-neutral-200 dark:border-neutral-800 mt-12">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500 dark:text-neutral-400">
+                <div className="flex items-center gap-1.5 text-center sm:text-left">
+                    <span>© {currentYear}</span>
+                    <span className="font-semibold text-neutral-700 dark:text-neutral-300">Vico Pratama Fajareno</span>
+                    <span>• All rights reserved.</span>
                 </div>
 
-                <div className="border-t border-zblack pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p className="text-gray-500 text-sm font-light">
-                        © {currentYear} Vico Pratama Fajareno. All rights reserved.
-                    </p>
+                <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
+                        <a
+                            href="https://github.com/VicoPratama"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub Profile"
+                            className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                        >
+                            <Github size={16} />
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/vico-pratama-fajareno-424a401a4/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn Profile"
+                            className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                        >
+                            <Linkedin size={16} />
+                        </a>
+                        <a
+                            href="mailto:vico.fajareno@gmail.com"
+                            aria-label="Email"
+                            className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                        >
+                            <Mail size={16} />
+                        </a>
+                        <a
+                            href="https://www.instagram.com/vico_prtma27/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram Profile"
+                            className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                        >
+                            <Instagram size={16} />
+                        </a>
+                    </div>
+
+                    <span className="text-neutral-300 dark:text-neutral-700">•</span>
 
                     <button
                         onClick={scrollToTop}
-                        className="flex items-center gap-2 text-sm text-zblack/70 hover:text-zblack transition-colors group px-4 py-2 rounded-full hover:bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212]"
+                        className="inline-flex items-center gap-1 text-xs font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors cursor-pointer"
                     >
-                        Back to Top
-                        <ArrowUp size={16} className="group-hover:-translate-y-1 transition-transform" />
+                        <span>Top</span>
+                        <ArrowUp size={14} />
                     </button>
                 </div>
             </div>

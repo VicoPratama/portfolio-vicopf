@@ -1,123 +1,134 @@
-import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import SectionWrapper from './SectionWrapper';
-import { Briefcase, GraduationCap, Code2, TrendingUp, Plus, Minus } from 'lucide-react';
+import { Briefcase, GraduationCap, Code2, TrendingUp, ChevronDown, Sparkles, Plus, Minus } from 'lucide-react';
 
-const TimelineData = [
+const timelineData = [
     {
-        year: "2020",
-        title: "Started University",
-        subtitle: "Computer Science",
-        description: "Began my journey in the world of technology, exploring algorithms, data structures, and the basics of programming.",
-        icon: GraduationCap,
-    },
-    {
-        year: "2022",
-        title: "Discovered Web Development",
-        subtitle: "Frontend Passion",
-        description: "Fell in love with creating visual experiences. Started mastering HTML, CSS, and JavaScript, building my first responsive sites.",
-        icon: Code2,
+        year: "2024",
+        title: "Professional Specialization",
+        subtitle: "Web, Design & ERP",
+        description: "Expanding expertise across Web Development, Web Design, and Business Analysis. Specializing in Odoo ERP solutions and scalable modern web platforms to drive organizational efficiency.",
+        icon: TrendingUp,
     },
     {
         year: "2023",
         title: "Internship & Real World Projects",
         subtitle: "Full Stack Exploration",
-        description: "Gained hands-on experience working with teams, learning backend technologies, and understanding the software development lifecycle.",
+        description: "Gained hands-on experience working with cross-functional teams, collaborating on real-world projects, integrating backend APIs, and mastering software development lifecycle workflows.",
         icon: Briefcase,
     },
     {
-        year: "2024",
-        title: "Professional Specialization",
-        subtitle: "Web, Design & ERP",
-        description: "Expanding expertise across Web Development, Web Design, and Business Analysis. Specializing in Odoo ERP solutions to drive organizational efficiency.",
-        icon: TrendingUp,
+        year: "2022",
+        title: "Discovered Web Development",
+        subtitle: "Frontend Passion",
+        description: "Fell in love with creating digital experiences. Mastered HTML, CSS, JavaScript, and React, building responsive applications and dynamic user interfaces.",
+        icon: Code2,
+    },
+    {
+        year: "2020",
+        title: "Started University",
+        subtitle: "Bachelor of Computer Science",
+        description: "Began my formal journey in technology, exploring algorithms, computer architecture, data structures, and software engineering principles.",
+        icon: GraduationCap,
     },
 ];
 
-const TimelineItem = ({ item, index, isExpanded, onToggle }) => {
-    const number = String(index + 1).padStart(2, '0');
-
-    return (
-        <div className="border-b border-zblack py-6 md:py-8 group">
-            <div 
-                className="flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer"
-                onClick={onToggle}
-            >
-                <div className="flex items-start md:items-center gap-6 md:gap-12 md:w-1/3">
-                    <span className="text-xl md:text-2xl font-display text-gray-500 font-bold">{number}</span>
-                    <div>
-                        <span className="text-xs text-zlime uppercase tracking-wider font-semibold mb-1 block">{item.year}</span>
-                        <h3 className="text-xl md:text-2xl font-bold text-zblack group-hover:text-zlime transition-colors">{item.title}</h3>
-                    </div>
-                </div>
-
-                <div className="md:w-1/3 text-left">
-                    <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1 block">Role</span>
-                    <p className="text-zblack/80 font-medium">{item.subtitle}</p>
-                </div>
-
-                <div className="flex justify-end md:w-auto">
-                    <button className="flex items-center gap-2 px-4 py-2 rounded-full border-[3px] border-zblack text-zblack hover:bg-white/10 transition-colors text-sm font-medium">
-                        {isExpanded ? 'Hide' : 'Show'} 
-                        {isExpanded ? <Minus size={16} /> : <Plus size={16} />}
-                    </button>
-                </div>
-            </div>
-
-            <AnimatePresence>
-                {isExpanded && (
-                    <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                    >
-                        <div className="pt-6 md:pt-8 md:pl-[110px]">
-                            <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack p-6 rounded-2xl flex items-start gap-4">
-                                <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] p-3 rounded-xl shrink-0">
-                                    <item.icon className="w-6 h-6 text-zlime" />
-                                </div>
-                                <p className="text-zblack/70 leading-relaxed font-light mt-1">
-                                    {item.description}
-                                </p>
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
-    );
-};
-
 const Timeline = () => {
-    const [expandedIndex, setExpandedIndex] = useState(0); // First item expanded by default
+    const [expandedIndex, setExpandedIndex] = useState(0);
 
     return (
-        <SectionWrapper id="journey" className="bg-[#f4f4f5] py-24">
-            <div className="max-w-6xl mx-auto">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-zblack max-w-lg leading-tight"
-                    >
-                        A Yearly Snapshot Of My <br/> Creative Growth
-                    </motion.h2>
+        <SectionWrapper id="journey">
+            <div className="space-y-6">
+                
+                {/* Section Header */}
+                <div className="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-800 pb-3">
+                    <div className="flex items-center gap-2">
+                        <Briefcase size={20} className="text-emerald-500" />
+                        <h2 className="text-xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+                            Experience & Journey
+                        </h2>
+                    </div>
+                    <span className="text-xs text-neutral-500 dark:text-neutral-400">
+                        2020 - 2024
+                    </span>
                 </div>
 
-                <div className="border-t border-zblack">
-                    {TimelineData.map((item, index) => (
-                        <TimelineItem 
-                            key={index} 
-                            item={item} 
-                            index={index} 
-                            isExpanded={expandedIndex === index}
-                            onToggle={() => setExpandedIndex(expandedIndex === index ? -1 : index)}
-                        />
-                    ))}
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                    A yearly snapshot of my creative and technical growth.
+                </p>
+
+                {/* Timeline Items */}
+                <div className="space-y-3 pt-2">
+                    {timelineData.map((item, index) => {
+                        const Icon = item.icon;
+                        const isExpanded = expandedIndex === index;
+
+                        return (
+                            <div 
+                                key={index} 
+                                className={`satria-card transition-all duration-200 overflow-hidden ${
+                                    isExpanded ? 'border-neutral-300 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-900/80' : ''
+                                }`}
+                            >
+                                <button
+                                    onClick={() => setExpandedIndex(isExpanded ? -1 : index)}
+                                    className="w-full p-4 sm:p-5 flex items-center justify-between text-left focus:outline-none gap-4"
+                                >
+                                    <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
+                                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                                            isExpanded 
+                                                ? 'bg-emerald-500 text-white' 
+                                                : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400'
+                                        }`}>
+                                            <Icon size={18} />
+                                        </div>
+                                        <div className="min-w-0">
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded-md bg-neutral-200/70 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300">
+                                                    {item.year}
+                                                </span>
+                                                <h3 className="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100 truncate">
+                                                    {item.title}
+                                                </h3>
+                                            </div>
+                                            <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
+                                                {item.subtitle}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-center gap-2 shrink-0">
+                                        <div className={`p-1.5 rounded-full transition-transform duration-200 ${
+                                            isExpanded ? 'rotate-180 text-emerald-500' : 'text-neutral-400'
+                                        }`}>
+                                            <ChevronDown size={18} />
+                                        </div>
+                                    </div>
+                                </button>
+
+                                <AnimatePresence>
+                                    {isExpanded && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: 'auto', opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.2 }}
+                                            className="overflow-hidden"
+                                        >
+                                            <div className="px-5 pb-5 pt-1 border-t border-neutral-100 dark:border-neutral-800/80">
+                                                <p className="text-xs sm:text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+                                                    {item.description}
+                                                </p>
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        );
+                    })}
                 </div>
+
             </div>
         </SectionWrapper>
     );

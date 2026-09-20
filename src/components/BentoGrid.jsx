@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { MapPin, Music, Github, Linkedin, Mail, Gamepad2, Moon, Sun } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { MapPin, Music, Github, Linkedin, Mail, Gamepad2, Moon, Sun, Sparkles, Compass } from 'lucide-react';
 import SectionWrapper from './SectionWrapper';
 
 const BentoGrid = () => {
@@ -8,9 +8,9 @@ const BentoGrid = () => {
     const [genreIndex, setGenreIndex] = useState(0);
 
     const genres = [
-        { name: "Coding Focus", sub: "Lo-fi Beats & Deep House", color: "#ccff00", class: "bg-zlime", gradient: "from-zlime/20" },
-        { name: "Cyberpunk Radio", sub: "Synthwave & Phonk", color: "#b388ff", class: "bg-zpurple", gradient: "from-zpurple/20" },
-        { name: "Deep Flow", sub: "Ambient & White Noise", color: "#1e1e1e", class: "bg-zgray", gradient: "from-zgray/20" },
+        { name: "Coding Focus", sub: "Lo-fi Beats & Deep House", color: "#10b981", bg: "rgba(16, 185, 129, 0.1)" },
+        { name: "Cyberpunk Radio", sub: "Synthwave & Phonk", color: "#8b5cf6", bg: "rgba(139, 92, 246, 0.1)" },
+        { name: "Deep Flow", sub: "Ambient & White Noise", color: "#3b82f6", bg: "rgba(59, 130, 246, 0.1)" },
     ];
 
     const currentGenre = genres[genreIndex];
@@ -51,104 +51,83 @@ const BentoGrid = () => {
     };
 
     return (
-        <SectionWrapper id="bento" className="py-20 bg-[#f4f4f5]">
-            <div className="max-w-7xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mb-12"
-                >
-                    <h2 className="font-display text-4xl font-black text-zblack mb-4 tracking-tighter uppercase">
-                        Beyond the <span className="text-zlime">Code</span>
+        <SectionWrapper id="bento">
+            <div className="space-y-6">
+                
+                {/* Section Header */}
+                <div className="flex items-center gap-2 border-b border-neutral-200 dark:border-neutral-800 pb-3">
+                    <Compass size={20} className="text-emerald-500" />
+                    <h2 className="text-xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+                        Beyond The Code
                     </h2>
-                    <p className="text-zblack/70 max-w-2xl text-lg font-light">
-                        A glimpse into my world, designing for the future.
-                    </p>
-                </motion.div>
+                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[180px]">
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                    A glimpse into my world, creative focus, and tools.
+                </p>
 
-                    {/* Location Card - Live Time (No Tilt) */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="col-span-1 md:col-span-2 row-span-2"
-                    >
-                        <div
-                            className={`w-full h-full relative overflow-hidden rounded-[2rem] border-[3px] border-zblack p-8 transition-colors duration-1000 ease-in-out bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] hover:bg-zgray`}
-                        >
-                            {/* Background Elements */}
-                            <div className={`absolute inset-0 transition-opacity duration-1000 ${isDay ? 'opacity-30' : 'opacity-10'} bg-[url("https://www.transparenttextures.com/patterns/cubes.png")]`} />
+                {/* Bento Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
 
-                            {/* Sun/Moon Animation */}
-                            <motion.div
-                                animate={{ y: isDay ? 0 : 100, opacity: isDay ? 1 : 0 }}
-                                className="absolute top-8 right-8 text-yellow-300"
-                            >
-                                <Sun size={32} className="drop-shadow-[0_0_15px_rgba(253,224,71,0.5)]" />
-                            </motion.div>
-                            <motion.div
-                                animate={{ y: isDay ? -100 : 0, opacity: isDay ? 0 : 1 }}
-                                className="absolute top-8 right-8 text-zpurplelue-200"
-                            >
-                                <Moon size={32} className="drop-shadow-[0_0_15px_rgba(191,219,254,0.5)]" />
-                            </motion.div>
-
-                            <div className="absolute right-0 bottom-0 opacity-20 pointer-events-none">
-                                <MapPin size={240} className={`translate-x-16 translate-y-16 transition-colors duration-1000 ${isDay ? 'text-zlime' : 'text-zpurple'}`} />
+                    {/* Location & Time Card */}
+                    <div className="sm:col-span-2 satria-card p-6 flex flex-col justify-between relative overflow-hidden group">
+                        <div className="flex items-center justify-between z-10">
+                            <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-xs font-medium text-neutral-700 dark:text-neutral-300">
+                                <MapPin size={13} className="text-emerald-500" />
+                                <span>South Jakarta, ID</span>
                             </div>
 
-                            {/* Content */}
-                            <div className="relative z-10 h-full flex flex-col justify-between">
-                                <div className="flex justify-between items-start">
-                                    <div className="bg-white/10 backdrop-blur-md p-3 rounded-2xl border-[3px] border-zblack shadow-lg">
-                                        <MapPin className="text-zblack w-6 h-6" />
-                                    </div>
-                                    <div className="bg-black/20 backdrop-blur-md px-4 py-1.5 rounded-full border-[3px] border-zblack flex items-center gap-2">
-                                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                        <span className="text-xs font-mono text-zblack/90 tabular-nums">
-                                            {formatTime(time)}
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <h3 className="text-zblack/60 text-xs font-semibold uppercase tracking-widest mb-2">Based in</h3>
-                                    <p className="text-4xl font-display font-bold text-zblack tracking-tight">South Jakarta</p>
-                                    <p className="text-zblack/80 text-lg font-light mt-1 flex items-center gap-2">
-                                        Indonesia
-                                        <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 border-[3px] border-zblack">
-                                            {greeting}
-                                        </span>
-                                    </p>
-                                </div>
+                            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-xs font-mono text-neutral-800 dark:text-neutral-200">
+                                <span className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                </span>
+                                <span>{formatTime(time)} (WIB)</span>
                             </div>
                         </div>
-                    </motion.div>
 
+                        <div className="my-6 z-10">
+                            <h3 className="text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400 font-medium mb-1">
+                                Current Timezone
+                            </h3>
+                            <p className="text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-neutral-50 tracking-tight">
+                                South Jakarta, Indonesia
+                            </p>
+                            <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 flex items-center gap-2">
+                                <span>{greeting}</span>
+                                <span>•</span>
+                                <span className="text-emerald-600 dark:text-emerald-400 font-medium">Available for Collaboration</span>
+                            </p>
+                        </div>
 
-                    {/* Spotify / Vibe Card - Interactive Equalizer */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
+                        {/* Background Day/Night icon indicator */}
+                        <div className="absolute right-4 bottom-4 opacity-15 dark:opacity-10 pointer-events-none">
+                            {isDay ? <Sun size={90} className="text-amber-500" /> : <Moon size={90} className="text-blue-400" />}
+                        </div>
+                    </div>
+
+                    {/* Spotify / Vibe Card */}
+                    <div 
                         onClick={handleGenreSwitch}
-                        className={`col-span-1 md:col-span-1 row-span-2 bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-[2rem] border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zlime)] p-6 flex flex-col justify-between group overflow-hidden cursor-pointer transition-colors duration-500`}
+                        className="satria-card p-6 flex flex-col justify-between cursor-pointer group hover:border-neutral-400 dark:hover:border-neutral-600 transition-all"
                     >
-                        <div className={`${currentGenre.class} w-14 h-14 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-all duration-500`}>
-                            <Music className="text-zblack w-7 h-7 fill-current" />
+                        <div className="flex items-center justify-between">
+                            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center border border-emerald-500/20 group-hover:scale-110 transition-transform">
+                                <Music size={18} />
+                            </div>
+                            <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-500">
+                                Click to switch
+                            </span>
                         </div>
-                        <div className="space-y-4 relative z-10">
-                            <div className="flex gap-1.5 items-end h-8">
+
+                        <div className="mt-6 space-y-3">
+                            <div className="flex gap-1.5 items-end h-6">
                                 {[1, 2, 3, 4, 3, 2, 5, 3, 2].map((_, i) => (
                                     <motion.div
                                         key={i}
-                                        className={`w-1.5 rounded-full ${currentGenre.class}`}
+                                        className="w-1 rounded-full bg-emerald-500"
                                         animate={{
-                                            height: ["20%", "80%", "40%", "100%", "30%"],
+                                            height: ["20%", "90%", "35%", "100%", "30%"],
                                         }}
                                         transition={{
                                             duration: 0.8,
@@ -161,80 +140,89 @@ const BentoGrid = () => {
                                     />
                                 ))}
                             </div>
+
                             <div>
-                                <h3 className="text-zblack text-xl font-bold leading-tight tracking-tight transition-all duration-300">{currentGenre.name}</h3>
-                                <p className="text-zblack/70 text-xs mt-1 font-medium transition-all duration-300">{currentGenre.sub}</p>
+                                <h4 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
+                                    {currentGenre.name}
+                                </h4>
+                                <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                                    {currentGenre.sub}
+                                </p>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
 
-                    {/* Tech Stack - Glass Card */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="col-span-1 md:col-span-1 row-span-1 bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-[2rem] border-[3px] border-zblack p-6 relative overflow-hidden group hover:shadow-[4px_4px_0px_0px_var(--color-zpurple)] transition-colors duration-500"
-                    >
-                        {/* Removed blur shape */}
-                        <h3 className="text-zblack/70 text-[10px] font-bold uppercase tracking-widest mb-4">My Arsenal</h3>
-                        <div className="flex flex-wrap gap-2">
-                            {['VS Code', 'Figma', 'Windows', 'Coffee', 'Spotify'].map(item => (
-                                <span key={item} className="px-3 py-1.5 bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] hover:bg-white/10 rounded-lg text-xs font-medium text-zblack/90 border-[3px] border-zblack transition-colors">
-                                    {item}
-                                </span>
-                            ))}
+                    {/* Tech Arsenal Card */}
+                    <div className="satria-card p-6 flex flex-col justify-between">
+                        <div>
+                            <h4 className="text-xs uppercase tracking-wider font-semibold text-neutral-500 dark:text-neutral-400 mb-3">
+                                Daily Arsenal
+                            </h4>
+                            <div className="flex flex-wrap gap-1.5">
+                                {['VS Code', 'Figma', 'Windows', 'Coffee', 'Spotify', 'Postman'].map(item => (
+                                    <span 
+                                        key={item} 
+                                        className="px-2.5 py-1 bg-neutral-100 dark:bg-neutral-800 rounded-lg text-xs font-medium text-neutral-700 dark:text-neutral-300"
+                                    >
+                                        {item}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
-                    </motion.div>
+                    </div>
 
-                    {/* Socials Grid - iOS Style Buttons */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.25 }}
-                        className="col-span-1 md:col-span-1 row-span-1 grid grid-cols-2 gap-3 relative z-20"
-                    >
-                        <a href="https://github.com/VicoPratama" target="_blank" className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-2xl border-[3px] border-zblack flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 group">
-                            <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
-                        </a>
-                        <a href="https://www.linkedin.com/in/vico-pratama-fajareno-424a401a4/" target="_blank" className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-2xl border-[3px] border-zblack flex items-center justify-center hover:bg-[#0077b5] hover:text-zblack transition-all duration-300 group">
-                            <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
-                        </a>
-                        <a href="mailto:vico.fajareno@gmail.com" className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-2xl border-[3px] border-zblack flex items-center justify-center hover:bg-zlime hover:text-zblack transition-all duration-300 group">
-                            <Mail className="w-6 h-6 group-hover:scale-110 transition-transform" />
-                        </a>
-                        <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-2xl border-[3px] border-zblack flex items-center justify-center group">
-                            <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
+                    {/* Socials Grid Card */}
+                    <div className="satria-card p-6 flex flex-col justify-between">
+                        <h4 className="text-xs uppercase tracking-wider font-semibold text-neutral-500 dark:text-neutral-400 mb-3">
+                            Social Profiles
+                        </h4>
+                        <div className="grid grid-cols-3 gap-2">
+                            <a 
+                                href="https://github.com/VicoPratama" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="p-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 flex items-center justify-center hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+                            >
+                                <Github size={18} />
+                            </a>
+                            <a 
+                                href="https://www.linkedin.com/in/vico-pratama-fajareno-424a401a4/" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="p-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"
+                            >
+                                <Linkedin size={18} />
+                            </a>
+                            <a 
+                                href="mailto:vico.fajareno@gmail.com" 
+                                className="p-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-colors"
+                            >
+                                <Mail size={18} />
+                            </a>
                         </div>
-                    </motion.div>
+                    </div>
 
-                    {/* Gamer / Hobby Card - Arcade Style */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                        className="col-span-1 md:col-span-2 lg:col-span-4 row-span-1 bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-[2rem] border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zpurple)] p-8 flex items-center justify-between group overflow-hidden transition-colors"
-                    >
-                        <div className="flex items-center gap-6">
-                            <div className="p-4 bg-[#f4f4f5] rounded-2xl border-[3px] border-zblack text-zpurple">
-                                <Gamepad2 className="w-8 h-8" />
+                    {/* Gaming & Strategy Card */}
+                    <div className="satria-card p-6 flex items-center justify-between group">
+                        <div className="flex items-center gap-3.5">
+                            <div className="p-3 rounded-xl bg-purple-500/10 text-purple-500 border border-purple-500/20 group-hover:scale-110 transition-transform">
+                                <Gamepad2 size={20} />
                             </div>
                             <div>
-                                <h3 className="text-zblack text-xl font-bold tracking-tight">Gaming & Strategy</h3>
-                                <p className="text-zblack/70 text-sm font-light mt-1">Fueling creativity in virtual worlds.</p>
+                                <h4 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
+                                    Gaming & Strategy
+                                </h4>
+                                <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                                    Fueling creativity in virtual worlds.
+                                </p>
                             </div>
                         </div>
-                        <div className="hidden sm:flex opacity-30 group-hover:opacity-50 transition-opacity gap-2">
-                            <div className="w-16 h-2 bg-white/20 rounded-full" />
-                            <div className="w-2 h-2 bg-white/20 rounded-full" />
-                        </div>
-                    </motion.div>
+                    </div>
 
                 </div>
+
             </div>
-        </SectionWrapper >
+        </SectionWrapper>
     );
 };
 

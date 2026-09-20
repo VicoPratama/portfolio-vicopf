@@ -1,172 +1,112 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Terminal, Layers, Code, Zap, Sparkles } from 'lucide-react';
-import SectionWrapper from './SectionWrapper';
+import { ArrowRight, MapPin, Briefcase, FileText, Send, Sparkles, Terminal, Code2, Layers, Cpu } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     return (
-        <div id="home" className="relative min-h-screen pt-24 pb-12 overflow-hidden bg-[#f4f4f5] flex items-center">
-            {/* Removed ambient glows and grid per anti-slop rules */}
+        <section id="home" className="pt-4 pb-8">
+            <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="space-y-6"
+            >
+                {/* Title & Greeting */}
+                <div className="space-y-3">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-medium">
+                        <Sparkles size={13} />
+                        <span>Web Developer & UI/UX Designer</span>
+                    </div>
 
-            <SectionWrapper>
-                <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-16 items-center">
-                    
-                    {/* Left Column: Glassmorphism Profile Card */}
-                    <motion.div 
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="xl:col-span-4 flex flex-col items-center xl:items-start relative"
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 font-display">
+                        Hi, I'm Vico Pratama Fajareno
+                    </h1>
+                </div>
+
+                {/* Location & Availability Chips */}
+                <ul className="flex flex-wrap items-center gap-3 text-sm text-neutral-600 dark:text-neutral-400">
+                    <li className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+                        <MapPin size={14} className="text-emerald-500" />
+                        <span>Based in South Jakarta, Indonesia</span>
+                    </li>
+                    <li className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+                        <Briefcase size={14} className="text-blue-500" />
+                        <span>Open to Work & Relocation to Anywhere / Onsite & Remote</span>
+                    </li>
+                </ul>
+
+                {/* Bio Paragraphs */}
+                <div className="space-y-4 text-base md:text-lg leading-relaxed text-neutral-600 dark:text-neutral-300 font-normal">
+                    <p>
+                        Frontend-focused Full Stack Developer with professional experience designing, developing, and deploying scalable web applications from frontend to backend. Skilled in React-based development, API integration, and scalable system design, with a strong UI/UX background to deliver pixel-perfect and user-centered interfaces.
+                    </p>
+                    <p className="text-sm md:text-base text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                        Proven ability to develop, deploy, and maintain web applications end-to-end, while also contributing to ERP system implementation and business process optimization, including exposure to Odoo ERP environments. Experienced in aligning technical solutions with operational workflows to improve system efficiency and usability. Passionate about modern frontend technologies such as React and Next.js, with a continuous focus on building production-ready, scalable applications that integrate seamlessly with enterprise systems.
+                    </p>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap items-center gap-3 pt-2">
+                    <a
+                        href="#contact"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 text-sm font-medium hover:bg-neutral-800 dark:hover:bg-white transition-all shadow-sm hover:scale-[1.02]"
                     >
-                        {/* Profile Card */}
-                        <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] border-[3px] border-zblack rounded-[2.5rem] p-6 pb-8 w-full max-w-[360px] relative z-10">
-                            
-                            <div className="relative z-10 w-full aspect-[4/5] rounded-t-full rounded-b-[2rem] overflow-hidden mb-8 border-[6px] border-zblack">
-                                <img 
-                                    src="/foto_profile.JPG" 
-                                    alt="Vico Pratama" 
-                                    className="w-full h-full object-cover object-top"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-zcard/80 via-transparent to-transparent" />
+                        <span>Start a Project</span>
+                        <ArrowRight size={16} />
+                    </a>
+
+                    <Link
+                        to="/resume"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 text-sm font-medium hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all shadow-2xs hover:scale-[1.02]"
+                    >
+                        <FileText size={16} />
+                        <span>View Resume</span>
+                    </Link>
+                </div>
+
+                {/* Highlight Cards Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                    <div className="satria-card p-5 group flex flex-col justify-between">
+                        <div className="flex items-center justify-between mb-3">
+                            <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                                <Terminal size={20} />
                             </div>
-
-                            <div className="text-center relative z-10">
-                                <h2 className="text-zblack font-display text-3xl font-black tracking-tight mb-1">
-                                    Vico Pratama
-                                </h2>
-                                <p className="text-zlime font-mono text-sm uppercase tracking-widest mb-6 font-bold">
-                                    Web Developer
-                                </p>
-                                
-                                <div className="w-full h-[1px] bg-zgray mb-6" />
-
-                                <p className="text-zblack/70 text-sm font-medium leading-relaxed max-w-[240px] mx-auto">
-                                    Building pixel-perfect, engaging, and accessible digital experiences.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* CTA Button */}
-                        <div className="mt-8 flex items-center justify-center w-full max-w-[360px]">
-                            <a href="#contact" className="flex items-center justify-between w-full bg-zlime hover:bg-zlime/90 active:scale-95 transition-all rounded-full p-2 pl-8 group">
-                                <span className="text-zblack font-black text-base tracking-wide uppercase">Start a Project</span>
-                                <div className="w-12 h-12 rounded-full bg-[#f4f4f5] flex items-center justify-center text-zlime transition-transform duration-300">
-                                    <ArrowRight size={20} strokeWidth={3} className="group-hover:translate-x-1 transition-transform duration-300" />
-                                </div>
-                            </a>
-                        </div>
-                    </motion.div>
-
-                    {/* Right Column: Content */}
-                    <div className="xl:col-span-8 flex flex-col">
-                        
-                        {/* Typography Section */}
-                        <motion.div 
-                            initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="mb-10 flex flex-col"
-                        >
-                            <span className="text-zpurple font-mono text-lg mb-4 flex items-center gap-3 font-bold tracking-widest uppercase">
-                                <Zap size={18} /> Creative Mind
+                            <span className="text-[11px] font-mono font-medium px-2 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400">
+                                Core Logic
                             </span>
-                            <h1 className="font-display text-6xl md:text-7xl lg:text-[6.5rem] font-black uppercase leading-[0.9] tracking-tighter flex flex-col gap-2">
-                                <span className="text-zblack">WEB</span>
-                                {/* Outline text effect with zlime stroke */}
-                                <span 
-                                    className="text-transparent" 
-                                    style={{ WebkitTextStroke: '2px var(--color-zlime)' }}
-                                >
-                                    DEVELOPER
-                                </span>
-                            </h1>
-                        </motion.div>
-
-                        <div className="flex flex-col md:flex-row gap-8 mb-12 items-start">
-                            {/* Bio */}
-                            <motion.p 
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.2 }}
-                                className="text-zblack/70 text-base md:text-lg font-light leading-relaxed max-w-md border-l-4 border-zlime pl-6"
-                            >
-                                I specialize in transforming complex problems into elegant, highly functional, and visually striking web interfaces. My focus is on writing clean, scalable code.
-                            </motion.p>
                         </div>
-
-                        {/* Skill Cards (Horizontal Layout instead of Boxy) */}
-                        <div className="flex flex-col md:flex-row gap-6 mb-12">
-                            {/* Lime Card */}
-                            <motion.div 
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.4 }}
-                                className="flex-1 bg-zlime rounded-3xl p-8 flex flex-col justify-between group relative overflow-hidden"
-                            >
-                                {/* Removed abstract shape bg */}
-                                
-                                <div className="text-zblack mb-12 relative z-10">
-                                    <Terminal size={32} />
-                                </div>
-                                <div className="relative z-10">
-                                    <h3 className="text-zblack font-black text-2xl uppercase tracking-tight leading-none mb-3">
-                                        Advanced<br/>Logic
-                                    </h3>
-                                    <p className="text-zblack/70 font-medium text-sm">React, Next.js, TypeScript</p>
-                                </div>
-                            </motion.div>
-
-                            {/* Purple Card */}
-                            <motion.div 
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5 }}
-                                className="flex-1 bg-zpurple rounded-3xl p-8 flex flex-col justify-between group relative overflow-hidden"
-                            >
-                                {/* Removed abstract shape bg */}
-
-                                <div className="text-zblack mb-12 relative z-10">
-                                    <Layers size={32} />
-                                </div>
-                                <div className="relative z-10">
-                                    <h3 className="text-zblack font-black text-2xl uppercase tracking-tight leading-none mb-3">
-                                        Visual<br/>Excellence
-                                    </h3>
-                                    <p className="text-zblack/70 font-medium text-sm">Tailwind CSS, Framer Motion</p>
-                                </div>
-                            </motion.div>
+                        <div>
+                            <h3 className="text-base font-semibold text-neutral-900 dark:text-neutral-100 mb-1">
+                                Advanced Logic & Architecture
+                            </h3>
+                            <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                React, Next.js, TypeScript, State Management, and scalable backend workflows.
+                            </p>
                         </div>
+                    </div>
 
-                        {/* Bottom Value Section */}
-                        <motion.div 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.6 }}
-                            className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] border-[3px] border-zblack rounded-3xl p-6 flex flex-col md:flex-row items-center gap-6"
-                        >
-                            <div className="flex items-center gap-4 shrink-0">
-                                <div className="w-12 h-12 rounded-xl bg-zgray flex items-center justify-center text-zlime">
-                                    <Code size={24} />
-                                </div>
-                                <div>
-                                    <h4 className="text-zblack font-bold uppercase tracking-wider text-sm">Tech Arsenal</h4>
-                                    <p className="text-gray-500 text-xs">Tools I use daily</p>
-                                </div>
+                    <div className="satria-card p-5 group flex flex-col justify-between">
+                        <div className="flex items-center justify-between mb-3">
+                            <div className="p-2.5 rounded-xl bg-blue-500/10 text-blue-500 border border-blue-500/20">
+                                <Layers size={20} />
                             </div>
-                            
-                            <div className="w-full h-[1px] md:w-[1px] md:h-12 bg-zgray" />
-
-                            <div className="flex flex-wrap gap-2">
-                                {["React", "Next.js", "Tailwind", "JavaScript", "Figma"].map((tech) => (
-                                    <span key={tech} className="px-4 py-1.5 rounded-lg bg-[#f4f4f5] border-[3px] border-zblack text-zblack/80 text-sm font-medium hover:shadow-[4px_4px_0px_0px_var(--color-zpurple)] hover:text-zpurple transition-colors cursor-default">
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-                        </motion.div>
-
+                            <span className="text-[11px] font-mono font-medium px-2 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400">
+                                Interface
+                            </span>
+                        </div>
+                        <div>
+                            <h3 className="text-base font-semibold text-neutral-900 dark:text-neutral-100 mb-1">
+                                Visual Excellence & UX
+                            </h3>
+                            <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                Tailwind CSS, Framer Motion, Responsive Design, and intuitive UX wireframing.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </SectionWrapper>
-        </div>
+
+            </motion.div>
+        </section>
     );
 };
 

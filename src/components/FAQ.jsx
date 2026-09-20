@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
+import { HelpCircle, ChevronDown } from 'lucide-react';
 import SectionWrapper from './SectionWrapper';
 
 const faqs = [
@@ -22,90 +22,72 @@ const faqs = [
     }
 ];
 
-const FAQItem = ({ question, answer, isOpen, onClick, index }) => {
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className="border-b border-zblack last:border-0"
-        >
-            <button
-                onClick={onClick}
-                className="w-full py-6 flex items-center justify-between text-left focus:outline-none group"
-            >
-                <span className={`font-medium text-lg transition-colors ${isOpen ? 'text-zblack' : 'text-zblack/70 group-hover:text-zblack'}`}>
-                    {question}
-                </span>
-                <span className={`ml-4 flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all ${isOpen ? 'bg-zlime text-black text-zblack' : 'bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] text-zblack/70 group-hover:bg-white/10'}`}>
-                    {isOpen ? <Minus size={16} /> : <Plus size={16} />}
-                </span>
-            </button>
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                    >
-                        <div className="pb-6 text-zblack/70 leading-relaxed pr-12">
-                            {answer}
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </motion.div>
-    );
-};
-
 const FAQ = () => {
     const [openIndex, setOpenIndex] = useState(0);
 
     return (
-        <SectionWrapper id="faq" className="bg-[#f4f4f5] py-24">
-            <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-24">
-                    
-                    {/* Header */}
-                    <div>
-                        <motion.h2 
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-zblack mb-6 leading-tight"
-                        >
-                            Got Questions? We've <br/> Got Answers.
-                        </motion.h2>
-                        <motion.p 
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="text-zblack/70 mb-8 font-light"
-                        >
-                            Find answers to common questions about my services, process, and technical capabilities.
-                        </motion.p>
-                    </div>
-
-                    {/* Accordion List */}
-                    <div>
-                        <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl rounded-3xl p-6 md:p-8 border-[3px] border-zblack">
-                            {faqs.map((faq, index) => (
-                                <FAQItem
-                                    key={index}
-                                    index={index}
-                                    question={faq.question}
-                                    answer={faq.answer}
-                                    isOpen={openIndex === index}
-                                    onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
-                                />
-                            ))}
-                        </div>
-                    </div>
-
+        <SectionWrapper id="faq">
+            <div className="space-y-6">
+                
+                {/* Section Header */}
+                <div className="flex items-center gap-2 border-b border-neutral-200 dark:border-neutral-800 pb-3">
+                    <HelpCircle size={20} className="text-emerald-500" />
+                    <h2 className="text-xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+                        Frequently Asked Questions
+                    </h2>
                 </div>
+
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                    Find answers to common questions about my technical background, workflow, and availability.
+                </p>
+
+                {/* FAQ Accordion List */}
+                <div className="space-y-3 pt-2">
+                    {faqs.map((faq, index) => {
+                        const isOpen = openIndex === index;
+                        return (
+                            <div 
+                                key={index} 
+                                className={`satria-card overflow-hidden transition-all duration-200 ${
+                                    isOpen ? 'border-neutral-300 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-900/80' : ''
+                                }`}
+                            >
+                                <button
+                                    onClick={() => setOpenIndex(isOpen ? -1 : index)}
+                                    className="w-full p-4 sm:p-5 flex items-center justify-between text-left focus:outline-none gap-4"
+                                >
+                                    <span className="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
+                                        {faq.question}
+                                    </span>
+                                    <div className={`p-1.5 rounded-full transition-transform duration-200 shrink-0 ${
+                                        isOpen ? 'rotate-180 text-emerald-500' : 'text-neutral-400'
+                                    }`}>
+                                        <ChevronDown size={18} />
+                                    </div>
+                                </button>
+
+                                <AnimatePresence>
+                                    {isOpen && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: 'auto', opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.2 }}
+                                            className="overflow-hidden"
+                                        >
+                                            <div className="px-5 pb-5 pt-1 border-t border-neutral-100 dark:border-neutral-800/80">
+                                                <p className="text-xs sm:text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+                                                    {faq.answer}
+                                                </p>
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        );
+                    })}
+                </div>
+
             </div>
         </SectionWrapper>
     );

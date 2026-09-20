@@ -1,8 +1,41 @@
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, ArrowLeft, Award, Code, Globe, Users, Cpu, Download, MapPin, Linkedin, Monitor, Mouse, Keyboard, Laptop, Music, HardDrive, Zap, Palette, Terminal, Brain, FileDown } from 'lucide-react';
+import { 
+    Briefcase, 
+    GraduationCap, 
+    ArrowLeft, 
+    Award, 
+    Code, 
+    Globe, 
+    Users, 
+    Cpu, 
+    Download, 
+    MapPin, 
+    Linkedin, 
+    Monitor, 
+    Mouse, 
+    Keyboard, 
+    Laptop, 
+    Music, 
+    HardDrive, 
+    Zap, 
+    Palette, 
+    Terminal, 
+    Brain, 
+    FileDown,
+    Calendar,
+    ExternalLink,
+    CheckCircle2
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import { education, experience, organizationalExperience, certificates, skills, gear } from '../constants/resumeData';
+import { 
+    education, 
+    experience, 
+    organizationalExperience, 
+    certificates, 
+    skills, 
+    gear 
+} from '../constants/resumeData';
 
 const Resume = () => {
     const handleExportPDF = () => {
@@ -10,470 +43,383 @@ const Resume = () => {
     };
 
     return (
-        <div className="pt-32 pb-24 min-h-screen bg-[#f4f4f5] text-zblack relative overflow-hidden">
-            {/* Ambient Glows */}
-            <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-zlime/10 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-zpurple/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="space-y-8 pb-12">
+            
+            {/* Header / Top Bar */}
+            <div className="space-y-4">
+                <div className="print:hidden">
+                    <Link 
+                        to="/" 
+                        className="inline-flex items-center gap-1.5 text-xs font-medium text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group"
+                    >
+                        <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+                        <span>Back to Home</span>
+                    </Link>
+                </div>
 
-            <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-                <div id="resume-export-container" className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 relative">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 font-display">
+                            Resume & Credentials
+                        </h1>
+                        <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 mt-1">
+                            A comprehensive record of my professional experience, education, and technical expertise.
+                        </p>
+                    </div>
 
-                    {/* Sidebar / Header Area */}
-                    <div className="lg:col-span-4">
-                        <div className="lg:sticky lg:top-32 lg:h-[calc(100vh-8rem)] print:h-auto print:static flex flex-col">
-                            <div className="mb-12 print:hidden">
-                                <Link to="/">
-                                    <button className="flex items-center text-gray-500 hover:text-zblack transition-colors mb-8 group font-medium">
-                                        <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-                                        Back to Home
-                                    </button>
-                                </Link>
+                    {/* Action Buttons */}
+                    <div className="flex flex-wrap items-center gap-2.5 print:hidden">
+                        <button
+                            onClick={handleExportPDF}
+                            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 text-xs font-medium hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-all shadow-2xs cursor-pointer"
+                        >
+                            <FileDown size={14} className="text-purple-500" />
+                            <span>Export PDF</span>
+                        </button>
 
-                                <motion.h1
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className="font-display text-5xl md:text-6xl font-black mb-6 text-zblack leading-tight tracking-tight uppercase"
-                                >
-                                    My <br /><span className="text-transparent" style={{ WebkitTextStroke: '2px var(--color-zlime)' }}>Journey</span>
-                                </motion.h1>
+                        <a
+                            href="https://drive.google.com/file/d/1y62sPKHQpeD9qRmlaDFXRlqHegDl07uv/view?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 text-xs font-medium hover:bg-neutral-800 dark:hover:bg-white transition-all shadow-xs"
+                        >
+                            <Download size={14} className="text-emerald-400 dark:text-emerald-600" />
+                            <span>Download CV</span>
+                        </a>
 
-                                <motion.p
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 }}
-                                    className="text-zblack/70 text-lg mb-8 leading-relaxed font-light"
-                                >
-                                    A comprehensive timeline of my professional experience, education, and technical expertise.
-                                </motion.p>
+                        <a
+                            href="https://www.linkedin.com/in/vico-pratama-fajareno-424a401a4/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#0077b5]/10 text-[#0077b5] border border-[#0077b5]/20 text-xs font-medium hover:bg-[#0077b5]/20 transition-all"
+                        >
+                            <Linkedin size={14} />
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
 
-                                <div className="flex flex-col gap-3 print:hidden">
-                                    <button
-                                        onClick={handleExportPDF}
-                                        className="w-full flex items-center justify-center py-3.5 rounded-full font-bold bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] hover:bg-white/10 backdrop-blur-md border-[3px] border-zblack text-zblack transition-colors shadow-xl"
-                                    >
-                                        <FileDown className="w-5 h-5 mr-2 text-zpurple" />
-                                        Export as PDF
-                                    </button>
-                                    
-                                    <div className="flex flex-col sm:flex-row gap-3">
-                                        <a
-                                            href="https://drive.google.com/file/d/1y62sPKHQpeD9qRmlaDFXRlqHegDl07uv/view?usp=drive_link"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="w-full md:w-auto flex flex-1 items-center justify-center py-3.5 rounded-full bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] text-zblack hover:bg-white/10 border-[3px] border-zblack transition-colors font-bold text-sm"
-                                        >
-                                            <Download className="w-4 h-4 mr-2 text-zlime" />
-                                            Download CV
-                                        </a>
+                {/* Status Bar */}
+                <div className="satria-card p-4 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <span className="relative flex h-2.5 w-2.5">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                        </span>
+                        <div>
+                            <h2 className="text-xs font-semibold text-neutral-900 dark:text-neutral-100">
+                                Open for Work & Collaborations
+                            </h2>
+                            <p className="text-[11px] text-neutral-500 dark:text-neutral-400">
+                                Available for full-time software engineering roles and freelance projects.
+                            </p>
+                        </div>
+                    </div>
+                    <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">
+                        Immediate
+                    </span>
+                </div>
+            </div>
 
-                                        <a
-                                            href="https://www.linkedin.com/in/vico-pratama-fajareno-424a401a4/"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="w-full md:w-auto flex flex-1 items-center justify-center py-3.5 rounded-full bg-[#0077b5]/10 text-[#0077b5] border border-[#0077b5]/20 hover:bg-[#0077b5]/20 transition-colors font-bold text-sm"
-                                        >
-                                            <Linkedin className="w-4 h-4 mr-2" />
-                                            LinkedIn
-                                        </a>
-                                    </div>
-                                </div>
+            <div className="border-t border-neutral-200 dark:border-neutral-800" />
 
-                                {/* Availability Status */}
-                                <div className="mt-8 bg-zlime/5 border border-zlime/20 backdrop-blur-md rounded-[2rem] p-6 relative overflow-hidden group">
-                                    <div className="absolute top-0 right-0 p-4 opacity-10">
-                                        <Briefcase className="w-16 h-16 text-zlime -rotate-12 translate-x-4 -translate-y-4" />
-                                    </div>
-                                    <h3 className="text-zblack font-bold text-lg mb-1 flex items-center gap-2">
-                                        <span className="relative flex h-3 w-3">
-                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-zlime opacity-75"></span>
-                                            <span className="relative inline-flex rounded-full h-3 w-3 bg-zlime"></span>
-                                        </span>
-                                        Open for Work
+            {/* Work Experience Section */}
+            <section className="space-y-4">
+                <div className="flex items-center gap-2 pb-2">
+                    <Briefcase size={18} className="text-emerald-500" />
+                    <h2 className="text-lg font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+                        Professional Work Experience
+                    </h2>
+                </div>
+
+                <div className="space-y-4">
+                    {experience.map((job, index) => (
+                        <div key={index} className="satria-card p-5 sm:p-6 space-y-3.5">
+                            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                                <div>
+                                    <h3 className="text-base font-bold text-neutral-900 dark:text-neutral-100">
+                                        {job.role}
                                     </h3>
-                                    <p className="text-zblack/70 text-sm font-light leading-relaxed">
-                                        Ready to collaborate on freelance projects or full-time opportunities.
-                                    </p>
+                                    <h4 className="text-xs sm:text-sm font-semibold text-emerald-600 dark:text-emerald-400 mt-0.5">
+                                        {job.company}
+                                    </h4>
+                                    <div className="flex items-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-400 mt-1">
+                                        <MapPin size={13} />
+                                        <span>{job.location}</span>
+                                    </div>
                                 </div>
+
+                                <span className="inline-flex items-center gap-1 text-[11px] font-mono font-medium px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 w-fit">
+                                    <Calendar size={11} />
+                                    {job.year}
+                                </span>
                             </div>
+
+                            <p className="text-xs sm:text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 font-normal whitespace-pre-line">
+                                {job.description}
+                            </p>
+
+                            {job.tech && (
+                                <div className="pt-2 border-t border-neutral-100 dark:border-neutral-800/80 flex flex-wrap gap-1.5">
+                                    {job.tech.map((t, i) => (
+                                        <span 
+                                            key={i}
+                                            className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400"
+                                        >
+                                            {t}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <div className="border-t border-neutral-200 dark:border-neutral-800" />
+
+            {/* Education Section */}
+            <section className="space-y-4">
+                <div className="flex items-center gap-2 pb-2">
+                    <GraduationCap size={18} className="text-blue-500" />
+                    <h2 className="text-lg font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+                        Education
+                    </h2>
+                </div>
+
+                <div className="space-y-4">
+                    {education.map((edu, index) => (
+                        <div key={index} className="satria-card p-5 sm:p-6 space-y-3">
+                            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                                <div>
+                                    <h3 className="text-base font-bold text-neutral-900 dark:text-neutral-100">
+                                        {edu.degree}
+                                    </h3>
+                                    <h4 className="text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400 mt-0.5">
+                                        {edu.school}
+                                    </h4>
+                                </div>
+
+                                <span className="inline-flex items-center gap-1 text-[11px] font-mono font-medium px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 w-fit">
+                                    <Calendar size={11} />
+                                    {edu.year}
+                                </span>
+                            </div>
+
+                            <p className="text-xs sm:text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 font-normal whitespace-pre-line">
+                                {edu.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <div className="border-t border-neutral-200 dark:border-neutral-800" />
+
+            {/* Organizational Experience */}
+            <section className="space-y-4">
+                <div className="flex items-center gap-2 pb-2">
+                    <Users size={18} className="text-purple-500" />
+                    <h2 className="text-lg font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+                        Organizational Leadership
+                    </h2>
+                </div>
+
+                <div className="space-y-4">
+                    {organizationalExperience.map((org, index) => (
+                        <div key={index} className="satria-card p-5 sm:p-6 space-y-3">
+                            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                                <div>
+                                    <h3 className="text-base font-bold text-neutral-900 dark:text-neutral-100">
+                                        {org.role}
+                                    </h3>
+                                    <h4 className="text-xs sm:text-sm font-semibold text-purple-600 dark:text-purple-400 mt-0.5">
+                                        {org.organization}
+                                    </h4>
+                                </div>
+
+                                <span className="inline-flex items-center gap-1 text-[11px] font-mono font-medium px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 w-fit">
+                                    <Calendar size={11} />
+                                    {org.year}
+                                </span>
+                            </div>
+
+                            <p className="text-xs sm:text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 font-normal whitespace-pre-line">
+                                {org.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <div className="border-t border-neutral-200 dark:border-neutral-800" />
+
+            {/* Certifications Section */}
+            <section className="space-y-4">
+                <div className="flex items-center gap-2 pb-2">
+                    <Award size={18} className="text-amber-500" />
+                    <h2 className="text-lg font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+                        Certifications & Licenses
+                    </h2>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {certificates.map((cert, index) => (
+                        <div key={index} className="satria-card p-5 flex flex-col justify-between group">
+                            <div>
+                                <div className="flex items-start justify-between gap-2 mb-2">
+                                    <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
+                                        {cert.title}
+                                    </h3>
+                                    {cert.year && (
+                                        <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-500 shrink-0">
+                                            {cert.year}
+                                        </span>
+                                    )}
+                                </div>
+
+                                <p className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                                    {cert.issuer}
+                                </p>
+
+                                {cert.description && (
+                                    <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-2 font-normal leading-relaxed">
+                                        {cert.description}
+                                    </p>
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <div className="border-t border-neutral-200 dark:border-neutral-800" />
+
+            {/* Technical & Soft Skills Overview */}
+            <section className="space-y-4">
+                <div className="flex items-center gap-2 pb-2">
+                    <Code size={18} className="text-emerald-500" />
+                    <h2 className="text-lg font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+                        Skills Matrix
+                    </h2>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    
+                    {/* Frontend */}
+                    <div className="satria-card p-5 space-y-3">
+                        <div className="flex items-center gap-2 text-neutral-900 dark:text-neutral-100 font-bold text-sm">
+                            <Code size={16} className="text-emerald-500" />
+                            <span>Frontend Development</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                            {skills.programming.frontend.map((s) => (
+                                <span key={s} className="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-xs text-neutral-700 dark:text-neutral-300 font-medium">
+                                    {s}
+                                </span>
+                            ))}
                         </div>
                     </div>
 
-                    {/* Main Content Area */}
-                    <div className="lg:col-span-8 space-y-24 pb-24">
+                    {/* Backend */}
+                    <div className="satria-card p-5 space-y-3">
+                        <div className="flex items-center gap-2 text-neutral-900 dark:text-neutral-100 font-bold text-sm">
+                            <Terminal size={16} className="text-blue-500" />
+                            <span>Backend & APIs</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                            {skills.programming.backend.map((s) => (
+                                <span key={s} className="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-xs text-neutral-700 dark:text-neutral-300 font-medium">
+                                    {s}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
 
-                        {/* Experience Section (Timeline) */}
-                        <section>
-                            <div className="flex items-center gap-4 mb-12 border-b border-zblack pb-4 sticky top-24 bg-[#f4f4f5]/80 backdrop-blur-xl z-20 py-4 -mx-4 px-4 md:static md:bg-transparent md:p-0 md:border-b md:pb-4 transition-colors">
-                                <Briefcase className="text-zpurple w-8 h-8 transition-colors" />
-                                <h2 className="text-3xl font-black uppercase tracking-tight text-zblack transition-colors">Experience</h2>
-                            </div>
+                    {/* Design */}
+                    <div className="satria-card p-5 space-y-3">
+                        <div className="flex items-center gap-2 text-neutral-900 dark:text-neutral-100 font-bold text-sm">
+                            <Palette size={16} className="text-purple-500" />
+                            <span>UI/UX & Product Design</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                            {skills.design.map((s) => (
+                                <span key={s} className="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-xs text-neutral-700 dark:text-neutral-300 font-medium">
+                                    {s}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
 
-                            <div className="relative ml-3 md:ml-6 space-y-12">
-                                <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-zlime via-white/10 to-transparent" />
+                    {/* Soft Skills & Tools */}
+                    <div className="satria-card p-5 space-y-3">
+                        <div className="flex items-center gap-2 text-neutral-900 dark:text-neutral-100 font-bold text-sm">
+                            <Users size={16} className="text-amber-500" />
+                            <span>Soft Skills & Collaboration</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                            {skills.softSkills.map((s) => (
+                                <span key={s} className="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-xs text-neutral-700 dark:text-neutral-300 font-medium">
+                                    {s}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
 
-                                {experience.map((job, index) => (
-                                    <motion.div
-                                        key={index}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: index * 0.1 }}
-                                        className="relative pl-8 md:pl-12"
-                                    >
-                                        {/* Timeline Dot */}
-                                        <div className={`absolute -left-[7px] top-8 w-3.5 h-3.5 rounded-full bg-[#f4f4f5] border-[3px] border-zlime z-10 ${index === 0 ? 'animate-pulse' : ''}`} />
+                </div>
+            </section>
 
-                                        <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zlime)]/50 rounded-[2rem] overflow-hidden transition-all duration-300 group shadow-xl">
-                                            <div className="p-8">
-                                                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4">
-                                                    <div>
-                                                        <h3 className="text-2xl font-bold text-zblack group-hover:text-zlime transition-colors duration-300 tracking-tight">{job.role}</h3>
-                                                        <h4 className="text-lg font-medium text-zblack/70 mt-1">{job.company}</h4>
-                                                        <div className="flex items-center text-sm text-gray-500 mt-2 font-medium">
-                                                            <MapPin className="w-4 h-4 mr-1.5 text-zpurple" />
-                                                            {job.location}
-                                                        </div>
-                                                    </div>
-                                                    <span className="text-sm font-bold text-zblack bg-zlime/10 px-4 py-1.5 rounded-full border border-zlime/20 w-fit whitespace-nowrap">
-                                                        {job.year}
-                                                    </span>
-                                                </div>
+            <div className="border-t border-neutral-200 dark:border-neutral-800" />
 
-                                                <p className="text-zblack/70 leading-relaxed whitespace-pre-line mb-8 font-light text-sm md:text-base">
-                                                    {job.description}
-                                                </p>
+            {/* Languages & Gear Setup */}
+            <section className="space-y-4">
+                <div className="flex items-center gap-2 pb-2">
+                    <Globe size={18} className="text-emerald-500" />
+                    <h2 className="text-lg font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+                        Languages & Work Setup
+                    </h2>
+                </div>
 
-                                                {/* Tech Stack Pills */}
-                                                {job.tech && (
-                                                    <div className="flex flex-wrap gap-2 mt-auto pt-6 border-t border-zblack">
-                                                        {job.tech.map((tech, i) => (
-                                                            <span
-                                                                key={i}
-                                                                className="px-3 py-1.5 bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] hover:bg-white/10 border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zlime)]/30 rounded-lg text-xs font-semibold text-zblack/70 hover:text-zlime transition-colors cursor-default"
-                                                            >
-                                                                {tech}
-                                                            </span>
-                                                        ))}
-                                                    </div>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </section>
-
-                        {/* Organizational Experience Section (Timeline) */}
-                        <section>
-                            <div className="flex items-center gap-4 mb-12 border-b border-zblack pb-4 sticky top-24 bg-[#f4f4f5]/80 backdrop-blur-xl z-20 py-4 -mx-4 px-4 md:static md:bg-transparent md:p-0 md:border-b md:pb-4 transition-colors">
-                                <Users className="text-zlime w-8 h-8 transition-colors" />
-                                <h2 className="text-3xl font-black uppercase tracking-tight text-zblack transition-colors">Organizational Experience</h2>
-                            </div>
-
-                            <div className="relative ml-3 md:ml-6 space-y-12">
-                                <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-zlime via-white/10 to-transparent" />
-
-                                {organizationalExperience.map((org, index) => (
-                                    <motion.div
-                                        key={index}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: index * 0.1 }}
-                                        className="relative pl-8 md:pl-12"
-                                    >
-                                        {/* Timeline Dot */}
-                                        <div className="absolute -left-[7px] top-8 w-3.5 h-3.5 rounded-full bg-[#f4f4f5] border-[3px] border-zlime z-10" />
-
-                                        <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zlime)]/50 rounded-[2rem] overflow-hidden transition-all duration-300 group shadow-xl">
-                                            <div className="p-8">
-                                                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4">
-                                                    <div>
-                                                        <h3 className="text-2xl font-bold text-zblack group-hover:text-zlime transition-colors duration-300 tracking-tight">{org.role}</h3>
-                                                        <h4 className="text-lg font-medium text-zblack/70 mt-1">{org.organization}</h4>
-                                                    </div>
-                                                    <span className="text-sm font-bold text-zblack bg-zlime/10 px-4 py-1.5 rounded-full border border-zlime/20 w-fit whitespace-nowrap">
-                                                        {org.year}
-                                                    </span>
-                                                </div>
-
-                                                <p className="text-zblack/70 leading-relaxed whitespace-pre-line font-light text-sm md:text-base">
-                                                    {org.description}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </section>
-
-                        {/* Education Section (Timeline) */}
-                        <section>
-                            <div className="flex items-center gap-4 mb-12 border-b border-zblack pb-4 sticky top-24 bg-[#f4f4f5]/80 backdrop-blur-xl z-20 py-4 -mx-4 px-4 md:static md:bg-transparent md:p-0 md:border-b md:pb-4 transition-colors">
-                                <GraduationCap className="text-zpurple w-8 h-8 transition-colors" />
-                                <h2 className="text-3xl font-black uppercase tracking-tight text-zblack transition-colors">Education</h2>
-                            </div>
-
-                            <div className="relative ml-3 md:ml-6 space-y-12">
-                                <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-zlime via-white/10 to-transparent" />
-
-                                {education.map((edu, index) => (
-                                    <motion.div
-                                        key={index}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: index * 0.1 }}
-                                        className="relative pl-8 md:pl-12"
-                                    >
-                                        {/* Timeline Dot */}
-                                        <div className="absolute -left-[7px] top-8 w-3.5 h-3.5 rounded-full bg-[#f4f4f5] border-[3px] border-zlime z-10" />
-
-                                        <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zlime)]/50 rounded-[2rem] overflow-hidden transition-all duration-300 group shadow-xl">
-                                            <div className="p-8">
-                                                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4">
-                                                    <div>
-                                                        <h3 className="text-2xl font-bold text-zblack group-hover:text-zlime transition-colors duration-300 tracking-tight">{edu.degree}</h3>
-                                                        <h4 className="text-lg font-medium text-zblack/70 mt-1">{edu.school}</h4>
-                                                    </div>
-                                                    <span className="text-sm font-bold text-zblack bg-zlime/10 px-4 py-1.5 rounded-full border border-zlime/20 w-fit whitespace-nowrap">
-                                                        {edu.year}
-                                                    </span>
-                                                </div>
-
-                                                <p className="text-zblack/70 leading-relaxed whitespace-pre-line font-light text-sm md:text-base">
-                                                    {edu.description}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </section>
-
-                        {/* Certificates (Grid) */}
-                        <section>
-                            <div className="flex items-center gap-4 mb-12 border-b border-zblack pb-4 transition-colors">
-                                <Award className="text-zlime w-8 h-8 transition-colors" />
-                                <h2 className="text-3xl font-black uppercase tracking-tight text-zblack transition-colors">Certificates</h2>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {certificates.map((cert, index) => (
-                                    <div
-                                        key={index}
-                                        className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack rounded-[2rem] hover:shadow-[4px_4px_0px_0px_var(--color-zlime)]/50 transition-all duration-300 group h-full shadow-xl"
-                                    >
-                                        <div className="p-8 h-full flex flex-col">
-                                            <div className="flex justify-between items-start mb-4">
-                                                <span className="text-xs font-bold text-zblack bg-zlime/10 px-3 py-1.5 rounded-full border border-zlime/20 transition-colors">{cert.year || "N/A"}</span>
-                                                <div className="w-2 h-2 rounded-full bg-white/20 group-hover:bg-zlime transition-colors" />
-                                            </div>
-                                            <h3 className="text-xl font-bold text-zblack mb-2 leading-tight group-hover:text-zlime transition-colors tracking-tight">{cert.title}</h3>
-                                            <h4 className="text-sm font-medium text-zblack/70 mb-4 transition-colors">{cert.issuer}</h4>
-                                            {cert.description && <p className="text-sm text-gray-500 font-light border-t border-zblack pt-4 mt-auto transition-colors">{cert.description}</p>}
-                                        </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Languages */}
+                    <div className="satria-card p-5 space-y-3">
+                        <h3 className="text-xs uppercase font-mono font-semibold text-neutral-400">
+                            Language Proficiency
+                        </h3>
+                        <div className="space-y-2">
+                            {skills.languages.map((lang, i) => (
+                                <div key={i} className="flex items-center justify-between p-2.5 rounded-lg bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-100 dark:border-neutral-800">
+                                    <div>
+                                        <p className="text-xs font-bold text-neutral-800 dark:text-neutral-200">{lang.name}</p>
+                                        <p className="text-[11px] text-neutral-500">{lang.level}</p>
                                     </div>
-                                ))}
-                            </div>
-                        </section>
-
-                        {/* Skills Section (Bento Grid) */}
-                        <section>
-                            <div className="flex items-center gap-4 mb-12 border-b border-zblack pb-4 transition-colors">
-                                <Cpu className="text-zpurple w-8 h-8 transition-colors" />
-                                <h2 className="text-3xl font-black uppercase tracking-tight text-zblack transition-colors">Hard Skills</h2>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                {/* Frontend */}
-                                <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zlime)]/50 rounded-[2rem] transition-all h-full shadow-xl">
-                                    <div className="p-8 h-full">
-                                        <div className="flex items-center gap-3 mb-6">
-                                            <div className="p-3 bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-xl border-[3px] border-zblack text-zlime">
-                                                <Code className="w-6 h-6" />
-                                            </div>
-                                            <h3 className="text-xl font-bold text-zblack font-display tracking-tight">Frontend Development</h3>
-                                        </div>
-                                        <div className="flex flex-wrap gap-2">
-                                            {skills.programming.frontend.map(skill => (
-                                                <span key={skill} className="px-3 py-1.5 bg-[#f4f4f5] border-[3px] border-zblack rounded-lg text-sm text-zblack/70 hover:shadow-[4px_4px_0px_0px_var(--color-zlime)] hover:text-zlime transition-colors cursor-default">{skill}</span>
-                                            ))}
-                                        </div>
-                                    </div>
+                                    {lang.score && (
+                                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">
+                                            {lang.score}
+                                        </span>
+                                    )}
                                 </div>
+                            ))}
+                        </div>
+                    </div>
 
-                                {/* Backend & Other */}
-                                <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zpurple)]/50 rounded-[2rem] transition-all h-full shadow-xl">
-                                    <div className="p-8 h-full">
-                                        <div className="flex items-center gap-3 mb-6">
-                                            <div className="p-3 bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-xl border-[3px] border-zblack text-zpurple">
-                                                <Terminal className="w-6 h-6" />
-                                            </div>
-                                            <h3 className="text-xl font-bold text-zblack font-display tracking-tight">Backend & Languages</h3>
-                                        </div>
-                                        <div className="flex flex-col gap-6">
-                                            <div>
-                                                <h4 className="text-xs font-bold text-gray-500 mb-3 uppercase tracking-wider">Backend</h4>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {skills.programming.backend.map(skill => (
-                                                        <span key={skill} className="px-3 py-1.5 bg-[#f4f4f5] border-[3px] border-zblack rounded-lg text-sm text-zblack/70 hover:shadow-[4px_4px_0px_0px_var(--color-zpurple)] hover:text-zpurple transition-colors cursor-default">{skill}</span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <h4 className="text-xs font-bold text-gray-500 mb-3 uppercase tracking-wider">Other</h4>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {skills.programming.other.map(skill => (
-                                                        <span key={skill} className="px-3 py-1.5 bg-[#f4f4f5] border-[3px] border-zblack rounded-lg text-sm text-zblack/70 hover:shadow-[4px_4px_0px_0px_var(--color-zpurple)] hover:text-zpurple transition-colors cursor-default">{skill}</span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                    {/* Setup Highlights */}
+                    <div className="satria-card p-5 space-y-3">
+                        <h3 className="text-xs uppercase font-mono font-semibold text-neutral-400">
+                            Workstation Hardware & Environment
+                        </h3>
+                        <div className="space-y-1.5 text-xs text-neutral-600 dark:text-neutral-300">
+                            {gear[0].items.slice(0, 4).map((item, idx) => (
+                                <div key={idx} className="flex items-center justify-between py-1 border-b border-neutral-100 dark:border-neutral-800/60 last:border-0">
+                                    <span className="text-neutral-400 text-[11px]">{item.name}</span>
+                                    <span className="font-medium text-neutral-800 dark:text-neutral-200">{item.value}</span>
                                 </div>
-
-                                {/* Design */}
-                                <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zlime)]/50 rounded-[2rem] transition-all h-full shadow-xl">
-                                    <div className="p-8 h-full">
-                                        <div className="flex items-center gap-3 mb-6">
-                                            <div className="p-3 bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-xl border-[3px] border-zblack text-zlime">
-                                                <Palette className="w-6 h-6" />
-                                            </div>
-                                            <h3 className="text-xl font-bold text-zblack font-display tracking-tight">Design</h3>
-                                        </div>
-                                        <div className="flex flex-wrap gap-2">
-                                            {skills.design.map(skill => (
-                                                <span key={skill} className="px-3 py-1.5 bg-[#f4f4f5] border-[3px] border-zblack rounded-lg text-sm text-zblack/70 hover:shadow-[4px_4px_0px_0px_var(--color-zlime)] hover:text-zlime transition-colors cursor-default">{skill}</span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Tools */}
-                                <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zpurple)]/50 rounded-[2rem] transition-all h-full shadow-xl">
-                                    <div className="p-8 h-full">
-                                        <div className="flex items-center gap-3 mb-6">
-                                            <div className="p-3 bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-xl border-[3px] border-zblack text-zpurple">
-                                                <HardDrive className="w-6 h-6" />
-                                            </div>
-                                            <h3 className="text-xl font-bold text-zblack font-display tracking-tight">Tools</h3>
-                                        </div>
-                                        <div className="flex flex-wrap gap-2">
-                                            {skills.tools.map(skill => (
-                                                <span key={skill} className="px-3 py-1.5 bg-[#f4f4f5] border-[3px] border-zblack rounded-lg text-sm text-zblack/70 hover:shadow-[4px_4px_0px_0px_var(--color-zpurple)] hover:text-zpurple transition-colors cursor-default">{skill}</span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Concepts */}
-                                <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zlime)]/50 rounded-[2rem] transition-all h-full shadow-xl">
-                                    <div className="p-8 h-full">
-                                        <div className="flex items-center gap-3 mb-6">
-                                            <div className="p-3 bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-xl border-[3px] border-zblack text-zlime">
-                                                <Cpu className="w-6 h-6" />
-                                            </div>
-                                            <h3 className="text-xl font-bold text-zblack font-display tracking-tight">Concepts</h3>
-                                        </div>
-                                        <div className="flex flex-wrap gap-2">
-                                            {skills.programming.concepts.map(skill => (
-                                                <span key={skill} className="px-3 py-1.5 bg-[#f4f4f5] border-[3px] border-zblack rounded-lg text-sm text-zblack/70 hover:shadow-[4px_4px_0px_0px_var(--color-zlime)] hover:text-zlime transition-colors cursor-default">{skill}</span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Soft Skills */}
-                                <div className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zpurple)]/50 rounded-[2rem] transition-all h-full shadow-xl">
-                                    <div className="p-8 h-full">
-                                        <div className="flex items-center gap-3 mb-6">
-                                            <div className="p-3 bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-xl border-[3px] border-zblack text-zpurple">
-                                                <Users className="w-6 h-6" />
-                                            </div>
-                                            <h3 className="text-xl font-bold text-zblack font-display tracking-tight">Soft Skills</h3>
-                                        </div>
-                                        <div className="flex flex-wrap gap-2">
-                                            {skills.softSkills.map(skill => (
-                                                <span key={skill} className="px-3 py-1.5 bg-[#f4f4f5] border-[3px] border-zblack rounded-lg text-sm text-zblack/70 hover:shadow-[4px_4px_0px_0px_var(--color-zpurple)] hover:text-zpurple transition-colors cursor-default">{skill}</span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* Languages Section */}
-                        <section>
-                            <div className="flex items-center gap-4 mb-12 border-b border-zblack pb-4 sticky top-24 bg-[#f4f4f5]/80 backdrop-blur-xl z-20 md:static md:bg-transparent md:p-0 md:border-b md:pb-4 transition-colors">
-                                <Globe className="text-zlime w-8 h-8 transition-colors" />
-                                <h2 className="text-3xl font-black uppercase tracking-tight text-zblack transition-colors">Languages</h2>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {skills.languages.map((lang, index) => (
-                                    <div key={index} className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zlime)]/50 rounded-[2rem] transition-all shadow-xl">
-                                        <div className="p-8 flex items-start justify-between">
-                                            <div>
-                                                <h3 className="text-xl font-bold text-zblack mb-2 tracking-tight">{lang.name}</h3>
-                                                <p className="text-zblack/70 text-sm font-light">{lang.level}</p>
-                                                {lang.score && <p className="text-zlime text-xs font-bold mt-2 bg-zlime/10 px-3 py-1 rounded-full border border-zlime/20 w-fit">{lang.score}</p>}
-                                            </div>
-                                            <div className="w-12 h-12 rounded-full bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] flex items-center justify-center border-[3px] border-zblack text-2xl">
-                                                {lang.name === "English" ? "🇬🇧" : "🇮🇩"}
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
-
-                        {/* The Setup Section */}
-                        <section>
-                            <div className="flex items-center gap-4 mb-12 border-b border-zblack pb-4 sticky top-24 bg-[#f4f4f5]/80 backdrop-blur-xl z-20 md:static md:bg-transparent md:p-0 md:border-b md:pb-4 transition-colors">
-                                <Monitor className="text-zpurple w-8 h-8 transition-colors" />
-                                <h2 className="text-3xl font-black uppercase tracking-tight text-zblack transition-colors">The Setup</h2>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                {gear.map((category, index) => (
-                                    <div key={index} className="space-y-6">
-                                        <h3 className="text-sm font-bold text-zblack/50 uppercase tracking-widest pl-3 border-l-2 border-zlime">{category.category}</h3>
-                                        <div className="space-y-4">
-                                            {category.items.map((item, i) => (
-                                                <div key={i} className="bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] backdrop-blur-xl border-[3px] border-zblack hover:shadow-[4px_4px_0px_0px_var(--color-zlime)]/50 rounded-2xl group transition-all shadow-lg">
-                                                    <div className="p-4 flex items-center gap-4">
-                                                        <div className="p-2.5 bg-white border-[3px] border-zblack shadow-[4px_4px_0px_0px_#121212] rounded-xl border-[3px] border-zblack text-zlime group-hover:text-zpurple transition-colors">
-                                                            {item.icon === "Laptop" && <Laptop size={20} />}
-                                                            {item.icon === "Monitor" && <Monitor size={20} />}
-                                                            {item.icon === "Keyboard" && <Keyboard size={20} />}
-                                                            {item.icon === "Mouse" && <Mouse size={20} />}
-                                                            {item.icon === "Code" && <Code size={20} />}
-                                                            {item.icon === "Terminal" && <Terminal size={20} />}
-                                                            {item.icon === "Figma" && <Palette size={20} />}
-                                                            {item.icon === "Music" && <Music size={20} />}
-                                                            {item.icon === "Cpu" && <Cpu size={20} />}
-                                                            {item.icon === "Gpu" && <Zap size={20} />}
-                                                            {item.icon === "Storage" && <HardDrive size={20} />}
-                                                            {item.icon === "Memory" && <Cpu size={20} className="rotate-90" />}
-                                                            {item.icon === "Brain" && <Brain size={20} />}
-                                                        </div>
-                                                        <div>
-                                                            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-0.5">{item.name}</p>
-                                                            <p className="text-zblack font-medium text-sm md:text-base">{item.value}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
-
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
         </div>
     );
 };
